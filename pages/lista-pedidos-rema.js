@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import AdminLayout from "../layout/AdminLayout"
-import ListadoPedidosRema from '../components/ListadoPedidosRema'
+import PedidosRema from '../components/PedidosRema'
 import Tabla from '@/components/Tabla'
 import React, { useState, useEffect } from 'react';
 
@@ -50,7 +50,7 @@ export default function AdminPedidos() {
             
             {data && data.length ? results.map(pedidos =>
                 
-                <ListadoPedidosRema
+                <PedidosRema
                     key={pedidos.id}
                     pedidos={pedidos}
                 />

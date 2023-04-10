@@ -3,7 +3,7 @@ import {formatoNumero} from "helpers/formato"
 import useCombustible from '../hooks/useCombustible';
 
 
-const ListadoPedidosRema = ({pedidos}) => {
+const PedidosRema = ({pedidos}) => {
 
     
     const 
@@ -53,7 +53,7 @@ const ListadoPedidosRema = ({pedidos}) => {
   )
 }
 
-export default ListadoPedidosRema
+export default PedidosRema
 
 
 
