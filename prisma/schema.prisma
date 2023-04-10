@@ -1,0 +1,89 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model Equipo {
+  id Int @id @default(autoincrement())
+  espesor Float 
+  ancho Float 
+  largo Float 
+  piezas Float
+  detalle String
+  faena Faena @relation(fields: [faenaId],references: [id])
+  faenaId Int
+}
+
+
+
+model Faena {
+  id Int @id @default(autoincrement())
+  nombre String
+  equipos Equipo []
+}
+
+model Orden {
+  id Int @id @default(autoincrement())
+  nombre String
+  fecha DateTime
+  cantidad String?
+  pedido Json
+  estado Boolean  @default(false)
+  finalizado Boolean  @default(false)
+  cliente String?
+  
+}
+
+
+model Stock {
+  id Int @id @default(autoincrement())
+  nombre String
+  fecha String
+  cantidad String?
+  pedido Json
+  cliente String?
+  estado Boolean  @default(false)
+  finalizado Boolean  @default(false)
+}
+
+
+
+model Saldo {
+  id Int @id @default(autoincrement())
+  espesor String
+  ancho String
+  largo String
+  piezas String
+  calidad String
+  fecha DateTime
+}
+
+
+
+model Pedidos {
+  id Int @id @default(autoincrement())
+  tipo String
+  cliente String
+  oc String
+  producto String
+  solicitud String
+  despacho String?
+  imagen String?
+  estado Boolean  @default(false)
+  finalizado Boolean  @default(false)
+}
+
+
+
+
+
+
+
