@@ -1,7 +1,7 @@
 import {formatiarFecha} from "helpers/fecha"
 import {formatoNumero} from "helpers/formato"
 import useCombustible from '../hooks/useCombustible';
-import {lastFourDigits} from "helpers/mostrarultimosnumero"
+import {lastFourDigits} from "@/helpers/mostrarultimosnumero"
 import Image from "next/image";
 
 
