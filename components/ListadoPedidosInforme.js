@@ -1,7 +1,7 @@
 import {formatiarFecha} from "helpers/fecha"
 import {formatoNumero} from "helpers/formato"
 import useCombustible from '../hooks/useCombustible';
-import {lastFourDigits} from "@/helpers/mostrarultimosnumero"
+// import { lastFourDigits } from "../helpers/mostrarultimosnumero";
 import Image from "next/image";
 
 
@@ -17,6 +17,12 @@ const ListadoPedidosInforme = ({pedidos}) => {
         solicitud,
         despacho,
     } = pedidos
+
+
+    const  lastFourDigits=(number) => {
+        const stringNumber = String(number);
+        return stringNumber.slice(-4);
+      }
 
     const number = oc;
     const lastFour = lastFourDigits(number)
