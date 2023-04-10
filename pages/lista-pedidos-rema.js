@@ -1,9 +1,9 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import AdminLayout from "../layout/AdminLayout"
-import PedidosRema from '../components/PedidosRema'
 import Tabla from '@/components/Tabla'
 import React, { useState, useEffect } from 'react';
+import PedidosRema from '@/components/PedidosRema';
 
 
 export default function AdminPedidos() {
