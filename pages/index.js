@@ -15,7 +15,7 @@ export default function Home() {
   const [ search, setSearch ] = useState("")
 
   //función para traer los datos de la API
-  const URL = 'http://localhost:3000/api/equipo'
+  const URL = '/api/equipo'
 
   const showData = async () => {
     const response = await fetch(URL)
