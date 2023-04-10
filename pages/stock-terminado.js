@@ -16,7 +16,7 @@ export default function AdminProducciones() {
   const [ search, setSearch ] = useState("")
   
     //función para traer los datos de la API
-    const URL = 'http://localhost:3000/api/stock'
+    const URL = '/api/stock'
   
     const showData = async () => {
         const response = await fetch(URL)
