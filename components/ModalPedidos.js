@@ -12,7 +12,7 @@ const ModalPedidos = () => {
   
 
   return (
-    <div className="md:flex gap-10">
+    <div className="">
 
       <div className="md:w-">
         <div className="flex justify-end">
@@ -33,11 +33,13 @@ const ModalPedidos = () => {
             </svg>
           </button>
         </div>
+        <h1 className="text-xl font-bold mt-1 text-center">{pedidos.cliente}</h1>
+        <h1 className="text-lg font-bold mt-1 text-center">N° O.C.: {pedidos.oc}</h1>
         <h1 className="text-lg font-bold mt-1 text-center">Solicitado: {pedidos.solicitud} m³</h1>
         <h1 className="text-lg font-bold mt-1 text-center">Despachado: {pedidos.despacho} m³</h1>
         <h1 className="text-lg font-bold mt-1 text-center">Saldo: {formatoNumero(pedidos.solicitud - pedidos.despacho)} m³</h1>
         
-        <div className="py-10">
+        <div className="py-10 m-auto text-center">
         <Link className="bg-lime-400 hover:bg-lime-500 px-5  py-2 mt-5 text-white font-bold uppercase rounded" href={pedidos.imagen}>📄 Ver Oc 📄</Link>
       
         </div> 

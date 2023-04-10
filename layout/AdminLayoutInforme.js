@@ -16,6 +16,9 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
+    width: '390px',
+    height: '350px',
+    maxWidth: '100%',
     transform: 'translate(-50%, -50%)',
   },
 };
