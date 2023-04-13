@@ -36,18 +36,6 @@ export default function Saldo() {
 
 
 
-//     <div class="container mx-auto">
-//   <div class="grid grid-cols-2 gap-4">
-//     <div class="col-span-1">
-//       <!-- Contenido de la primera columna -->
-//     </div>
-//     <div class="col-span-1">
-//       <!-- Contenido de la segunda columna -->
-//     </div>
-//   </div>
-// </div>
-
-
 
 
     
@@ -124,9 +112,10 @@ export default function Saldo() {
                                         onChange={e => setCalidad(e.target.value)}
                                     >
                                         <option value="">-</option>
-                                        <option value="alta">Alta</option>
-                                        <option value="media">Media</option>
-                                        <option value="baja">Baja</option>
+                                        <option value="Col">Col</option>
+                                        <option value="Rema">Rema</option>
+                                        <option value="Ind">Ind</option>
+                                        <option value="Dpt">Dpt</option>
                                     </select>
                                 </td>
                             </tr>

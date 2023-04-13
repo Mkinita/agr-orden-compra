@@ -1,7 +1,7 @@
 import ImprecionLayout from "../layout/ImprecionLayout"
 import useSWR from 'swr'
 import axios from 'axios'
-import EtiquetaImprecion from '../components/EtiquetaImprecion'
+import EtiquetaImprecionSaldo from '../components/EtiquetaImprecionSaldo'
 
 
 
@@ -9,8 +9,8 @@ export default function OrdenCompra() {
 
 
 
-    const fetcher = () => axios('/api/ordenes').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('api/listado-saldo').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('api/listado-saldo',fetcher,{refreshInterval: 100} )
 
 
 
@@ -28,11 +28,11 @@ export default function OrdenCompra() {
 
 
 
-            {data && data.length ? data.map(orden =>
+            {data && data.length ? data.map(saldo =>
                 
-                <EtiquetaImprecion
-                    key={orden.id}
-                    orden={orden}
+                <EtiquetaImprecionSaldo
+                    key={saldo.id}
+                    saldo={saldo}
                 />
 
                 ):<p> Ordenes Pendientes</p>}

@@ -226,7 +226,7 @@ const CombustibleProvider = ({children}) => {
             toast.success('Agregando ⏳')
 
             setTimeout(() =>{
-                router.push('/saldos')
+                router.push('/imprecion-etiqueta-saldo')
             },3000)
 
         } catch (error) {

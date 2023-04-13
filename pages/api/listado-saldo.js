@@ -1,6 +1,3 @@
-
-
-
 import { PrismaClient } from "@prisma/client";
 
 export default async function handler(req, res) {
@@ -9,8 +6,8 @@ export default async function handler(req, res) {
   const year = fecha.getFullYear();
   const month = fecha.getMonth();
   const day = fecha.getDate();
-  // Obtener Ordenes
-  const ordenes = await prisma.saldo.findMany({
+  // Obtener Saldo con estado "false"
+  const saldo = await prisma.saldo.findMany({
     where: {
       AND: [
         {
@@ -18,8 +15,11 @@ export default async function handler(req, res) {
             gt: new Date(year, month, day),
           },
         },
+        {
+          estado: false, // Agrega esta condición para filtrar por estado "false"
+        },
       ],
     },
   });
-  res.status(200).json(ordenes);
+  res.status(200).json(saldo);
 }
