@@ -32,9 +32,9 @@ const Etiquetas = ({orden}) => {
 
     console.log(myNumber)
   return (
-    <div className="border p-3 w-full h-full">
+    <div className=" w-full h-full">
       
-      <div className='p-5 text-center border'>
+      <div className='text-center border'>
         
         {pedido.map(oc => (
                 <div key={oc.id}>

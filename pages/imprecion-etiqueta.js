@@ -23,7 +23,7 @@ export default function OrdenCompra() {
 
    return (
         <ImprecionLayout pagina='Produccion'>
-            <h1 className="text-4xl font-black text-center"></h1>
+            
             <p className="text-2xl my-5"></p>
 
 
