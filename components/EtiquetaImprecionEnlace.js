@@ -23,7 +23,7 @@ const Etiquetas = ({orden}) => {
 
     console.log(myNumber)
   return (
-    <div className="w-full h-full border">
+    <div className="w-full h-full border p-10">
       
       <div className='text-center border'>
         
