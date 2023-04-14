@@ -15,19 +15,7 @@ const Etiquetas = ({orden}) => {
 
     const router = useRouter()
 
-    const completarOc = async () => {
-
-      try {
-
-         await axios.post(`/api/editaretiqueta/${id}`)
-          toast.success('🏠')
-          setTimeout(() =>{
-            router.push('/')
-        },1000)
-      } catch (error) {
-          console.log(error)
-      }
-  }
+  
 
 
     
@@ -35,9 +23,9 @@ const Etiquetas = ({orden}) => {
 
     console.log(myNumber)
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full border">
       
-      <div className='text-center'>
+      <div className='text-center border'>
         
         {pedido.map(oc => (
                 <div key={oc.id}>
@@ -57,14 +45,7 @@ const Etiquetas = ({orden}) => {
         
       ))}
 
-<button
-                className="mt-2 md:mt-0  px-1 uppercase font-bold rounded-xl"
-                type="button"
-                onClick={completarOc}
-                >
-                    ➕
 
-                </button>
         
         
     </div>
