@@ -88,6 +88,8 @@ export default function Resumen() {
                         <option value="Masisa">Masisa</option>
                         <option value="Ferramenta">Ferramenta</option>
                         <option value="Ochoco">Ochoco</option>
+                        <option value="Agrifor">Agrifor</option>
+                        <option value="S/C">S/C</option>
                     </select>
                 
                 </div>

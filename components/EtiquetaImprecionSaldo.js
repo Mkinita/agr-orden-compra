@@ -41,15 +41,16 @@ const EtiquetasSaldo = ({saldo}) => {
 
     console.log(myNumber)
   return (
-    <div className="border p-3 w-full h-full">
+    <div className="w-full h-full">
       
-      <div className='p-5 text-center border'>
+      <div className='text-center'>
                   <p className='text-lg font-bold py-1'>{espesor}xVx{largo}</p>
                   <p className='text-lg font-bold py-1'>{calidad}</p>
                   <div className='py-2'>
       <QRGenerator saldo={calidad +('-Calidad:')+  ('/')+ ('/espesor:')+ espesor +('/N°:')+(id)} />
       <p className='text-sm font-bold py-1'>N°: {id}</p>
-      <p className="text-sm text-gray-700 mt-2">Volumen: {formatoNumero(espesor * ancho * largo * piezas *1 / 1000000 )}</p>
+      <p className="text-sm text-gray-700 mt-2 font-bold">Volumen</p>
+      <p className="text-sm text-gray-700 mt-2 font-bold">{formatoNumero(espesor * ancho * largo * piezas *1 / 1000000 )}</p>
     </div>
           
         
@@ -57,7 +58,7 @@ const EtiquetasSaldo = ({saldo}) => {
       
 
 <button
-                className=" mt-2 md:mt-0 py-1 px-1 uppercase font-bold rounded-xl"
+                className=" mt-2 md:mt-0  px-1 uppercase font-bold rounded-xl"
                 type="button"
                 onClick={completarOc}
                 >
