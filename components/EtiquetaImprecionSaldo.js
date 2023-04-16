@@ -49,7 +49,7 @@ const EtiquetasSaldo = ({saldo}) => {
                   <p className='text-sm font-bold '>{calidad}</p>
                   <p className='text-sm font-bold'>{formatiarFecha(fecha)}</p>
                   <div className='py-1'>
-      <QRGenerator saldo={calidad +('-Calidad:')+  ('/')+ ('/espesor:')+ espesor +('/N°:')+(id)} />
+      <QRGenerator saldo={'-Calidad:'} />
       <p className='text-sm font-bold py-1'>N°: {id}</p>
       <p className="text-sm text-gray-700 mt-2 font-bold">Volumen</p>
       <p className="text-sm text-gray-700 mt-2 font-bold">{formatoNumero(espesor * ancho * largo * piezas *1 / 1000000 )}</p>
