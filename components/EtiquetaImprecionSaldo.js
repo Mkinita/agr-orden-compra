@@ -4,12 +4,13 @@ import QRGenerator from '../components/QRGenerator';
 import { useRouter } from 'next/router'
 import { toast } from "react-toastify"
 import {formatoNumero} from "helpers/formato"
+import {formatiarFecha} from "helpers/fecha"
 
 const EtiquetasSaldo = ({saldo}) => {
 
 
 
-    const {id,pedido,espesor,ancho , largo , piezas ,cantidad,calidad} = saldo;
+    const {id,pedido,espesor,ancho , largo , piezas ,cantidad,calidad,fecha} = saldo;
 
     const router = useRouter()
 
@@ -44,9 +45,10 @@ const EtiquetasSaldo = ({saldo}) => {
     <div className="w-full h-full">
       
       <div className='text-center'>
-                  <p className='text-lg font-bold py-1'>{espesor}xVx{largo}</p>
-                  <p className='text-lg font-bold py-1'>{calidad}</p>
-                  <div className='py-2'>
+                  <p className='text-lg font-bold '>{espesor}xVx{largo}</p>
+                  <p className='text-sm font-bold '>{calidad}</p>
+                  <p className='text-sm font-bold'>{formatiarFecha(fecha)}</p>
+                  <div className='py-1'>
       <QRGenerator saldo={calidad +('-Calidad:')+  ('/')+ ('/espesor:')+ espesor +('/N°:')+(id)} />
       <p className='text-sm font-bold py-1'>N°: {id}</p>
       <p className="text-sm text-gray-700 mt-2 font-bold">Volumen</p>
@@ -58,7 +60,7 @@ const EtiquetasSaldo = ({saldo}) => {
       
 
 <button
-                className=" mt-2 md:mt-0  px-1 uppercase font-bold rounded-xl"
+                className=" mt-2 md:mt-0 uppercase font-bold rounded-xl"
                 type="button"
                 onClick={completarOc}
                 >
