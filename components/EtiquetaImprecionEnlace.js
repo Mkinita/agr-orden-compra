@@ -1,5 +1,6 @@
 import React from 'react'
 import {formatiarFecha} from "helpers/fecha"
+
 import axios from 'axios';
 import QRGenerator from '../components/QRGenerator';
 import { useRouter } from 'next/router'

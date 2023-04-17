@@ -1,6 +1,6 @@
 import QRCode from 'qrcode.react';
 
-function QRGenerator({saldo}) {
+function QRGeneratorSaldo({saldo}) {
     
   return (
     <div className='flex justify-center items-center h-full'>
@@ -9,4 +9,4 @@ function QRGenerator({saldo}) {
   );
 }
 
-export default QRGenerator;
+export default QRGeneratorSaldo;

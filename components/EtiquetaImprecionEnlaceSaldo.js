@@ -2,6 +2,7 @@ import React from 'react'
 import {formatiarFecha} from "helpers/fecha"
 import axios from 'axios';
 import QRGeneratorSaldo from './QRGeneratorSaldo';
+import {formatoNumero} from "helpers/formato"
 import { useRouter } from 'next/router'
 import { toast } from "react-toastify"
 import Link from 'next/link';
@@ -17,12 +18,7 @@ const Etiquetas = ({saldo}) => {
 
 
 
-    const espesor1 = espesor;
-  const ancho1 = ancho;
-  const largo1 = largo;
-  const piezas1 = piezas;
-  const cantidad1 = cantidad
-  const Volumen = (espesor1) * (ancho1) * (largo1) * (piezas1) *(cantidad1) / 1000000
+  
 
   
 
@@ -52,4 +48,7 @@ const Etiquetas = ({saldo}) => {
   )
 }
 
+
+
 export default Etiquetas
+
