@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { useEffect, useState } from 'react';
-import EtiquetaImprecionEnlace from '@/components/EtiquetaImprecionEnlace'
+import EtiquetaImprecionEnlaceSaldo from '@/components/EtiquetaImprecionEnlaceSaldo'
 
 const prisma = new PrismaClient();
 
@@ -17,7 +17,7 @@ export default function OrdenPage({ saldo }) {
   return (
     <>
         <div className='m-auto'>
-        <EtiquetaImprecionEnlace saldo={saldo} />
+        <EtiquetaImprecionEnlaceSaldo saldo={saldo} />
         </div>
 
 
