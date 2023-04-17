@@ -116,6 +116,7 @@ export default function Saldo() {
                                         <option value="Rema">Rema</option>
                                         <option value="Ind">Ind</option>
                                         <option value="Dpt">Dpt</option>
+                                        <option value="Dpt">Rep</option>
                                     </select>
                                 </td>
                             </tr>
