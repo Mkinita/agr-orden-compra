@@ -40,7 +40,7 @@ const Etiquetas = ({saldo}) => {
                   <p className='text-sm font-bold '>{calidad}</p>
                   <p className='text-sm font-bold'>{formatiarFecha(fecha)}</p>
                   <div className='py-1'>
-      <QRGeneratorSaldo saldo={('https://control-produccion-production.up.railway.app/etiquetasaldo/')+ ('/')+(id)} />
+      <QRGeneratorSaldo saldo={('https://control-produccion-production.up.railway.app/etiquetasaldo')+ ('/')+(id)} />
       <p className='text-sm font-bold py-1'>N°: {id}</p>
       <p className="text-sm text-gray-700 mt-2 font-bold">{formatoNumero(espesor * ancho * largo * piezas *1 / 1000000 )} m³</p>
     </div>
