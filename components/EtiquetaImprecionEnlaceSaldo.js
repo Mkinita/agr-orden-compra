@@ -1,7 +1,7 @@
 import React from 'react'
 import {formatiarFecha} from "helpers/fecha"
 import axios from 'axios';
-import QRGenerator from './QRGenerator';
+import QRGeneratorSaldo from './QRGeneratorSaldo';
 import { useRouter } from 'next/router'
 import { toast } from "react-toastify"
 import Link from 'next/link';
