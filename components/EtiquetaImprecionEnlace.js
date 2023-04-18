@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {formatiarFecha} from "helpers/fecha"
-
 import axios from 'axios';
 import QRGenerator from '../components/QRGenerator';
 import { useRouter } from 'next/router'
@@ -12,31 +11,32 @@ const Etiquetas = ({orden}) => {
 
 
 
-    const {nombre,id,pedido,cliente,fecha} = orden;
+  const [password, setPassword] = useState('');
+  const {nombre,id,pedido,cliente,fecha} = orden;
+  const router = useRouter();
+  const myNumber = id;
 
-    const completarOc = async () => {
-
-      try {
-
-         await axios.post(`/api/eliminarstock/${id}`)
-          toast.success('🏠')
-          setTimeout(() =>{
-            router.push('/stock-terminado')
-        },1000)
-      } catch (error) {
-          console.log(error)
+  const completarOc = async () => {
+    try {
+      if (password === 'CJ001') { // Aquí debes reemplazar "miContraseña" con la contraseña correcta
+        await axios.post(`/api/eliminarstock/${id}`)
+        toast.success('🏠')
+        setTimeout(() => {
+          router.push('/stock-terminado')
+        }, 1000)
+      } else {
+        toast.error('Contraseña incorrecta')
       }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-    const router = useRouter()
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  }
 
-  
-
-
-    
-    const myNumber = id;
-
-    console.log(myNumber)
+  const isButtonDisabled = password.length === 0;
   return (
     <div className="w-full h-full border p-10">
       
@@ -60,30 +60,30 @@ const Etiquetas = ({orden}) => {
         
       ))}
 
-
-      <button
-            type='button'
-            className='bg-lime-400 hover:bg-lime-500 text-white w-full mt-5 p-3 uppercase font bold'
-            onClick={completarOc}
-            
-        >
-            Eliminar
-        </button>
-
-
-
-
-
-
-       
-
-
-      
-
-
         
         
     </div>
+
+    <div>
+          <label htmlFor="password" className="block font-bold">Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={handlePasswordChange}
+            className="block border rounded py-2 px-3 w-full mt-2"
+          />
+        </div>
+        <button
+          type='button'
+          className={`bg-lime-400 hover:bg-lime-500 text-white w-full mt-5 p-3 uppercase font-bold ${isButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+          onClick={completarOc}
+          disabled={isButtonDisabled}
+        >
+          Eliminar
+        </button>
+      
 
 
     <div className='text-xs text-center py-5 font-bold'>
