@@ -6,7 +6,10 @@ export default async function handler(req, res) {
   const ordenes = await prisma.orden.findMany({
    where:  {
       estado:false,
-    }
+    },
+    orderBy: {
+      id: "desc",
+    },
   })
 
   res.status(200).json(ordenes);

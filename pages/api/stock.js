@@ -6,7 +6,10 @@ export default async function handler(req, res) {
   const stocks = await prisma.stock.findMany({
     where:  {
       estado:false,
-    }
+    },
+    orderBy: {
+      id: "desc",
+    },
   })
 
   res.status(200).json(stocks);
