@@ -61,14 +61,21 @@ const Etiquetas = ({orden}) => {
       ))}
 
 
-      {/* <button
+      <button
             type='button'
             className='bg-lime-400 hover:bg-lime-500 text-white w-full mt-5 p-3 uppercase font bold'
             onClick={completarOc}
             
         >
             Eliminar
-        </button> */}
+        </button>
+
+
+
+
+
+
+       
 
 
       
@@ -77,6 +84,13 @@ const Etiquetas = ({orden}) => {
         
         
     </div>
+
+
+    <div className='text-xs text-center py-5 font-bold'>
+          <p>Desarrollado Por Carlos Jerez 👨‍💻</p>
+          <p>Control Producion Carlos Jerez 📝</p>
+          <p>Control Calidad Juan Martinez 👷</p>
+        </div>
     
 
       
