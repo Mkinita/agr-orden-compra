@@ -35,7 +35,7 @@ export default function OrdenCompra() {
                     saldo={saldo}
                 />
 
-                ):<p> Ordenes Pendientes</p>}
+                ):<p> Sin Etiquetas Pendientes</p>}
         </ImprecionLayout>
    )
 }

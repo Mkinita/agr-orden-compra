@@ -35,7 +35,7 @@ export default function OrdenCompra() {
                     orden={orden}
                 />
 
-                ):<p> Ordenes Pendientes</p>}
+                ):<p> Sin Etiquetas Pendientes</p>}
 
 
 

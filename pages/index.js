@@ -36,15 +36,14 @@ export default function Home() {
 
   return (
     <Layout pagina={`Inicio - Producto`}>
-    
-      {/* <h1 className='text-4xl font-black'>{faenaActual?.nombre}</h1> */}
-      <p className='text-2xl mx-5 my-3'>
+  
+      <p className='text-2xl mx-5 my-3 text-center'>
         Ingresa Escuadría
       </p>
       <div className='mt-auto'>
         <input value={search} onChange={searcher} type="text" placeholder='Buscar' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
       </div>
-      <div className='grid gap-4 grid-cols-1 md:grid-cols-4 2xl:grid-cols-4'>  
+      <div className='grid gap-4 grid-cols-2 md:grid-cols-4 2xl:grid-cols-4'>  
         {results.map(equipo=>(
           <Equipo key={equipo.id} equipo={equipo}/>
         ))}
