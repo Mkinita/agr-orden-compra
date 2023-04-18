@@ -61,14 +61,14 @@ const Etiquetas = ({orden}) => {
       ))}
 
 
-      <button
+      {/* <button
             type='button'
             className='bg-lime-400 hover:bg-lime-500 text-white w-full mt-5 p-3 uppercase font bold'
             onClick={completarOc}
             
         >
             Eliminar
-        </button>
+        </button> */}
 
 
       
