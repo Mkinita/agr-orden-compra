@@ -13,14 +13,6 @@ export default function OrdenCompra() {
     const { data, error, isLoading } = useSWR('api/listado-saldo',fetcher,{refreshInterval: 100} )
 
 
-
-   
-
-
-
-    
-
-
    return (
         <ImprecionLayout pagina='Produccion'>
             <h1 className="text-4xl font-black text-center"></h1>

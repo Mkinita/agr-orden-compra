@@ -92,8 +92,8 @@ export default function AdminProducciones() {
     return(
         <Layout pagina={'Listado-OC'}>
 
-            <h1 className="text-3xl font-black text-center"> Produccion Actual</h1>
-            <p>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
+            <h1 className="text-3xl font-black text-center">Produccion Actual</h1>
+            <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
 
             <p className="text-2xl my-10"></p>
             <div className='mt-auto'>

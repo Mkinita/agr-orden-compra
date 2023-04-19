@@ -21,7 +21,7 @@ const EtiquetasSaldo = ({saldo}) => {
          await axios.post(`/api/editarsaldo/${id}`)
           toast.success('🏠')
           setTimeout(() =>{
-            router.push('/')
+            router.push('/listado-producciones.-saldo')
         },1000)
       } catch (error) {
           console.log(error)

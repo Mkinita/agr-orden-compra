@@ -77,16 +77,33 @@ export default function Saldo() {
                                     onChange={e => setEspesor(e.target.value)}
                                 />
                                 </td>
+
+
+
                                 <td>
-                                <input
-                                    id="ancho"
-                                    type="number"
-                                    className="bg-gray-200 w-full lg:w-3/4 p-2 rounded-md"
-                                    value={ancho}
-                                    onChange={e => setAncho(e.target.value)}
-                                />
+                                    <select
+                                        id="ancho"
+                                        className="bg-gray-200 w-full lg:w-3/4 p-2 rounded-md"
+                                        value={ancho}
+                                        onChange={e => setAncho(e.target.value)}
+                                    >
+                                        <option value="">-</option>
+                                        <option value="75">3</option>
+                                        <option value="95">4</option>
+                                        <option value="125">5</option>
+                                        <option value="145">6</option>
+                                        <option value="175">7</option>
+                                        <option value="195">8</option>
+                                        <option value="245">10</option>
+                                        <option value="295">12</option>
+                                        <option value="1000">1000</option>
+                                    </select>
                                 </td>
-                                <td>
+
+
+
+
+                                {/* <td>
                                 <input
                                     id="largo"
                                     type="number"
@@ -94,7 +111,31 @@ export default function Saldo() {
                                     value={largo}
                                     onChange={e => setLargo(e.target.value)}
                                 />
+                                </td> */}
+
+
+
+                                <td>
+                                    <select
+                                        id="largo"
+                                        className="bg-gray-200 w-full lg:w-3/4 p-2 rounded-md"
+                                        value={largo}
+                                        onChange={e => setLargo(e.target.value)}
+                                    >
+                                        <option value="">-</option>
+                                        <option value="2.13">7</option>
+                                        <option value="2.44">8</option>
+                                        <option value="3.05">10</option>
+                                        <option value="3.20">3.20</option>
+                                        <option value="3.66">12</option>
+                                        <option value="3.96">13</option>
+                                        <option value="4.00">4</option>
+                                    </select>
                                 </td>
+
+
+
+
                                 <td>
                                 <input
                                     id="piezas"
