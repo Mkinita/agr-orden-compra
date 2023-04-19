@@ -17,7 +17,8 @@ export default function AdminProducciones() {
 
 
 
-
+    const [ users, setUsers ] = useState([])
+  const [ search, setSearch ] = useState("")
     
 
 
@@ -31,6 +32,31 @@ export default function AdminProducciones() {
 
     fetchData();
   }, []);
+
+
+  //función para traer los datos de la API
+  const URL = '/api/listado-producciones'
+  
+  const showData = async () => {
+      const response = await fetch(URL)
+      const data = await response.json()
+      console.log(data)
+      setUsers(data)
+    }   
+     //función de búsqueda
+  const searcher = (e) => {
+      setSearch(e.target.value)   
+  }
+  //  metodo de filtrado 2   
+  const results = !search ? users : users.filter((dato)=> JSON.stringify(dato.pedido).toLowerCase().includes(search.toLowerCase()))
+
+
+  
+  
+
+   useEffect( ()=> {
+    showData()
+  }, [])
 
 
 
@@ -49,8 +75,11 @@ export default function AdminProducciones() {
 
             <h1 className="text-3xl font-black text-center"> Produccion Actual</h1>
             <p className="text-2xl my-10"></p>
+            <div className='mt-auto'>
+                <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Escuadría' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
+            </div>
             <Tabla/>
-            {data && data.length ? data.map(orden =>
+            {data && data.length ? results.map(orden =>
                 
                 <ListadoProduccion
                     key={orden.id}

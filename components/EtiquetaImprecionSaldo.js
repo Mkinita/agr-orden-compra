@@ -45,7 +45,7 @@ const EtiquetasSaldo = ({saldo}) => {
     <div className="w-full h-full">
       
       <div className='text-center'>
-                  <p className='text-lg font-bold '>{espesor}xVx{largo}</p>
+                  <p className='text-lg font-bold '>{espesor}x{ancho}x{largo}</p>
                   <p className='text-sm font-bold '>{calidad}</p>
                   <p className='text-sm font-bold'>{formatiarFecha(fecha)}</p>
                   <div className='py-1'>

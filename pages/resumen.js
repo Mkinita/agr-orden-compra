@@ -90,6 +90,8 @@ export default function Resumen() {
                         <option value="Ochoco">Ochoco</option>
                         <option value="Agrifor">Agrifor</option>
                         <option value="S/C">S/C</option>
+                        <option value="Lv">Lv</option>
+                        <option value="B&C">B&C</option>
                     </select>
                 
                 </div>

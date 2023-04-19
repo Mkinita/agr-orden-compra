@@ -6,6 +6,7 @@ export const SidebarAdmin = () => {
    const [isVisible, setIsVisible] = useState(false);
    const [isVisible1, setIsVisible1] = useState(false);
    const [isVisible2, setIsVisible2] = useState(false);
+   const [isVisible3, setIsVisible3] = useState(false);
       
    const toggleVisibility = () => {
      setIsVisible(!isVisible);
@@ -21,10 +22,57 @@ export const SidebarAdmin = () => {
   };
 
 
+  const toggleVisibility3 = () => {
+    setIsVisible3(!isVisible3);
+  };
+
+
 
     return (
       <div class="px-3 py-4 overflow-y-auto rounded bg-white">
         <ul class="space-y-2">
+
+        <li>
+           <button
+            className="w-full flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase"
+            onClick={toggleVisibility3}
+                            
+            >
+               {isVisible3 ? '➖ Producciones' : '📋 Producciones'}
+            </button>
+                        
+                  
+            <div className="">
+            
+                {isVisible3 && (
+            <div className="p-2 space-y-1">
+
+<li>
+               <Link href="/listado-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📃
+                  <span class="ml-3">Produccion Actual</span>
+               </Link>
+            </li>
+
+
+            <li>
+              <Link href="/listado-produciones-fecha" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📅
+                  <span class="ml-3">Buscar Produccion Por Fecha</span>
+              </Link>
+           </li>
+
+
+           
+
+
+           
+            </div>
+            
+                )}
+
+               </div>
+           </li>
 
 
         <li>
@@ -33,7 +81,7 @@ export const SidebarAdmin = () => {
             onClick={toggleVisibility1}
                             
             >
-               {isVisible1 ? '➖ Stock' : '📋 Stock'}
+               {isVisible1 ? '➖ Stock Terminado' : '📋 Stock Terminado'}
             </button>
                         
                   
@@ -41,26 +89,43 @@ export const SidebarAdmin = () => {
             
                 {isVisible1 && (
             <div className="p-2 space-y-1">
-                <li>
-               <Link href="/listado-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📃
-                  <span class="ml-3">Produccion Actual</span>
-               </Link>
-            </li>
 
+           <li>
+           <div className='grid gap-1 grid-cols-4 md:grid-cols-4 2xl:grid-cols-4 text-center py-2'> 
             <li>
-              <Link href="/stock-terminado" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                    📋
-                  <span class="ml-3">Stock Terminado</span>
-              </Link>
+                <Link href="/stock-terminado-col" class=" items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                    <span class="">COL</span>
+                </Link>
+            </li>
+            <li>
+                <Link href="/stock-terminado-rema" class=" items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                    <span class="">RM</span>
+                </Link>
+            </li>
+            <li>
+                <Link href="/stock-terminado-ind" class=" items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                    <span class="">IND</span>
+                </Link>
+            </li>
+            <li>
+                <Link href="/stock-terminado-srv" class=" items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                    <span class="">SRV</span>
+                </Link>
+            </li>
+            
+            
+            </div>
            </li>
 
            <li>
-              <Link href="/listado-produciones-fecha" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📅
-                  <span class="ml-3">Buscar Produccion Por Fecha</span>
+           <Link href="/stock-terminado" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📝
+                  <span class="ml-3">Stock Total</span>
               </Link>
+
+              
            </li>
+           
             </div>
             
                 )}
@@ -167,12 +232,21 @@ export const SidebarAdmin = () => {
 
 
            
+
+
+           
             </div>
             
                 )}
 
                </div>
            </li>
+
+           
+
+
+
+           
 
          </ul>
 

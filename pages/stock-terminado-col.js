@@ -1,15 +1,15 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import AdminLayout from "../layout/AdminLayout"
-import StockTerminado from '../components/StockTerminado'
+import StockTerminadoCol from '../components/StockTerminadoCol'
 import TablaTerminado from '@/components/TablaTerminado'
 import * as XLSX from 'xlsx';
 import {useState, useEffect} from 'react'
 
 export default function AdminProducciones() {
 
-    const fetcher = () => axios('/api/stock').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/stock',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/stock-col').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/stock-col',fetcher,{refreshInterval: 100} )
 
 
     const [ users, setUsers ] = useState([])
@@ -17,7 +17,7 @@ export default function AdminProducciones() {
   const [espesor, setEspesor] = useState("");
   
     //función para traer los datos de la API
-    const URL = '/api/stock'
+    const URL = '/api/stock-col'
   
     const showData = async () => {
         const response = await fetch(URL)
@@ -33,7 +33,6 @@ export default function AdminProducciones() {
     const results = !search ? users : users.filter((dato)=> JSON.stringify(dato.pedido).toLowerCase().includes(search.toLowerCase()))
 
 
-
     
     
 
@@ -44,15 +43,15 @@ export default function AdminProducciones() {
     return(
         <AdminLayout pagina={'Produccion-fecha'}>
 
-            <h1 className="text-3xl font-black text-center">Stock Terminado</h1>
+            <h1 className="text-3xl font-black text-center">Stock Terminado Col</h1>
             <p className="text-2xl my-10"></p>
             <div className='mt-auto'>
-                <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Fecha' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
+                <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Escuadría' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>
             <TablaTerminado/>
             {data && data.length ? results.map(orden =>
                 
-                <StockTerminado
+                <StockTerminadoCol
                     key={orden.id}
                     orden={orden}
                 />

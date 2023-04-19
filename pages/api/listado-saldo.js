@@ -16,7 +16,7 @@ export default async function handler(req, res) {
           },
         },
         {
-          estado: false, // Agrega esta condición para filtrar por estado "false"
+          estado: true, // Agrega esta condición para filtrar por estado "false"
         },
       ],
     },
