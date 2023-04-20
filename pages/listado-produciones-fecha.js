@@ -5,6 +5,7 @@ import ListadoProduccionFecha from '../components/ListadoProduccionFecha'
 import Tabla from '@/components/Tabla'
 import * as XLSX from 'xlsx';
 import {useState, useEffect} from 'react'
+import {formatoNumero} from "helpers/formato";
 
 export default function AdminProducciones() {
 
@@ -35,10 +36,23 @@ export default function AdminProducciones() {
       showData()
     }, [])
 
+
+    const [totalVolumen, setTotalVolumen] = useState(0);
+
+  const sumarVolumenes = () => {
+    let suma = 0;
+    results.forEach((orden) => {
+      orden.pedido.forEach((oc) => {
+        suma += oc.espesor * oc.ancho * oc.largo * oc.piezas * oc.cantidad / 1000000;
+      });
+    });
+    setTotalVolumen(suma);
+};
+
     return(
         <AdminLayout pagina={'Produccion-fecha'}>
 
-            <h1 className="text-3xl font-black text-center">BUSCAR PRODUCCION POR FECHA</h1>
+            <h1 className="text-xl font-black text-center">BUSCAR PRODUCCION POR FECHA</h1>
             <p className="text-2xl my-10"></p>
             <div className='mt-auto'>
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Fecha' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
@@ -54,6 +68,12 @@ export default function AdminProducciones() {
                 ):
                 <p className='text-center m-10'>Sin Produccion</p>
             }
+
+
+<div className='flex justify-center items-center gap-2'>
+  <button className="my-4 py-2 px-4 text-black " onClick={sumarVolumenes}>Calcular Volumen</button>
+  <p className="">{formatoNumero(totalVolumen)} m³</p>
+</div>
 
         </AdminLayout>
 
