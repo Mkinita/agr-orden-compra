@@ -34,6 +34,7 @@ export default function AdminLayout({ children, pagina }) {
 
       <div className="">
             <aside className="">
+              
                       
 
                 <SidebarAdminInforme/>
@@ -43,6 +44,7 @@ export default function AdminLayout({ children, pagina }) {
 
             <main className="">
                 <div className="p-10">
+                  
                     {children}
                 </div>
             </main>

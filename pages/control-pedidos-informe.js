@@ -4,6 +4,7 @@ import AdminLayoutInforme from "../layout/AdminLayoutInforme"
 import ListadoPedidosInforme from '../components/ListadoPedidosInforme'
 import Tabla from '@/components/Tabla'
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image'
 
 
 export default function AdminPedidos() {
@@ -39,8 +40,16 @@ export default function AdminPedidos() {
 
     return(
         <AdminLayoutInforme pagina={'Listado-OC'}>
-
+            <div className="flex items-center">
+  <Image width={280} height={100} src="/assets/img/agr.png" alt="logo" className="text-left"/>
+  <div className='px-12'></div>
+  <div className='px-10'></div>
+  <div className='px-10'></div>
+  
+  
+</div>
             <h1 className="text-2xl font-black text-center">Informe Pedidos</h1>
+            <p className='py-2 text-center'>Actualizado: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
             <p className="text-2xl my-10"></p>
             <div className='mt-auto'>
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar Cliente' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
@@ -49,26 +58,26 @@ export default function AdminPedidos() {
             
             <table>
   <thead>
-            <tr class="bg-white border-b  hover:bg-gray-100 text-sm font-bold text-center">
-            <td class="px-6 py-4 w-1/5 text-center border border-gray-50">
+            <tr class="bg-white border-b  hover:bg-lime-300 text-sm font-bold text-center">
+            <td class="px-7 py-4 w-1/5 text-center border border-lime-400">
              Calidad
             </td>
-            <td class="px-6 py-4 w-1/5 text-center border border-gray-50">
+            <td class="px-11 py-4 w-1/5 text-center border border-lime-400">
                 Cliente
             </td>
-            <td class="px-6 py-4 w-1/5 text-center border border-gray-50">
+            <td class="px-7 py-4 w-1/5 text-center border border-lime-400">
                 O.C.
             </td>
-            <td class="px-6 py-4 w-1/5 text-center border border-gray-50">
+            <td class="px-9 py-4 w-1/5 text-center border border-lime-400">
                 Producto
             </td>
-            <td class="px-6 py-4 w-1/5 text-center border border-gray-50">
+            <td class="px-2 py-4 w-1/5 text-center border border-lime-400">
                 Solicitud
             </td>
-            <td class="px-6 py-4 w-1/5 text-center border border-gray-50">
+            {/* <td class="px-6 py-4 w-1/5 text-center border border-lime-400">
                 Despacho
-            </td>
-            <td class="px-6 py-4 text-right w-1/5 border border-gray-50">
+            </td> */}
+            <td class="px-5 py-4 text-right w-1/5 border border-lime-400">
                 
                 
 
@@ -80,7 +89,7 @@ export default function AdminPedidos() {
                 // handlesetPedidos(pedidos)
                 }}
             >
-                PDF
+                Detalle
             </button>
             </td>
         </tr>
