@@ -6,8 +6,8 @@ export default async function handler(req, res) {
   const pedido = await prisma.pedidos.findMany({
     where: { estado: false },
     orderBy: {
-      ordenar: 'asc'
-    }
+      id: "desc",
+    },
 
   })
 
