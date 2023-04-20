@@ -1,16 +1,20 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, SortOrder } from "@prisma/client";
 
 export default async function handler(req, res) {
   const prisma = new PrismaClient();
   //Obtener Ordenes
-  const pedido = await prisma.pedidos.findMany({
-    where:  {
-      estado:false,
-    }
+  const pedidos = await prisma.pedidos.findMany({
+    where: {
+      estado: false,
+    },
+    orderBy: {
+      ordenar: SortOrder.desc, // o SortOrder.desc para orden descendente
+    },
+  });
 
-  })
+  res.status(200).json(pedidos);
 
-  res.status(200).json(pedido);
+
 
 
 
