@@ -2,27 +2,16 @@ import { PrismaClient } from "@prisma/client";
 
 export default async function handler(req, res) {
   const prisma = new PrismaClient();
-  try {
-    // Obtener los pedidos sin ordenar
-    const pedidosSinOrdenar = await prisma.pedidos.findMany({
-      where: {
-        estado: false,
-      },
-    });
+  //Obtener Ordenes
+  const pedido = await prisma.pedidos.findMany({
+    where: { estado: false },
+    orderBy: {
+      ordenar: 'asc'
+    }
 
-    // Ordenar los pedidos por el campo "ordenar"
-    const pedidosOrdenados = pedidosSinOrdenar.sort((a, b) => a.ordenar - b.ordenar);
+  })
 
-    // Enviar la respuesta con los pedidos ordenados
-    res.status(200).json(pedidosOrdenados);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Error al obtener los pedidos" });
-  } finally {
-    await prisma.$disconnect();
-  }
-
-
+  res.status(200).json(pedido);
 
 
 
@@ -39,6 +28,7 @@ export default async function handler(req, res) {
     solicitud: req.body.solicitud,
     despacho: req.body.despacho,
     imagen: req.body.imagen,
+    ordenar: req.body.ordenar,
       },
     });
     res.json(pedidos);
