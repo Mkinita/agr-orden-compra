@@ -59,25 +59,25 @@ export default function AdminPedidos() {
             <table>
   <thead>
             <tr class="bg-white border-b  hover:bg-lime-300 text-sm font-bold text-center">
-            <td class="px-7 py-4 w-1/5 text-center border border-lime-400">
+            <td class="px-8 py-4 w-1/5 text-center border border-lime-400">
              Calidad
             </td>
-            <td class="px-11 py-4 w-1/5 text-center border border-lime-400">
+            <td class="px-12 py-4 w-1/5 text-center border border-lime-400">
                 Cliente
             </td>
-            <td class="px-7 py-4 w-1/5 text-center border border-lime-400">
+            <td class="px-8 py-4 w-1/5 text-center border border-lime-400">
                 O.C.
             </td>
-            <td class="px-9 py-4 w-1/5 text-center border border-lime-400">
+            <td class="px-10 py-4 w-1/5 text-center border border-lime-400">
                 Producto
             </td>
-            <td class="px-2 py-4 w-1/5 text-center border border-lime-400">
+            <td class="px-3 py-4 w-1/5 text-center border border-lime-400">
                 Solicitud
             </td>
             {/* <td class="px-6 py-4 w-1/5 text-center border border-lime-400">
                 Despacho
             </td> */}
-            <td class="px-5 py-4 text-right w-1/5 border border-lime-400">
+            <td class="px-6 py-4 text-right w-1/5 border border-lime-400">
                 
                 
 
