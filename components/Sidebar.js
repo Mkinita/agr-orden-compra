@@ -4,11 +4,18 @@ import { useEffect, useCallback, useState } from "react"
 
 const Sidebar = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [isVisible1, setIsVisible1] = useState(false);
 
        
     const toggleVisibility = () => {
       setIsVisible(!isVisible);
     };
+
+
+    const toggleVisibility1 = () => {
+        setIsVisible1(!isVisible1);
+      };
+    
  
     
 
@@ -26,7 +33,7 @@ const Sidebar = () => {
             onClick={toggleVisibility}
                             
             >
-               {isVisible ? '➖ Control Produccion' : '📋 Control Produccion'}
+               {isVisible ? '➖ CLASIFICACION' : '📋 CLASIFICACION'}
             </button>
                         
                   
@@ -101,6 +108,55 @@ const Sidebar = () => {
                     </li>
 
 
+
+                    
+
+
+            </div>
+            
+                )}
+
+               </div>
+           </li>
+
+
+
+           
+
+
+
+                    <li>
+           <button
+            className="flex w-full items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase"
+            onClick={toggleVisibility1}
+                            
+            >
+               {isVisible1 ? '➖ STACKER' : '📋 STACKER'}
+            </button>
+                        
+                  
+            <div className="">
+            
+                {isVisible1 && (
+            <div className="p-2 space-y-1">
+                
+
+                
+
+                <li>
+                        <Link href="/ingreso-empalillado" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            ➕
+                            <span class="ml-3">Ingreso Produccion</span>
+                        </Link>
+                    </li>
+
+
+                    <li>
+                        <Link href="/empalillado-actual" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            📆
+                            <span class="ml-3">Produccion Actual</span>
+                        </Link>
+                    </li>
 
                     
 

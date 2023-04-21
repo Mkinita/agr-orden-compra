@@ -239,6 +239,35 @@ const CombustibleProvider = ({children}) => {
 
 
 
+
+    const colocarEmpalilado = async (e) => {
+        e.preventDefault()
+
+        try {
+           await axios.post('/api/empalillado',{espesor,ancho,largo,piezas,calidad,cantidad,fecha: new Date()})
+            // Resetear la app
+            setEspesor('')
+            setAncho('')
+            setLargo('')
+            setPiezas('')
+            setCalidad('')
+            setCantidad('')
+            toast.success('Agregando ⏳')
+
+            setTimeout(() =>{
+                router.push('/empalillado-actual')
+            },3000)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
+        console.log('agregando orden')
+    }
+
+
+
     const colocarPedido = async (e) => {
         e.preventDefault()
 
@@ -311,7 +340,7 @@ const CombustibleProvider = ({children}) => {
             handleAgregarPedidos,
             imagen,setImagen,
             id,
-            orden,setOrden
+            orden,setOrden,colocarEmpalilado
             // pedidos,
             // fechas,
             // fechauno,

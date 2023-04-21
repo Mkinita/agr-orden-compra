@@ -1,15 +1,19 @@
 import {formatiarFecha} from "helpers/fecha"
 import {formatoNumero} from "helpers/formato"
-
+import { Bar } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
 
 const ListadoProduccion = ({orden}) => {
     const {id, nombre, total, pedido, fecha, folio, descripcion} = orden
 
-  return (
+    
 
     
-    
+
+  return (
+
     <>
+        
         <table className="table-auto w-full text-center bg-white text-gray-700">
             <tbody>
                 {pedido.map(oc => (
@@ -20,20 +24,9 @@ const ListadoProduccion = ({orden}) => {
                         <td className="border px-4 py-2">{nombre}</td>
                         <td className="border px-4 py-2">{formatoNumero(oc.espesor * oc.ancho * oc.largo * oc.piezas *oc.cantidad / 1000000 )}</td>
                     </tr>
-
-                    
-
-                    
                 ))}
             </tbody>
         </table>
-
-        
-
-
-    
-
-        
     </>
   )
 }

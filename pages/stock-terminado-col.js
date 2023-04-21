@@ -3,8 +3,8 @@ import axios from 'axios'
 import AdminLayout from "../layout/AdminLayout"
 import StockTerminadoCol from '../components/StockTerminadoCol'
 import TablaTerminado from '@/components/TablaTerminado'
-import * as XLSX from 'xlsx';
 import {useState, useEffect} from 'react'
+import {formatoNumero} from "helpers/formato";
 
 export default function AdminProducciones() {
 
@@ -13,8 +13,7 @@ export default function AdminProducciones() {
 
 
     const [ users, setUsers ] = useState([])
-  const [ search, setSearch ] = useState("")
-  const [espesor, setEspesor] = useState("");
+    const [ search, setSearch ] = useState("")
   
     //función para traer los datos de la API
     const URL = '/api/stock-col'
@@ -25,20 +24,29 @@ export default function AdminProducciones() {
         console.log(data)
         setUsers(data)
       }   
-       //función de búsqueda
+     //función de búsqueda
     const searcher = (e) => {
         setSearch(e.target.value)   
     }
-    //  metodo de filtrado 2   
+     //  metodo de filtrado 2   
     const results = !search ? users : users.filter((dato)=> JSON.stringify(dato.pedido).toLowerCase().includes(search.toLowerCase()))
-
-
-    
-    
 
      useEffect( ()=> {
       showData()
     }, [])
+
+
+    const [totalVolumen, setTotalVolumen] = useState(0);
+
+    const sumarVolumenes = () => {
+    let suma = 0;
+    results.forEach((orden) => {
+      orden.pedido.forEach((oc) => {
+        suma += oc.espesor * oc.ancho * oc.largo * oc.piezas * oc.cantidad / 1000000;
+      });
+    });
+    setTotalVolumen(suma);
+};
 
     return(
         <AdminLayout pagina={'Produccion-fecha'}>
@@ -59,6 +67,12 @@ export default function AdminProducciones() {
                 ):
                 <p className='text-center m-10'>Sin Produccion</p>
             }
+
+
+            <div className='flex justify-center items-center gap-2'>
+                <button className="my-4 py-2 px-4 text-black " onClick={sumarVolumenes}>Calcular Volumen</button>
+                <p className="">{formatoNumero(totalVolumen)} m³</p>
+            </div>
 
         </AdminLayout>
 
