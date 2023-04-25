@@ -39,6 +39,12 @@ const CombustibleProvider = ({children}) => {
 
 
 
+    const [volumen, setVolumen] = useState('')
+    const [fecha, setFecha] = useState('')
+    const [ingreso, setIngreso] = useState('')
+
+
+
 
 
     
@@ -295,6 +301,31 @@ const CombustibleProvider = ({children}) => {
     }
 
 
+    const colocarProduccion = async (e) => {
+        e.preventDefault()
+
+        try {
+           await axios.post('/api/producciones',{nombre,volumen,fecha,ingreso})
+            // Resetear la app
+            setNombre('')
+            setVolumen('')
+            setFecha('')
+            setIngreso('')
+            toast.success('Agregando Produccion⏳')
+
+            setTimeout(() =>{
+                router.push('/informe-producciones')
+            },3000)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
+        console.log('agregando orden')
+    }
+
+
 
     return(
         <CombustibleContext.Provider
@@ -340,7 +371,11 @@ const CombustibleProvider = ({children}) => {
             handleAgregarPedidos,
             imagen,setImagen,
             id,
-            orden,setOrden,colocarEmpalilado
+            orden,setOrden,colocarEmpalilado,
+            fecha,setFecha,
+            volumen,setVolumen,
+            colocarProduccion,
+            ingreso,setIngreso
             // pedidos,
             // fechas,
             // fechauno,

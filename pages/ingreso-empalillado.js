@@ -90,6 +90,7 @@ export default function Saldo() {
                                     >
                                         <option value="">-</option>
                                         <option value="1000">AV</option>
+                                        <option value="125">125</option>
                                     </select>
                                 </td>
 
