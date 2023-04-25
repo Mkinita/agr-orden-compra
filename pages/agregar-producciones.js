@@ -75,14 +75,16 @@ export default function Pedido() {
                             <label for="fecha" class="block text-xs font-medium text-gray-700 mb-1">Fecha</label>
                             <input id="fecha" type="date" class="bg-gray-200 w-full p-2 rounded-md" value={fecha} onChange={e => setFecha(e.target.value)} />
                         </div>
+
                         <div>
-                            <label for="volumen" class="block text-xs font-medium text-gray-700 mb-1">Ingreso</label>
-                            <input id="volumen" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={volumen} onChange={e => setVolumen(e.target.value)} />
-                        </div>
-                        <div>
-                            <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Produccion</label>
+                            <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Ingreso</label>
                             <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={ingreso} onChange={e => setIngreso(e.target.value)} />
                         </div>
+                        <div>
+                            <label for="volumen" class="block text-xs font-medium text-gray-700 mb-1">Produccion</label>
+                            <input id="volumen" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={volumen} onChange={e => setVolumen(e.target.value)} />
+                        </div>
+                        
                     </div>
 
 
