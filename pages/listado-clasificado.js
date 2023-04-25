@@ -193,7 +193,7 @@ const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
                             onClick={toggleVisibilityproveedor}
                             
                         >
-                            {isVisibleproveedor ? '➖' : 'Gene'}
+                            {isVisibleproveedor ? '➖' : 'Generar Gafico 📊'}
                         </button>
 
 
