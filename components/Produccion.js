@@ -17,9 +17,9 @@ const ListadoProduccion = ({producciones}) => {
         <div className="grid gap-1 grid-cols-3 md:grid-cols-4 2xl:grid-cols-3 text-center uppercase font-bold text-sm">
 
           <div className="border">{fecha}</div>
-          <div className="border hidden md:block">{formatoNumero(ingreso)}</div>
-          <div className="border">{formatoNumero(volumen)}</div>
-          <div className="border">{formatoNumero(volumen / ingreso * 100)}</div>
+          <div className="border hidden md:block">{ingreso}</div>
+          <div className="border">{volumen}</div>
+          <div className="border">{formatoNumero(volumen / ingreso * 100)}%</div>
                 
         </div>
     </>

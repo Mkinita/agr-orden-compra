@@ -85,6 +85,15 @@ export default function AdminProducciones() {
   };
 
 
+  let totalVolumens = 0;
+  let totalIngreso = 0;
+
+  results.forEach((producciones) => {
+    totalVolumens += parseFloat(producciones.volumen);
+    totalIngreso += parseFloat(producciones.ingreso);
+  });
+
+
   
 
   
@@ -153,7 +162,7 @@ const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
                 </div>
                 <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
                     <Link href="/listado-clasificado">
-                    <span class="ml-3">Clafificado</span>
+                    <span class="ml-3">Clasificado</span>
                     </Link>
                 </div>
                 <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
@@ -163,9 +172,12 @@ const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
                 </div>
             </div>
             <p className="text-2xl my-10"></p>
-            <div className='mt-auto'>
-                <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Escuadría' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
+            <div className='flex flex-col items-center justify-center'>
+              <h2 className="text-2xl font-black text-center">Clasificado</h2>
+              <input value={search} onChange={searcher} type="text" placeholder='Filtrar Por Fecha 🔍' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 
             </div>
+
+
             <div className={`${isVisibleproveedor ? 'hidden' : ''}`}>
             <div className="grid gap-1 grid-cols-3 md:grid-cols-4 2xl:grid-cols-4 text-center uppercase font-bold text-sm">
               <div>Fecha</div>
@@ -185,7 +197,17 @@ const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
                 ):
                 <p className='text-center m-10'>Sin Produccion</p>
             }
+            <div className="grid gap-1 grid-cols-3 md:grid-cols-4 2xl:grid-cols-4 text-center uppercase font-bold text-sm py-2">
+              <div>Total</div>
+              <div className="hidden md:block">{totalIngreso}</div>
+              <div>{totalVolumens}</div>
+              <div className="">{formatoNumero(totalVolumens / totalIngreso * 100)}%</div>
             </div>
+            </div>
+
+
+
+            
 
 
             <button
@@ -202,7 +224,7 @@ const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
 
             {isVisibleproveedor && ( 
             <div className='flex justify-center items-center gap-2'>
-            <div className='h-56 w-96 p-2 m-auto items-center'>
+            <div className='w-1/2 p-2 m-auto items-center'>
               <Bar className='' data={data2} />
             </div>
             </div>
