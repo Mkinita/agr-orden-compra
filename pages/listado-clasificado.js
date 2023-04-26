@@ -94,6 +94,26 @@ export default function AdminProducciones() {
   });
 
 
+
+  const resproceso = totalVolumens * 0.015
+  const despunte = totalVolumens * 0.02
+  const humedo = totalVolumens * 0.01
+  const totaltotal = totalVolumens + resproceso + despunte + humedo
+
+
+
+  const [currentMonth, setCurrentMonth] = useState('');
+
+  useEffect(() => {
+    const date = new Date();
+    const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    setCurrentMonth(monthNames[date.getMonth()]);
+  }, []);
+
+
+  
+
+
   
 
   
@@ -116,13 +136,6 @@ export default function AdminProducciones() {
     ],
   };
 
-  
-
-
-  
-  
-
-
 function calcularVolumen() {
   sumarVolumenes();
   sumarCantidades();
@@ -136,13 +149,20 @@ const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
           setIsVisibleproveedor(!isVisibleproveedor);
         };
 
+
+        const [cuadro, setCuadro] = useState(false);
+      
+        const toggleCuadro = () => {
+          setCuadro(!cuadro);
+        };
+
   
   
 
     return(
     <AdminLayoutInforme pagina={'Listado-OC'}>
     
-          <h1 className="text-3xl font-black text-center">Informe Produccion</h1>
+           <h1 className="text-3xl font-black text-center">Informe Produccion</h1>
             <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
             <div className="grid gap-4 grid-cols-1 md:grid-cols-5 2xl:grid-cols-5 text-center uppercase font-bold text-sm py-2">
             <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
@@ -179,6 +199,7 @@ const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
 
 
             <div className={`${isVisibleproveedor ? 'hidden' : ''}`}>
+            <div className={`${cuadro ? 'hidden' : ''}`}>
             <div className="grid gap-1 grid-cols-3 md:grid-cols-4 2xl:grid-cols-4 text-center uppercase font-bold text-sm">
               <div>Fecha</div>
               <div className="hidden md:block">Ingreso</div>
@@ -204,23 +225,62 @@ const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
               <div className="">{formatoNumero(totalVolumens / totalIngreso * 100)}%</div>
             </div>
             </div>
-
-
+            </div>
 
             
+            
+
+
+            {cuadro && ( 
+            <div class="w-full overflow-hidden rounded-lg shadow-md">
+              <table class="w-full table-auto">
+                <thead>
+                <tr class="bg-gray-200 text-gray-700 uppercase text-sm leading-normal">
+                  <th class="py-6 px-4 font-bold text-center" colspan="2">Clasificado {currentMonth}</th>
+                </tr>
+              </thead>
+
+                <tbody class="text-gray-600 text-sm font-light">
+                  <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-4 text-left whitespace-nowrap">Produccion</td>
+                    <td class="py-3 px-4 text-right">${formatoNumero(totalVolumens)}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-4 text-left whitespace-nowrap">Reproseso</td>
+                    <td class="py-3 px-4 text-right">${formatoNumero(resproceso)}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-4 text-left whitespace-nowrap">Despunte</td>
+                    <td class="py-3 px-4 text-right">${formatoNumero(despunte)}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-4 text-left whitespace-nowrap">Humedo</td>
+                    <td class="py-3 px-4 text-right">${formatoNumero(humedo)}</td>
+                  </tr>
+                  <tr class="bg-gray-200 text-gray-700 uppercase text-sm leading-normal">
+                    <td class="py-3 px-4 font-bold">Total</td>
+                    <td class="py-3 px-4 font-bold text-right">${formatoNumero(totaltotal)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            )}
+
+            
+            <button
+              className="font-bold text-sm py-10"
+              onClick={toggleCuadro}            
+            >
+              {cuadro ? '➖' : 'Cuadro General 📋'}
+            </button>
 
 
             <button
-                            className="font-bold text-sm py-10"
-                            onClick={toggleVisibilityproveedor}
-                            
-                        >
-                            {isVisibleproveedor ? '➖' : 'Generar Gafico 📊'}
-                        </button>
-
-
-            
-
+              className="font-bold text-sm py-10"
+              onClick={toggleVisibilityproveedor}            
+            >
+              {isVisibleproveedor ? '➖' : 'Generar Gafico 📊'}
+            </button>
 
             {isVisibleproveedor && ( 
             <div className='flex justify-center items-center gap-2'>
