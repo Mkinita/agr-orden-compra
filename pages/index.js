@@ -3,10 +3,11 @@ import Layout from '../layout/Layout'
 import Equipo from '../components/Equipo'
 import useCombustible from '../hooks/useCombustible'
 import {useState, useEffect} from 'react'
+import Head from 'next/head'
 
 
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
 
@@ -36,6 +37,13 @@ export default function Home() {
 
   return (
     <Layout pagina={`Inicio - Producto`}>
+      <Head>
+        <meta name="description" content="Carlos Jerez" />
+        <link rel="icon" href="/CJ-.png" />
+        <title>Control Produccion CJ</title>
+        <meta property="og:image" content="/CJ-.png" />
+        <meta name="twitter:image" content="/CJ-.png" />
+      </Head>
   
       <p className='text-2xl mx-5 my-3 text-center'>
         Ingresa Escuadría
