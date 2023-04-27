@@ -3,28 +3,33 @@ import { useEffect, useCallback, useState } from "react"
 
 export const SidebarAdmin = () => {
 
-   const [isVisible, setIsVisible] = useState(false);
-   const [isVisible1, setIsVisible1] = useState(false);
-   const [isVisible2, setIsVisible2] = useState(false);
-   const [isVisible3, setIsVisible3] = useState(false);
-      
-   const toggleVisibility = () => {
-     setIsVisible(!isVisible);
-   };
+    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible1, setIsVisible1] = useState(false);
+    const [isVisible2, setIsVisible2] = useState(false);
+    const [isVisible3, setIsVisible3] = useState(false);
+    const [isVisible4, setIsVisible4] = useState(false);
+        
+    const toggleVisibility = () => {
+        setIsVisible(!isVisible);
+    };
 
-   const toggleVisibility1 = () => {
-    setIsVisible1(!isVisible1);
-  };
-
-
-  const toggleVisibility2 = () => {
-    setIsVisible2(!isVisible2);
-  };
+    const toggleVisibility1 = () => {
+        setIsVisible1(!isVisible1);
+    };
 
 
-  const toggleVisibility3 = () => {
-    setIsVisible3(!isVisible3);
-  };
+    const toggleVisibility2 = () => {
+        setIsVisible2(!isVisible2);
+    };
+
+
+    const toggleVisibility3 = () => {
+        setIsVisible3(!isVisible3);
+    };
+
+    const toggleVisibility4 = () => {
+        setIsVisible4(!isVisible4);
+    };
 
 
 
@@ -47,7 +52,7 @@ export const SidebarAdmin = () => {
                 {isVisible3 && (
             <div className="p-2 space-y-1">
 
-<li>
+            <li>
                <Link href="/listado-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
                   📃
                   <span class="ml-3">Produccion Actual</span>
@@ -71,13 +76,7 @@ export const SidebarAdmin = () => {
            </li>
 
 
-           <li>
-              <Link href="/informe-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📊
-                  <span class="ml-3">Informe</span>
-              </Link>
-           </li>
-
+           
 
            
 
@@ -185,10 +184,7 @@ export const SidebarAdmin = () => {
               </Link>
 
 
-              <Link href="/control-pedidos-informe" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📋
-                  <span class="ml-3">Informe</span>
-              </Link>
+              
 
               <Link href="/agregar-pedido" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
                   ➕
@@ -241,10 +237,53 @@ export const SidebarAdmin = () => {
            <Link href="/etiqueta-stock" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
                 🚚
                   <span class="ml-3">Despacho</span>
-              </Link>
+            </Link>
 
               
            </li>
+            </div>
+            
+                )}
+
+                
+
+               </div>
+           </li>
+
+
+
+
+
+
+
+           <li>
+           <button
+            className="w-full flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase"
+            onClick={toggleVisibility4}
+                            
+            >
+               {isVisible4 ? '➖ Informes' : '📋 Informes'}
+            </button>
+                        
+                  
+            <div className="">
+            
+                {isVisible4 && (
+            <div className="p-2 space-y-1">
+
+
+           <li>
+              <Link href="/informe-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📊
+                  <span class="ml-3">Informe Produccion</span>
+              </Link>
+           </li>
+
+
+           <Link href="/control-pedidos-informe" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📋
+                  <span class="ml-3">Informe Pedidos</span>
+              </Link>
 
 
            
@@ -257,6 +296,14 @@ export const SidebarAdmin = () => {
 
                </div>
            </li>
+
+
+
+
+           
+
+
+           
 
            
 

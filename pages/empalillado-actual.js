@@ -43,7 +43,7 @@ export default function AdminProducciones() {
       setSearch(e.target.value)   
   }
   //  metodo de filtrado 2   
-  const results = !search ? users : users.filter((dato)=> JSON.stringify(dato.pedido).toLowerCase().includes(search.toLowerCase()))
+  const results = !search ? users : users.filter((dato)=> JSON.stringify(dato.espesor).toLowerCase().includes(search.toLowerCase()))
 
 
   
@@ -69,21 +69,13 @@ export default function AdminProducciones() {
 };
 
 
-  const sumarCantidades = () => {
-    let suma = '';
-    results.forEach((emp) => {
-        suma += emp.cantidad;
-      
-    });
-  setTotalCantidad(suma);
-  };
+  
 
   
 
 
 function calcularVolumen() {
   sumarVolumenes();
-  sumarCantidades();
 }
 
   
@@ -116,7 +108,6 @@ function calcularVolumen() {
             <div className='flex justify-center items-center gap-2'>
               <button className="my-4 py-2 px-4 text-black " onClick={calcularVolumen}>Calcular Volumen</button>
               <p className="">{formatoNumero(totalVolumen)}m³</p>
-              <p className="">Cantidad {formatoNumero(totalCantidad)}</p>
             </div>
  
     </Layout>

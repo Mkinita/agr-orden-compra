@@ -137,7 +137,7 @@ function calcularVolumen() {
                     </Link>
                 </div>
                 <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-                    <Link href="/agregar-producciones">
+                    <Link href="/listado-empalillado">
                     <span class="ml-3">Staker</span>
                     </Link>
                 </div>

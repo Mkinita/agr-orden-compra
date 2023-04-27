@@ -12,8 +12,8 @@ import Link from 'next/link'
 
 export default function AdminProducciones() {
 
-  const fetcher = () => axios('/api/producciones-clasificado').then(datos => datos.data)
-  const { data, error, isLoading } = useSWR('/api/producciones-clasificado',fetcher,{refreshInterval: 100} )
+  const fetcher = () => axios('/api/produccion-empalillado').then(datos => datos.data)
+  const { data, error, isLoading } = useSWR('/api/produccion-empalillado',fetcher,{refreshInterval: 100} )
 
 
 
@@ -34,7 +34,7 @@ export default function AdminProducciones() {
 
 
   //función para traer los datos de la API
-  const URL = '/api/producciones-clasificado'
+  const URL = '/api/produccion-empalillado'
   
   const showData = async () => {
       const response = await fetch(URL)
@@ -133,7 +133,7 @@ export default function AdminProducciones() {
       </div>
       <p className="text-2xl my-10"></p>
       <div className='flex flex-col items-center justify-center'>
-        <h2 className="text-2xl font-black text-center">Clasificado</h2>
+        <h2 className="text-2xl font-black text-center">Staker</h2>
         <input value={search} onChange={searcher} type="text" placeholder='Filtrar Por Fecha 🔍' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 
       </div>
 
@@ -163,48 +163,7 @@ export default function AdminProducciones() {
         </div>
       </div>
 
-      {cuadro && ( 
-        <div class="w-full overflow-hidden rounded-lg shadow-md">
-          <table class="w-full table-auto bg-lime-5">
-            <thead>
-              <tr class="bg-lime-400 text-black uppercase text-sm leading-normal">
-                <th class="py-6 px-4 font-bold text-center" colspan="2">Clasificado {currentMonth}</th>
-              </tr>
-            </thead>
-            <tbody class="text-black text-sm font-light">
-              <tr class="border-b border-gray-200 hover:bg-lime-300">
-                <td class="py-3 px-4 text-left whitespace-nowrap">Produccion</td>
-                <td class="py-3 px-4 text-right">{formatoNumero(totalVolumens)}</td>
-              </tr>
-              <tr class="border-b border-gray-200 hover:bg-lime-300">
-                <td class="py-3 px-4 text-left whitespace-nowrap">Reproseso</td>
-                <td class="py-3 px-4 text-right">{formatoNumero(resproceso)}</td>
-                </tr>
-                <tr class="border-b border-gray-200 hover:bg-lime-300">
-                  <td class="py-3 px-4 text-left whitespace-nowrap">Despunte</td>
-                  <td class="py-3 px-4 text-right">{formatoNumero(despunte)}</td>
-                </tr>
-                <tr class="border-b border-gray-200 hover:bg-lime-300">
-                  <td class="py-3 px-4 text-left whitespace-nowrap">Humedo</td>
-                  <td class="py-3 px-4 text-right">{formatoNumero(humedo)}</td>
-                </tr>
-                <tr class="bg-lime-400 text-black uppercase text-sm leading-normal">
-                  <td class="py-3 px-4 font-bold">Total</td>
-                  <td class="py-3 px-4 font-bold text-right">{formatoNumero(totaltotal)}</td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-      )}
-
-            
-            <button
-              className="font-bold text-sm py-10"
-              onClick={toggleCuadro}            
-            >
-              {cuadro ? '➖' : 'Cuadro General 📋'}
-            </button>
-
+      
 
             <button
               className="font-bold text-sm py-10"

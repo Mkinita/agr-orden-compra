@@ -100,12 +100,7 @@ const Sidebar = () => {
 
 
 
-                    <li>
-                        <Link href="/stock-terminado" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
-                            🔧
-                            <span class="ml-3">Stock / Pedidos</span>
-                        </Link>
-                    </li>
+                    
 
 
 
@@ -167,6 +162,15 @@ const Sidebar = () => {
 
                </div>
            </li>
+
+
+
+           <li>
+                        <Link href="/stock-terminado" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            🔧
+                            <span class="ml-3">Stock / Pedidos</span>
+                        </Link>
+                    </li>
 
                 
                 
