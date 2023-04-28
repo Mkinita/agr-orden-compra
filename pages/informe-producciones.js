@@ -8,6 +8,7 @@ import {formatoNumero} from "helpers/formato";
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import Link from 'next/link'
+import  ProduccionesEncabezado from '../components/ProduccionesEncabezado'
 
 
 
@@ -87,34 +88,7 @@ export default function AdminProducciones() {
   
 
 
-//  // Agrupar los datos por calidad
-// const produccionesesPorCalidad = results.reduce((acumulador, producciones) => {
-//   const { nombre, cantidad } = producciones;
-//   if (!acumulador[nombre]) {
-//     acumulador[nombre] = 0;
-//   }
-//   acumulador[nombre] += cantidad;
-//   return acumulador;
-// }, {});
 
-// // Crear un array con los nombres de las calidades y los totales de ventas
-// const nombresCalidades = Object.keys(produccionesesPorCalidad);
-// const totalVentasPorCalidad = nombresCalidades.map(nombre => produccionesesPorCalidad[nombre]);
-
-// // Crear el objeto de datos para el gráfico
-// const data2 = {
-//   labels: nombresCalidades,
-//   datasets: [
-//     {
-//       label: 'Ventas',
-//       // data: results.map((producciones) => producciones.cantidad),
-//       data:[totalCantidad],
-//       backgroundColor: 'rgba(255, 99, 132, 0.2)',
-//       borderColor: 'rgba(255, 99, 132, 1)',
-//       borderWidth: 1,
-//     },
-//   ],
-// };
 
 
 function calcularVolumen() {
@@ -130,33 +104,7 @@ function calcularVolumen() {
 {/* <Bar data={data2} /> */}
           <h1 className="text-3xl font-black text-center">Informe Produccion</h1>
             <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
-            <div className="grid gap-4 grid-cols-1 md:grid-cols-5 2xl:grid-cols-5 text-center uppercase font-bold text-sm py-2">
-            <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-                    <Link href="/agregar-producciones">
-                    <span class="ml-3">Aserradero</span>
-                    </Link>
-                </div>
-                <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-                    <Link href="/listado-empalillado">
-                    <span class="ml-3">Staker</span>
-                    </Link>
-                </div>
-                <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-                    <Link href="/agregar-producciones">
-                    <span class="ml-3">Secado</span>
-                    </Link>
-                </div>
-                <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-                    <Link href="/listado-clasificado">
-                    <span class="ml-3">Clafificado</span>
-                    </Link>
-                </div>
-                <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-                    <Link href="/agregar-producciones">
-                    <span class="ml-3">Despacho</span>
-                    </Link>
-                </div>
-            </div>
+            <ProduccionesEncabezado/>
               
  
     </AdminLayoutInforme>

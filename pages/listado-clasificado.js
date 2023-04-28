@@ -5,7 +5,7 @@ import Produccion from '../components/Produccion'
 import React, { useState, useEffect } from 'react';
 import {formatoNumero} from "helpers/formato";
 import { Bar } from 'react-chartjs-2';
-import Link from 'next/link'
+import  ProduccionesEncabezado from '../components/ProduccionesEncabezado'
 
 
 
@@ -104,33 +104,7 @@ export default function AdminProducciones() {
     <AdminLayoutInforme pagina={'Listado-OC'}>
       <h1 className="text-3xl font-black text-center">Informe Produccion</h1>
       <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
-      <div className="grid gap-4 grid-cols-1 md:grid-cols-5 2xl:grid-cols-5 text-center uppercase font-bold text-sm py-2">
-        <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-          <Link href="/agregar-producciones">
-            <span class="ml-3">Aserradero</span>
-          </Link>
-        </div>
-        <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-          <Link href="/listado-empalillado">
-            <span class="ml-3">Staker</span>
-          </Link>
-        </div>
-        <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-          <Link href="/agregar-producciones">
-            <span class="ml-3">Secado</span>
-          </Link>
-        </div>
-        <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-          <Link href="/listado-clasificado">
-            <span class="ml-3">Clasificado</span>
-          </Link>
-        </div>
-        <div class="p-2 font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase w-full">
-          <Link href="/agregar-producciones">
-            <span class="ml-3">Despacho</span>
-          </Link>
-        </div>
-      </div>
+      <ProduccionesEncabezado/>
       <p className="text-2xl my-10"></p>
       <div className='flex flex-col items-center justify-center'>
         <h2 className="text-2xl font-black text-center">Clasificado</h2>

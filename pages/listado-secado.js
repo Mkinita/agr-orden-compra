@@ -5,7 +5,6 @@ import Produccion from '../components/Produccion'
 import React, { useState, useEffect } from 'react';
 import {formatoNumero} from "helpers/formato";
 import { Bar } from 'react-chartjs-2';
-import Link from 'next/link'
 import  ProduccionesEncabezado from '../components/ProduccionesEncabezado'
 
 
@@ -13,8 +12,8 @@ import  ProduccionesEncabezado from '../components/ProduccionesEncabezado'
 
 export default function AdminProducciones() {
 
-  const fetcher = () => axios('/api/produccion-empalillado').then(datos => datos.data)
-  const { data, error, isLoading } = useSWR('/api/produccion-empalillado',fetcher,{refreshInterval: 100} )
+  const fetcher = () => axios('/api/produccion-secado').then(datos => datos.data)
+  const { data, error, isLoading } = useSWR('/api/produccion-secado',fetcher,{refreshInterval: 100} )
 
 
 
@@ -35,7 +34,7 @@ export default function AdminProducciones() {
 
 
   //función para traer los datos de la API
-  const URL = '/api/produccion-empalillado'
+  const URL = '/api/produccion-secado'
   
   const showData = async () => {
       const response = await fetch(URL)

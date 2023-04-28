@@ -13,8 +13,8 @@ import  ProduccionesEncabezado from '../components/ProduccionesEncabezado'
 
 export default function AdminProducciones() {
 
-  const fetcher = () => axios('/api/produccion-empalillado').then(datos => datos.data)
-  const { data, error, isLoading } = useSWR('/api/produccion-empalillado',fetcher,{refreshInterval: 100} )
+  const fetcher = () => axios('/api/producion-aserradero').then(datos => datos.data)
+  const { data, error, isLoading } = useSWR('/api/producion-aserradero',fetcher,{refreshInterval: 100} )
 
 
 
@@ -25,7 +25,7 @@ export default function AdminProducciones() {
   const [data1, setData1] = useState([]);
     useEffect(() => {
       async function fetchData() {
-      const response1 = await fetch('/api/listado-saldo');
+      const response1 = await fetch('/api/producion-aserradero');
       const data1 = await response1.json();
       setData1(data1);
     }
@@ -35,7 +35,7 @@ export default function AdminProducciones() {
 
 
   //función para traer los datos de la API
-  const URL = '/api/produccion-empalillado'
+  const URL = '/api/producion-aserradero'
   
   const showData = async () => {
       const response = await fetch(URL)
@@ -108,7 +108,7 @@ export default function AdminProducciones() {
       <ProduccionesEncabezado/>
       <p className="text-2xl my-10"></p>
       <div className='flex flex-col items-center justify-center'>
-        <h2 className="text-2xl font-black text-center">Staker</h2>
+        <h2 className="text-2xl font-black text-center">Aserradero</h2>
         <input value={search} onChange={searcher} type="text" placeholder='Filtrar Por Fecha 🔍' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 
       </div>
 

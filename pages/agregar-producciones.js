@@ -63,6 +63,7 @@ export default function Pedido() {
                             <label for="nombre" class="block text-xs font-medium text-gray-700 mb-1">Area</label>
                             <select id="nombre" class="bg-gray-200 w-full p-2 rounded-md" value={nombre} onChange={e => setNombre(e.target.value)}>
                             <option value="">-</option>
+                            <option value="ASERRADERO">ASERRADERO</option>
                             <option value="CLASIFICADO">CLASIFICADO</option>
                             <option value="STAKER">STAKER</option>
                             <option value="DESPACHO SECO">DESPACHO SECO</option>
