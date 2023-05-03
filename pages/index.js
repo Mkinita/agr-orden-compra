@@ -35,7 +35,11 @@ export default function Home() {
     showData()
   }, [])
 
+
+  
+
   return (
+    
     <Layout pagina={`Inicio - Producto`}>
       <Head>
         <meta name="description" content="Carlos Jerez" />
