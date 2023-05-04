@@ -90,7 +90,7 @@ function NotificationExample() {
 
   function showNotification() {
     if (notificationPermission === "granted") {
-      new Notification("Registro guardado", { body: "El registro se ha guardado correctamente." });
+      new Notification("Registro guardado CARLOS JEREZ", { body: "CARLOS/JEREZ/FLORES" });
     } else if (notificationPermission === "default") {
       Notification.requestPermission().then(permission => {
         setNotificationPermission(permission);

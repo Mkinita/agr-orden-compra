@@ -12,9 +12,24 @@ export default function AdminProducciones() {
     const { data, error, isLoading } = useSWR('/api/stock',fetcher,{refreshInterval: 100} )
 
 
+    
+
+// Mostrar notificación cuando se recibe una respuesta de la API
+useEffect(() => {
+  if (data) {
+    const notification = new Notification('Nueva información agregada', {
+      body: 'Se ha agregado nueva información a la API'
+    })
+  }
+}, [data])
+
+    
+
+
+    
+
     const [ users, setUsers ] = useState([])
   const [ search, setSearch ] = useState("")
-  const [espesor, setEspesor] = useState("");
   
     //función para traer los datos de la API
     const URL = '/api/stock'
@@ -22,9 +37,8 @@ export default function AdminProducciones() {
     const showData = async () => {
         const response = await fetch(URL)
         const data = await response.json()
-        console.log(data)
         setUsers(data)
-      }   
+    }   
        //función de búsqueda
     const searcher = (e) => {
         setSearch(e.target.value)   
@@ -41,6 +55,11 @@ export default function AdminProducciones() {
       showData()
     }, [])
 
+
+
+
+    
+
     return(
         <AdminLayout pagina={'Produccion-fecha'}>
 
@@ -50,7 +69,7 @@ export default function AdminProducciones() {
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Fecha' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>
             <TablaTerminado/>
-            {data && data.length ? results.map(orden =>
+            {data && data.length ? data.map(orden =>
                 
                 <StockTerminado
                     key={orden.id}
