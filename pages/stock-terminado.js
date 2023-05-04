@@ -69,7 +69,7 @@ useEffect(() => {
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Fecha' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>
             <TablaTerminado/>
-            {data && data.length ? data.map(orden =>
+            {data && data.length ? results.map(orden =>
                 
                 <StockTerminado
                     key={orden.id}
