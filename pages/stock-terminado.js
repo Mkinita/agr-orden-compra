@@ -12,16 +12,45 @@ export default function AdminProducciones() {
     const { data, error, isLoading } = useSWR('/api/stock',fetcher,{refreshInterval: 100} )
 
 
-    
+    const [permission, setPermission] = useState('default')
+
+  // Solicitar permiso al usuario para mostrar notificaciones
+  useEffect(() => {
+    if (Notification.permission !== 'granted') {
+      Notification.requestPermission().then(status => {
+        setPermission(status)
+      })
+    } else {
+      setPermission('granted')
+    }
+  }, [])
+
 
 // Mostrar notificación cuando se recibe una respuesta de la API
-// useEffect(() => {
-//   if (data) {
-//     const notification = new Notification('Nueva información agregada', {
-//       body: 'Se ha agregado nueva información a la API'
-//     })
-//   }
-// }, [data])
+useEffect(() => {
+  if (data) {
+    const notification = new Notification('Nueva información agregada', {
+      body: 'Se ha agregado nueva información a la API'
+    })
+  }
+}, [data])
+
+
+    
+
+    // const { data, error, isLoading } = useSWR('/api/stock',fetcher,{refreshInterval: 100} )
+
+
+    
+
+    // // Mostrar notificación cuando se recibe una respuesta de la API
+    // useEffect(() => {
+    // if (data) {
+    //     const notification = new Notification('Nueva información agregada', {
+    //     body: 'Se ha agregado nueva información a la API'
+    //     })
+    // }
+    // }, [data])
 
     
 
