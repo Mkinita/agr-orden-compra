@@ -15,13 +15,13 @@ export default function AdminProducciones() {
     
 
 // Mostrar notificación cuando se recibe una respuesta de la API
-useEffect(() => {
-  if (data) {
-    const notification = new Notification('Nueva información agregada', {
-      body: 'Se ha agregado nueva información a la API'
-    })
-  }
-}, [data])
+// useEffect(() => {
+//   if (data) {
+//     const notification = new Notification('Nueva información agregada', {
+//       body: 'Se ha agregado nueva información a la API'
+//     })
+//   }
+// }, [data])
 
     
 
