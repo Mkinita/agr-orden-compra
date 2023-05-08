@@ -73,7 +73,7 @@ export default function InformeAgr() {
 
 
 
-          <h1 className="text-3xl font-black text-center">Produccion Actual</h1>
+          <h1 className="text-3xl font-black text-center">Producciones Actuales</h1>
             <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
             <p className="text-2xl my-10"></p>
             {data && data.length ? data.map(orden =>
@@ -100,32 +100,35 @@ export default function InformeAgr() {
                 <p className='text-center m-10'>Sin Produccion</p>
             }
                 
-            <div className='grid gap-3 grid-cols-2 md:grid-cols-3 2xl:grid-cols-4'>  
+            <div className='grid gap-2 grid-cols-2 md:grid-cols-2 2xl:grid-cols-2'>  
                 <div className="border border-solid border-lime-500">
-                    <p className="text-center uppercase font-bold text-2xl">Aserrdero</p>
+                    <p className="text-center uppercase font-bold text-xl">Aserrdero</p>
                     <p className="text-center text-lg">{formatoNumero(totalVolumen)} m³</p>
                     <p className="text-center text-sm">{formatoNumero(totalVolumen / 9)} m³ Por Horas </p>
                 </div>
                 <div className="border border-solid border-lime-500">
-                <p className="text-center uppercase font-bold text-2xl">Stacker</p>
+                <p className="text-center uppercase font-bold text-xl">Stacker</p>
                     <p className="text-center text-lg">{formatoNumero(totalVolumen01)} m³</p>
                     <p className="text-center text-sm">{formatoNumero(totalVolumen01 / 9)} m³ Por Horas </p>
                 </div>
                 <div className="border border-solid border-lime-500">
-                <p className="text-center uppercase font-bold text-2xl">Clasificado</p>
+                <p className="text-center uppercase font-bold text-xl">Clasificado</p>
                     <p className="text-center text-lg">{formatoNumero(totalVolumen)} m³</p>
                     <p className="text-center text-sm">{formatoNumero(totalVolumen / 9)} m³ Por Horas </p>
                 </div>
                 <div className="border border-solid border-lime-500">
-                <p className="text-center uppercase font-bold text-2xl">Secado</p>
+                <p className="text-center uppercase font-bold text-xl">Secado</p>
                     <p className="text-center text-lg">{formatoNumero(totalVolumen)} m³</p>
                     <p className="text-center text-sm">{formatoNumero(totalVolumen / 9)} m³ Por Horas </p>
                 </div>                
             </div>
 
-            <div className="text-center py-5">
-            <button className="text-black" onClick={calcularVolumen}>Calcular Volumen</button>
+            <div className="text-center py-5 hover:scale-110 text-black font-bold">
+                <button className="text-black border border-solid border-lime-500 p-2" onClick={calcularVolumen}>
+                    Generar Informe
+                </button>
             </div>
+
             
 
                 
