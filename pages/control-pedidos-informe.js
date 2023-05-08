@@ -41,7 +41,7 @@ export default function AdminPedidos() {
     return(
         <AdminLayoutInforme pagina={'Listado-OC'}>
             <div className="flex items-center">
-  <Image width={280} height={100} src="/assets/img/agr.png" alt="logo" className="text-left"/>
+  <Image width={280} height={100} src="/assets/img/AGRF.png" alt="logo" className="text-left"/>
   <div className='px-12'></div>
   <div className='px-10'></div>
   <div className='px-10'></div>

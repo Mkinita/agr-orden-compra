@@ -21,7 +21,7 @@ const Sidebar = () => {
 
     return(
         <>
-            <Image width={280} height={100} src="/assets/img/agr.png" alt="logo" className="m-auto"/>
+            <Image width={280} height={100} src="/assets/img/AGRF.png" alt="logo" className="m-auto"/>
 
             <div class="px-3 py-4 overflow-y-auto rounded bg-white">
                 <ul class="space-y-2">

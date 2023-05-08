@@ -37,13 +37,55 @@ export const SidebarAdmin = () => {
       <div class="px-3 py-4 overflow-y-auto rounded bg-white">
         <ul class="space-y-2">
 
+
+        <li>
+           <button
+            className="w-full flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase"
+            onClick={toggleVisibility4}
+                            
+            >
+               {isVisible4 ? '➖ Informes' : '📋 Informes'}
+            </button>
+                        
+                  
+            <div className="">
+            
+                {isVisible4 && (
+            <div className="p-2 space-y-1">
+
+
+           <li>
+              <Link href="/listado-aserradero" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📊
+                  <span class="ml-3">Informe Produccion</span>
+              </Link>
+           </li>
+
+
+           <Link href="/control-pedidos-informe" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📋
+                  <span class="ml-3">Informe Pedidos</span>
+              </Link>
+
+
+           
+
+
+           
+            </div>
+            
+                )}
+
+               </div>
+           </li>
+
         <li>
            <button
             className="w-full flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase"
             onClick={toggleVisibility3}
                             
             >
-               {isVisible3 ? '➖ Producciones' : '📋 Producciones'}
+               {isVisible3 ? '➖ Producciones Actuales' : '📋 Producciones Actuales'}
             </button>
                         
                   
@@ -55,32 +97,20 @@ export const SidebarAdmin = () => {
             <li>
                <Link href="/listado-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
                   📃
-                  <span class="ml-3">Produccion Actual</span>
+                  <span class="ml-3">Clasificacion</span>
                </Link>
             </li>
 
 
             <li>
-              <Link href="/listado-produciones-fecha" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📅
-                  <span class="ml-3">Buscar Produccion Por Fecha</span>
-              </Link>
-           </li>
+               <Link href="/empalillado-actual" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📃
+                  <span class="ml-3">STACKER</span>
+               </Link>
+            </li>
 
 
-           <li>
-              <Link href="/agregar-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                    ➕
-                  <span class="ml-3">Agregar Producciones</span>
-              </Link>
-           </li>
-
-
-           
-
-           
-
-
+    
            
             </div>
             
@@ -186,10 +216,7 @@ export const SidebarAdmin = () => {
 
               
 
-              <Link href="/agregar-pedido" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  ➕
-                  <span class="ml-3">Agregar Pedido</span>
-              </Link>
+              
 
               
             </div>
@@ -199,103 +226,17 @@ export const SidebarAdmin = () => {
                </div>
            </li>
 
-
-
-           <li>
-           <button
-            className="w-full flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase"
-            onClick={toggleVisibility2}
-                            
-            >
-               {isVisible2 ? '➖ Control-Ajustes' : '📋 Control-Ajustes'}
-            </button>
-                        
-                  
-            <div className="">
-            
-                {isVisible2 && (
-            <div className="p-2 space-y-1">
-
-           <li>
-           <Link href="/stock" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📝
-                  <span class="ml-3">Control Stock</span>
-              </Link>
-
-              
-           </li>
-           <li>
-           <Link href="/control-pedidos" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📝
-                  <span class="ml-3">Control Pedidos</span>
-              </Link>
-
-              
-           </li>
-
-           <li>
-           <Link href="/etiqueta-stock" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                🚚
-                  <span class="ml-3">Despacho</span>
-            </Link>
-
-              
-           </li>
-            </div>
-            
-                )}
-
-                
-
-               </div>
-           </li>
-
-
-
-
-
-
-
-           <li>
-           <button
-            className="w-full flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase"
-            onClick={toggleVisibility4}
-                            
-            >
-               {isVisible4 ? '➖ Informes' : '📋 Informes'}
-            </button>
-                        
-                  
-            <div className="">
-            
-                {isVisible4 && (
-            <div className="p-2 space-y-1">
-
-
-           <li>
-              <Link href="/listado-aserradero" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📊
-                  <span class="ml-3">Informe Produccion</span>
-              </Link>
-           </li>
-
-
-           <Link href="/control-pedidos-informe" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📋
-                  <span class="ml-3">Informe Pedidos</span>
-              </Link>
 
 
            
 
 
-           
-            </div>
-            
-                )}
 
-               </div>
-           </li>
+
+
+
+
+           
 
 
 

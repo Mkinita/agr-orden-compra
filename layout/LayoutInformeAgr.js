@@ -1,34 +1,15 @@
 import Head from "next/head";
-import SidebarAdmin from "../components/SidebarAdmin";
+import SidebarInformeAgr from "../components/SidebarInformeAgr";
 import Image from "next/image";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import ModalPedidos from "../components/ModalPedidos";
-import Modal from "react-modal"
-import useCombustible from "../hooks/useCombustible";
-import 'react-toastify/dist/ReactToastify.css'
 
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    width: '390px',
-    height: '350px',
-    maxWidth: '100%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
 
 export default function AdminLayout({ children, pagina }) {
-  const {modal} = useCombustible()
+  
   return (
     <>
       <Head>
-        <title>Control - {pagina}</title>
+        <title>AGRIFOR - {pagina}</title>
         <meta name="description" content="RestoApp" />
       </Head>
 
@@ -42,7 +23,7 @@ export default function AdminLayout({ children, pagina }) {
                     alt="imagen logotipo"
                 />      
 
-                <SidebarAdmin/>
+                <SidebarInformeAgr/>
             </aside>
 
             
@@ -53,11 +34,7 @@ export default function AdminLayout({ children, pagina }) {
                 </div>
             </main>
       </div>
-      {modal && (
-        <Modal isOpen={modal} style={customStyles}>
-          <ModalPedidos />
-        </Modal>
-      )}
+      
       <ToastContainer />
 
       
