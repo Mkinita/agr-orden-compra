@@ -102,8 +102,7 @@ export default function AdminProducciones() {
 
   return(
     <AdminLayoutInforme pagina={'Listado-OC'}>
-      <h1 className="text-3xl font-black text-center">Informe Produccion</h1>
-      <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
+      
       <ProduccionesEncabezado/>
       <p className="text-2xl my-10"></p>
       <div className='flex flex-col items-center justify-center'>

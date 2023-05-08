@@ -15,7 +15,8 @@ export default function Pedido() {
         nombre,setNombre,
         fecha,setFecha,
         volumen,setVolumen,
-        ingreso,setIngreso
+        ingreso,setIngreso,
+        ingreso01,setIngreso01
 
     } = useCombustible()
 
@@ -37,7 +38,27 @@ export default function Pedido() {
 
     const handleImagenChange = (e) => {
         setImagen(e.target.files[0])
-      }
+    }
+
+
+
+
+
+    const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
+      
+    const toggleVisibilityproveedor = () => {
+        setIsVisibleproveedor(!isVisibleproveedor);
+    };
+    const [cuadro, setCuadro] = useState(false);
+
+    const toggleCuadro = () => {
+        setCuadro(!cuadro);
+    };
+
+
+
+
+    
 
 
 
@@ -57,46 +78,65 @@ export default function Pedido() {
                     onSubmit={colocarProduccion}
                     class="text-center"
                 >
+                    <div className={`${isVisibleproveedor ? 'hidden' : ''}`}>
+                    <div className={`${cuadro ? 'hidden' : ''}`}>
+                            <div class="grid grid-cols-4 gap-4">
+                                <div>
+                                    <label for="nombre" class="block text-xs font-medium text-gray-700 mb-1">Area</label>
+                                    <select id="nombre" class="bg-gray-200 w-full p-2 rounded-md" value={nombre} onChange={e => setNombre(e.target.value)}>
+                                    <option value="">-</option>
+                                    <option value="ASERRADERO">ASERRADERO</option>
+                                    <option value="CLASIFICADO">CLASIFICADO</option>
+                                    <option value="STAKER">STAKER</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="fecha" class="block text-xs font-medium text-gray-700 mb-1">Fecha</label>
+                                    <input id="fecha" type="date" class="bg-gray-200 w-full p-2 rounded-md" value={fecha} onChange={e => setFecha(e.target.value)} />
+                                </div>
 
-                    <div class="grid grid-cols-4 gap-4">
+                                <div>
+                                    <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Ingreso</label>
+                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={ingreso} onChange={e => setIngreso(e.target.value)} />
+                                </div>
+                                <div>
+                                    <label for="volumen" class="block text-xs font-medium text-gray-700 mb-1">Produccion</label>
+                                    <input id="volumen" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={volumen} onChange={e => setVolumen(e.target.value)} />
+                                </div>
+                                
+                            </div>
+                        </div>       
+                    </div>
+
+
+                    {isVisibleproveedor && ( 
+                        <div class="grid grid-cols-5 gap-5">
                         <div>
                             <label for="nombre" class="block text-xs font-medium text-gray-700 mb-1">Area</label>
                             <select id="nombre" class="bg-gray-200 w-full p-2 rounded-md" value={nombre} onChange={e => setNombre(e.target.value)}>
                             <option value="">-</option>
-                            <option value="ASERRADERO">ASERRADERO</option>
-                            <option value="CLASIFICADO">CLASIFICADO</option>
-                            <option value="STAKER">STAKER</option>
-                            <option value="DESPACHO SECO">DESPACHO SECO</option>
-                            <option value="DESPACHO VERDE">DESPACHO VERDE</option>
-                            <option value="DESPACHO SERV">DESPACHO SERV</option>
-                            <option value="SECADO">SECADO</option>
+                            <option value="DESPACHO">DESPACHO</option>
                             </select>
                         </div>
                         <div>
                             <label for="fecha" class="block text-xs font-medium text-gray-700 mb-1">Fecha</label>
                             <input id="fecha" type="date" class="bg-gray-200 w-full p-2 rounded-md" value={fecha} onChange={e => setFecha(e.target.value)} />
                         </div>
-
                         <div>
-                            <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Ingreso</label>
+                            <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Seco</label>
                             <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={ingreso} onChange={e => setIngreso(e.target.value)} />
                         </div>
                         <div>
-                            <label for="volumen" class="block text-xs font-medium text-gray-700 mb-1">Produccion</label>
+                            <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Verde</label>
+                            <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={ingreso01} onChange={e => setIngreso01(e.target.value)} />
+                        </div>
+                        <div>
+                            <label for="volumen" class="block text-xs font-medium text-gray-700 mb-1">Servicio</label>
                             <input id="volumen" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={volumen} onChange={e => setVolumen(e.target.value)} />
                         </div>
                         
                     </div>
-
-
-
-
-
-
-
-                    
-
-                        
+                    )}
 
                     <div className="mt-6">
                             
@@ -111,8 +151,19 @@ export default function Pedido() {
             
                     
                 </form>
+
+
+                
                 
             </div>
+
+
+            <button
+                className="font-bold text-sm py-10"
+                onClick={toggleVisibilityproveedor}            
+            >
+                {isVisibleproveedor ? '➖' : 'Agregar Despachos ➕'}
+            </button>
 
             
 

@@ -273,7 +273,7 @@ export const SidebarAdmin = () => {
 
 
            <li>
-              <Link href="/informe-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+              <Link href="/listado-aserradero" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
                   📊
                   <span class="ml-3">Informe Produccion</span>
               </Link>

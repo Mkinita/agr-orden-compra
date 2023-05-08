@@ -1,10 +1,11 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import AdminLayoutInforme from "../layout/AdminLayoutInforme"
-import Produccion from '../components/Produccion'
+import ProduccionDespacho from '../components/ProduccionDespacho'
 import React, { useState, useEffect } from 'react';
 import {formatoNumero} from "helpers/formato";
 import { Bar } from 'react-chartjs-2';
+import Link from 'next/link'
 import  ProduccionesEncabezado from '../components/ProduccionesEncabezado'
 
 
@@ -12,8 +13,8 @@ import  ProduccionesEncabezado from '../components/ProduccionesEncabezado'
 
 export default function AdminProducciones() {
 
-  const fetcher = () => axios('/api/produccion-secado').then(datos => datos.data)
-  const { data, error, isLoading } = useSWR('/api/produccion-secado',fetcher,{refreshInterval: 100} )
+  const fetcher = () => axios('/api/produccion-despacho').then(datos => datos.data)
+  const { data, error, isLoading } = useSWR('/api/produccion-despacho',fetcher,{refreshInterval: 100} )
 
 
 
@@ -34,7 +35,7 @@ export default function AdminProducciones() {
 
 
   //función para traer los datos de la API
-  const URL = '/api/produccion-secado'
+  const URL = '/api/produccion-despacho'
   
   const showData = async () => {
       const response = await fetch(URL)
@@ -54,16 +55,18 @@ export default function AdminProducciones() {
 
   let totalVolumens = 0;
   let totalIngreso = 0;
+  let totalIngreso01 = 0;
+  let totaldespachos = 0;
 
   results.forEach((producciones) => {
     totalVolumens += parseFloat(producciones.volumen);
     totalIngreso += parseFloat(producciones.ingreso);
+    totalIngreso01 += parseFloat(producciones.ingreso01);
+    totaldespachos += parseFloat(producciones.ingreso01)+parseFloat(producciones.volumen)+parseFloat(producciones.ingreso)
   });
 
-  const resproceso = totalVolumens * 0.015
-  const despunte = totalVolumens * 0.02
-  const humedo = totalVolumens * 0.01
-  const totaltotal = totalVolumens + resproceso + despunte + humedo
+
+  
   const [currentMonth, setCurrentMonth] = useState('');
 
   useEffect(() => {
@@ -73,31 +76,9 @@ export default function AdminProducciones() {
   }, []);
 
 
-  const data2 = {
-    labels: results.map((producciones) => producciones.fecha),
-    datasets: [
-      {
-        label: 'Produccion Secado',
-        data: results.map((producciones) => producciones.volumen),
-        backgroundColor: ' #a3e635',
-        borderColor: ' #a3e636',
-        borderWidth: 1,
-        barPercentage: 0.3, // Ancho de las barras
-        categoryPercentage: 1, // Espacio entre barras
-      },
-    ],
-  };
+ 
 
-  const [isVisibleproveedor, setIsVisibleproveedor] = useState(false);
-      
-  const toggleVisibilityproveedor = () => {
-    setIsVisibleproveedor(!isVisibleproveedor);
-  };
-  const [cuadro, setCuadro] = useState(false);
-
-  const toggleCuadro = () => {
-    setCuadro(!cuadro);
-  };
+  
 
 
   return(
@@ -106,52 +87,40 @@ export default function AdminProducciones() {
       <ProduccionesEncabezado/>
       <p className="text-2xl my-10"></p>
       <div className='flex flex-col items-center justify-center'>
-        <h2 className="text-2xl font-black text-center">Secado</h2>
+        <h2 className="text-2xl font-black text-center">Despacho</h2>
         <input value={search} onChange={searcher} type="text" placeholder='Filtrar Por Fecha 🔍' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 
       </div>
 
-      <div className={`${isVisibleproveedor ? 'hidden' : ''}`}>
-        <div className={`${cuadro ? 'hidden' : ''}`}>
-          <div className="grid gap-1 grid-cols-3 md:grid-cols-4 2xl:grid-cols-4 text-center uppercase font-bold text-sm">
-            <div>Fecha</div>
-            <div className="hidden md:block">Ingreso</div>
-            <div>Produccion</div>
-            <div className="">%</div>
-          </div>
+     
+        <div class="grid gap-1 grid-cols-5 md:grid-cols-5 2xl:grid-cols-5 text-center uppercase font-bold text-sm">
+        <div class="px-1 md:px-2 py-2">Fecha</div>
+        <div class="px-1 md:px-2 py-2">Seco</div>
+        <div class="px-1 md:px-2 py-2">Verde</div>
+        <div class="px-1 md:px-2 py-2">Servicio</div>
+        <div class="px-1 md:px-2 py-2">Total</div>
+        </div>
+
 
           {data && data.length ? results.map(producciones =>
-            <Produccion
+            <ProduccionDespacho
               key={producciones.id}
               producciones={producciones} 
             />
             ):
             <p className='text-center m-10'>Sin Produccion</p>
           }
-          <div className="grid gap-1 grid-cols-3 md:grid-cols-4 2xl:grid-cols-4 text-center uppercase font-bold text-sm py-2">
+          <div className="grid gap-1 grid-cols-5 md:grid-cols-5 2xl:grid-cols-5 text-center uppercase font-bold text-sm py-2">
             <div>Total</div>
-            <div className="hidden md:block">{formatoNumero(totalIngreso)}</div>
+            <div className="">{formatoNumero(totalIngreso)}</div>
+            <div className="">{formatoNumero(totalIngreso01)}</div>
             <div>{formatoNumero(totalVolumens)}</div>
-            <div className="">{formatoNumero(totalVolumens / totalIngreso * 100)}%</div>
+            <div className="">{formatoNumero(totaldespachos)}</div>
           </div>
-        </div>
-      </div>
+        
 
       
 
-            <button
-              className="font-bold text-sm py-10"
-              onClick={toggleVisibilityproveedor}            
-            >
-              {isVisibleproveedor ? '➖' : 'Generar Gafico 📊'}
-            </button>
-
-            {isVisibleproveedor && ( 
-            <div className='flex justify-center items-center gap-2'>
-            <div className='w-1/2 p-2 m-auto items-center'>
-              <Bar className='' data={data2} />
-            </div>
-            </div>
-            )}
+            
  
     </AdminLayoutInforme>
   ) 

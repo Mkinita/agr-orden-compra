@@ -103,9 +103,20 @@ model Producciones {
   nombre String
   volumen String
   ingreso String?
+  ingreso01 String?
   fecha String
   estado Boolean  @default(false)
 }
+
+
+// model Despacho {
+//   id Int @id @default(autoincrement())
+//   seco String
+//   verde String
+//   servicio String
+//   fecha String
+//   estado Boolean  @default(false)
+// }
 
 
 

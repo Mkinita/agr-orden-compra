@@ -25,6 +25,7 @@ export default async function handler(req, res) {
     fecha: req.body.fecha,
     volumen: req.body.volumen,
     ingreso: req.body.ingreso,
+    ingreso01: req.body.ingreso01,
       },
     });
     res.json(producciones);

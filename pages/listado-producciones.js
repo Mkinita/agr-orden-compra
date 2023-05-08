@@ -83,37 +83,7 @@ export default function AdminProducciones() {
   setTotalCantidad(suma);
   };
 
-  
 
-
-//  // Agrupar los datos por calidad
-// const ordenesPorCalidad = results.reduce((acumulador, orden) => {
-//   const { nombre, cantidad } = orden;
-//   if (!acumulador[nombre]) {
-//     acumulador[nombre] = 0;
-//   }
-//   acumulador[nombre] += cantidad;
-//   return acumulador;
-// }, {});
-
-// // Crear un array con los nombres de las calidades y los totales de ventas
-// const nombresCalidades = Object.keys(ordenesPorCalidad);
-// const totalVentasPorCalidad = nombresCalidades.map(nombre => ordenesPorCalidad[nombre]);
-
-// // Crear el objeto de datos para el gráfico
-// const data2 = {
-//   labels: nombresCalidades,
-//   datasets: [
-//     {
-//       label: 'Ventas',
-//       // data: results.map((orden) => orden.cantidad),
-//       data:[totalCantidad],
-//       backgroundColor: 'rgba(255, 99, 132, 0.2)',
-//       borderColor: 'rgba(255, 99, 132, 1)',
-//       borderWidth: 1,
-//     },
-//   ],
-// };
 
 
 function calcularVolumen() {

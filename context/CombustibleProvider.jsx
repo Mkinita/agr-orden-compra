@@ -42,6 +42,7 @@ const CombustibleProvider = ({children}) => {
     const [volumen, setVolumen] = useState('')
     const [fecha, setFecha] = useState('')
     const [ingreso, setIngreso] = useState('')
+    const [ingreso01, setIngreso01] = useState('')
 
 
 
@@ -305,12 +306,13 @@ const CombustibleProvider = ({children}) => {
         e.preventDefault()
 
         try {
-           await axios.post('/api/producciones',{nombre,volumen,fecha,ingreso})
+           await axios.post('/api/producciones',{nombre,volumen,fecha,ingreso,ingreso01})
             // Resetear la app
             setNombre('')
             setVolumen('')
             setFecha('')
             setIngreso('')
+            setIngreso01('')
             toast.success('Agregando Produccion⏳')
 
             setTimeout(() =>{
@@ -375,7 +377,8 @@ const CombustibleProvider = ({children}) => {
             fecha,setFecha,
             volumen,setVolumen,
             colocarProduccion,
-            ingreso,setIngreso
+            ingreso,setIngreso,
+            ingreso01,setIngreso01
             // pedidos,
             // fechas,
             // fechauno,

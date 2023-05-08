@@ -78,7 +78,7 @@ export default function AdminProducciones() {
     labels: results.map((producciones) => producciones.fecha),
     datasets: [
       {
-        label: 'Produccion Clasificado',
+        label: 'Produccion Aserradero',
         data: results.map((producciones) => producciones.volumen),
         backgroundColor: ' #a3e635',
         borderColor: ' #a3e636',
@@ -103,8 +103,7 @@ export default function AdminProducciones() {
 
   return(
     <AdminLayoutInforme pagina={'Listado-OC'}>
-      <h1 className="text-3xl font-black text-center">Informe Produccion</h1>
-      <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
+      
       <ProduccionesEncabezado/>
       <p className="text-2xl my-10"></p>
       <div className='flex flex-col items-center justify-center'>
@@ -148,12 +147,14 @@ export default function AdminProducciones() {
             </button>
 
             {isVisibleproveedor && ( 
-            <div className='flex justify-center items-center gap-2'>
-            <div className='w-1/2 p-2 m-auto items-center'>
-              <Bar className='' data={data2} />
-            </div>
-            </div>
-            )}
+  <div className='flex justify-center items-center gap-2'>
+    <div className='w-full sm:w-1/2 p-2 m-auto items-center'>
+      <Bar className='' data={data2} />
+    </div>
+  </div>
+)}
+
+
  
     </AdminLayoutInforme>
   ) 
