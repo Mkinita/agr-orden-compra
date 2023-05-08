@@ -22,7 +22,7 @@ export default function Pedido() {
 
 
     const comprobarPedido = useCallback(() => {
-        return volumen === "" || volumen.length <2;
+        return volumen === "" || volumen.length <1;
         
     },[volumen])
 
@@ -88,6 +88,7 @@ export default function Pedido() {
                                     <option value="ASERRADERO">ASERRADERO</option>
                                     <option value="CLASIFICADO">CLASIFICADO</option>
                                     <option value="STAKER">STAKER</option>
+                                    <option value="SECO">SECO</option>
                                     </select>
                                 </div>
                                 <div>

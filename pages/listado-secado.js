@@ -129,7 +129,7 @@ export default function AdminProducciones() {
           }
           <div className="grid gap-1 grid-cols-3 md:grid-cols-4 2xl:grid-cols-4 text-center uppercase font-bold text-sm py-2">
             <div>Total</div>
-            <div className="hidden md:block">{formatoNumero(totalIngreso)}</div>
+            <div>{formatoNumero(totalIngreso)}</div>
             <div>{formatoNumero(totalVolumens)}</div>
             <div className="">{formatoNumero(totalVolumens / totalIngreso * 100)}%</div>
           </div>
