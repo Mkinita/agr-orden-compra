@@ -79,45 +79,14 @@ export const SidebarAdmin = () => {
                </div>
            </li>
 
-        <li>
-           <button
-            className="w-full flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase"
-            onClick={toggleVisibility3}
-                            
-            >
-               {isVisible3 ? '➖ Producciones Actuales' : '📋 Producciones Actuales'}
-            </button>
-                        
-                  
-            <div className="">
-            
-                {isVisible3 && (
-            <div className="p-2 space-y-1">
 
-            <li>
-               <Link href="/listado-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📃
-                  <span class="ml-3">Clasificacion</span>
-               </Link>
+           <li>
+                <Link href="/producciones-actuales" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                    <span class="">⌚ Producciones Actuales</span>
+                </Link>
             </li>
 
-
-            <li>
-               <Link href="/empalillado-actual" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📃
-                  <span class="ml-3">STACKER</span>
-               </Link>
-            </li>
-
-
-    
-           
-            </div>
-            
-                )}
-
-               </div>
-           </li>
+        
 
 
         <li>
@@ -163,10 +132,7 @@ export const SidebarAdmin = () => {
            </li>
 
            <li>
-           <Link href="/stock-terminado" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📝
-                  <span class="ml-3">Stock Total</span>
-              </Link>
+           
 
               
            </li>
@@ -178,71 +144,7 @@ export const SidebarAdmin = () => {
                </div>
            </li>
            
-
-           <li>
-           <button
-            className="w-full flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase"
-            onClick={toggleVisibility}
-                            
-            >
-               {isVisible ? '➖ Pedidos' : '📋 Pedidos'}
-            </button>
-                        
-                  
-            <div className="">
-            
-                {isVisible && (
-            <div className="p-2 space-y-1">
-                <Link href="/lista-pedidos" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📋
-                  <span class="ml-3">Central</span>
-              </Link>
-
-              <Link href="/lista-pedidos-rema" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📋
-                  <span class="ml-3">REMA</span>
-              </Link>
-
-              <Link href="/lista-pedidos-servicio" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📋
-                  <span class="ml-3">COL</span>
-              </Link>
-
-              <Link href="/lista-pedidos-verde" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📋
-                  <span class="ml-3">VERDE</span>
-              </Link>
-
-
-              
-
-              
-
-              
-            </div>
-            
-                )}
-
-               </div>
-           </li>
-
-
-
            
-
-
-
-
-
-
-
-           
-
-
-
-           <Link href="/informes-agr" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                <span class="ml-3">💀</span>
-            </Link>
 
 
 
