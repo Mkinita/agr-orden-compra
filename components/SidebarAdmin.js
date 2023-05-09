@@ -55,32 +55,16 @@ export const SidebarAdmin = () => {
             <li>
                <Link href="/listado-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
                   📃
-                  <span class="ml-3">Produccion Actual</span>
+                  <span class="ml-3">Produccion Actual Clasificado</span>
                </Link>
             </li>
 
-
             <li>
-              <Link href="/listado-produciones-fecha" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                  📅
-                  <span class="ml-3">Buscar Produccion Por Fecha</span>
-              </Link>
-           </li>
-
-
-           <li>
-              <Link href="/agregar-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                    ➕
-                  <span class="ml-3">Agregar Producciones</span>
-              </Link>
-           </li>
-
-
-           
-
-           
-
-
+               <Link href="/empalillado-actual" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📃
+                  <span class="ml-3">Produccion Actual Stacker</span>
+               </Link>
+            </li>
            
             </div>
             
@@ -217,10 +201,10 @@ export const SidebarAdmin = () => {
             <div className="p-2 space-y-1">
 
            <li>
-           <Link href="/stock" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+           {/* <Link href="/stock" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
                   📝
                   <span class="ml-3">Control Stock</span>
-              </Link>
+              </Link> */}
 
               
            </li>
@@ -240,6 +224,13 @@ export const SidebarAdmin = () => {
             </Link>
 
               
+           </li>
+
+           <li>
+              <Link href="/agregar-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                    ➕
+                  <span class="ml-3">Agregar Producciones</span>
+              </Link>
            </li>
             </div>
             
@@ -300,7 +291,8 @@ export const SidebarAdmin = () => {
 
 
            <Link href="/informes-agr" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
-                <span class="ml-3">💀</span>
+                💀
+                <span class="ml-3">Visualizador</span>
             </Link>
 
 

@@ -108,15 +108,24 @@ model Producciones {
   estado Boolean  @default(false)
 }
 
+model Secado {
+  id Int @id @default(autoincrement())
+  nombre String
+  espesor String
+  ancho String
+  largo String
+  piezas String
+  calidad String
+  cantidad String
+  fecha String
+  estado Boolean  @default(false)
+}
 
-// model Despacho {
-//   id Int @id @default(autoincrement())
-//   seco String
-//   verde String
-//   servicio String
-//   fecha String
-//   estado Boolean  @default(false)
-// }
+
+
+
+
+
 
 
 

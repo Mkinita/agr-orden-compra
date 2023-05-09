@@ -73,9 +73,9 @@ export default function InformeAgr() {
 
 
 
-          <h1 className="text-3xl font-black text-center">Producciones Actuales</h1>
-            <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
-            <p className="text-2xl my-10"></p>
+          <h1 className="text-3xl font-black text-center py-2">Producciones Actuales</h1>
+            <p className='py-2 text-center pb-8'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
+            
             {data && data.length ? data.map(orden =>
                 
                 <InformeClasificado
@@ -85,7 +85,7 @@ export default function InformeAgr() {
                 />
 
                 ):
-                <p className='text-center m-10'>Sin Produccion</p>
+                <p></p>
             }
 
             {dataEmpalillado && dataEmpalillado.length ? dataEmpalillado.map(emp =>
@@ -97,10 +97,10 @@ export default function InformeAgr() {
                 />
 
                 ):
-                <p className='text-center m-10'>Sin Produccion</p>
+                <p className=''></p>
             }
                 
-            <div className='grid gap-2 grid-cols-2 md:grid-cols-2 2xl:grid-cols-2'>  
+            <div className='grid gap-2 grid-cols-1 md:grid-cols-2 2xl:grid-cols-2'>  
                 <div className="border border-solid border-lime-500">
                     <p className="text-center uppercase font-bold text-xl">Aserrdero</p>
                     <p className="text-center text-lg">{formatoNumero(totalVolumen)} m³</p>

@@ -27,12 +27,7 @@ export default async function handler(req, res) {
       },
     });
 
-    // // Mostrar notificación solo en el lado del cliente
-    // if (typeof window !== "undefined" && "Notification" in window && Notification.permission === "granted") {
-    //   new Notification("Nuevo registro guardado", {
-    //     body: `Se ha guardado el registro con id ${stock.id}`,
-    //   });
-    // }
+  
 
     res.json(stock);
   }

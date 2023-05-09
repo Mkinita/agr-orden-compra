@@ -328,6 +328,35 @@ const CombustibleProvider = ({children}) => {
     }
 
 
+    const colocarSecado = async (e) => {
+        e.preventDefault()
+
+        try {
+           await axios.post('/api/secado',{nombre,espesor,ancho,largo,piezas,calidad,cantidad,fecha})
+            // Resetear la app
+            setNombre('')
+            setFecha('')
+            setEspesor('')
+            setAncho('')
+            setLargo('')
+            setPiezas('')
+            setCalidad('')
+            setCantidad('')
+            toast.success('Agregando ⏳')
+
+            setTimeout(() =>{
+                router.push('/dentro-camaras')
+            },3000)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
+        console.log('agregando orden')
+    }
+
+
 
     return(
         <CombustibleContext.Provider
@@ -378,7 +407,8 @@ const CombustibleProvider = ({children}) => {
             volumen,setVolumen,
             colocarProduccion,
             ingreso,setIngreso,
-            ingreso01,setIngreso01
+            ingreso01,setIngreso01,
+            colocarSecado
             // pedidos,
             // fechas,
             // fechauno,

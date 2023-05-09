@@ -1,11 +1,7 @@
-import { useEffect, useCallback, useState } from "react"
-import useCombustible from "../hooks/useCombustible"
+
 import LayoutInformeAgr from "../layout/LayoutInformeAgr"
-import useSWR from 'swr'
-import axios from 'axios'
-import InformeClasificado from '../components/InformeClasificado'
-import {formatoNumero} from "helpers/formato";
-import EmpalilladoActual from '../components/EmpalilladoActual'
+import Image from "next/image"
+
 
 
 
@@ -17,15 +13,9 @@ export default function InformeAgr() {
    return (
         
         <LayoutInformeAgr pagina='Informe-agr'>
-
-
-
-
-         
-                
-
-                
-
+         <div className="py-4">
+            <Image width={380} height={200} src="/assets/img/inicioadmin.gif" alt="logo" className="m-auto"/>
+         </div>
         </LayoutInformeAgr>
         
         
