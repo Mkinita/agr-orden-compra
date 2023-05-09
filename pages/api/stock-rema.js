@@ -5,7 +5,8 @@ export default async function handler(req, res) {
   //Obtener Ordenes
   const stocks = await prisma.stock.findMany({
     where: {
-      nombre:'REMA'
+      nombre:'REMA',
+      estado:false
     }
   })
   
