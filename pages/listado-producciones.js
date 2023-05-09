@@ -99,7 +99,7 @@ function calcularVolumen() {
 {/* <Bar data={data2} /> */}
           <h1 className="text-3xl font-black text-center">Produccion Actual</h1>
             <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
-            <div className='flex justify-center items-center w-1/2 m-auto gap-2 border border-solid border-amber-400 hover:scale-95 rounded-xl'>
+            <div className='flex justify-center items-center  m-auto gap-2 border border-solid border-amber-400 hover:scale-95 rounded-xl'>
               <button className="py-2 px-4 text-black " onClick={calcularVolumen}>Calcular Volumen</button>
               <p className="">{formatoNumero(totalVolumen)} m³</p>
               <p className="">Cantidad {formatoNumero(totalCantidad)}</p>
