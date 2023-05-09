@@ -5,9 +5,10 @@ export default async function handler(req, res) {
   //Obtener Ordenes
   const secados = await prisma.secado.findMany({
     where: {
-        nombre:'CAMARA 1',
+        nombre:'CAMARA 3',
         estado:false
-      }
+      },
+      
   })
 
   res.status(200).json(secados);

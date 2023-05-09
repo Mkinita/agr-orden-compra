@@ -85,7 +85,10 @@ function calcularVolumen() {
     <Layout pagina={'Listado-OC'}>
           <h1 className="text-3xl font-black text-center">Produccion Actual</h1>
             <p className='py-2 text-center'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
-
+            <div className='flex justify-center items-center w-1/2 m-auto gap-2 border border-solid border-amber-400 hover:scale-95 rounded-xl'>
+              <button className="py-2 px-4 text-black " onClick={calcularVolumen}>Calcular Volumen</button>
+              <p className="">{formatoNumero(totalVolumen)} m³</p>
+            </div>
             <p className="text-2xl my-10"></p>
             <div className='mt-auto'>
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Escuadría' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
@@ -103,12 +106,6 @@ function calcularVolumen() {
                 <p className='text-center m-10'>Sin Produccion</p>
             }
 
-
-                
-            <div className='flex justify-center items-center gap-2'>
-              <button className="my-4 py-2 px-4 text-black " onClick={calcularVolumen}>Calcular Volumen</button>
-              <p className="">{formatoNumero(totalVolumen)}m³</p>
-            </div>
  
     </Layout>
 
