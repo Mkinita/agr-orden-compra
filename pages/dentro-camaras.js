@@ -99,7 +99,7 @@ function calcularVolumen() {
                 
 
 
-            <div className='grid gap-2 grid-cols-1 md:grid-cols-2 2xl:grid-cols-2'>  
+            <div className='grid gap-2 grid-cols-2 md:grid-cols-2 2xl:grid-cols-2'>  
                 <div className="border border-solid border-lime-500 rounded-xl">
                     <p className="text-center uppercase font-bold text-xl">Camara 1</p>
                     <div className='grid gap-2 grid-cols-5 md:grid-cols-5 2xl:grid-cols-5 py-2'>
