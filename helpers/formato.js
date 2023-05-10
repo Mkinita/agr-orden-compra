@@ -1,5 +1,5 @@
 const formatoNumero = (num) => {
-  return num.toString().slice(0,4);
+  return num.toString().slice(0,5);
 }
 
 export {

@@ -176,7 +176,7 @@ export default function InformeAgr() {
                             className="text-center py-2 hover:scale-110 text-black font-bold m-auto  w-full"
                             onClick={toggleVisibilityproveedor}            
                             >
-                            {isVisibleproveedor ? '➖' : 'Camaras Secado'}
+                            {isVisibleproveedor ? '➖' : 'Camaras'}
                         </button>
                     </div>
                     {isVisibleproveedor && (
