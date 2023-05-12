@@ -6,6 +6,7 @@ const Sidebar = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isVisible1, setIsVisible1] = useState(false);
     const [isVisible2, setIsVisible2] = useState(false);
+    const [isVisible3, setIsVisible3] = useState(false);
 
        
     const toggleVisibility = () => {
@@ -19,6 +20,11 @@ const Sidebar = () => {
 
       const toggleVisibility2 = () => {
         setIsVisible2(!isVisible2);
+      };
+
+
+      const toggleVisibility3 = () => {
+        setIsVisible3(!isVisible3);
       };
     
  
@@ -211,11 +217,57 @@ const Sidebar = () => {
                </div>
            </li>
 
+
+           <li>
+           <button
+            className="flex w-full items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase"
+            onClick={toggleVisibility3}
+                            
+            >
+               {isVisible3 ? '➖ ASERRADERO' : '📋 ASERRADERO'}
+            </button>
+                        
+                  
+            <div className="">
+            
+                {isVisible3 && (
+            <div className="p-2 space-y-1">
+                
+
+                
+
+                <li>
+                        <Link href="/ingreso-aserradero" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            ➕
+                            <span class="ml-3">Ingreso Produccion</span>
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link href="/aserradero-actual" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            📆
+                            <span class="ml-3">Produccion Actual</span>
+                        </Link>
+                    </li>
+
+                    
+
+
+            </div>
+            
+                )}
+
+               </div>
+           </li>
+
            
 
 
 
-           <li>
+                    
+
+
+                    <li>
                         <Link href="/stock-terminado" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
                             🔧
                             <span class="ml-3">Stock / Pedidos</span>

@@ -358,6 +358,34 @@ const CombustibleProvider = ({children}) => {
 
 
 
+    const colocarAserradero = async (e) => {
+        e.preventDefault()
+
+        try {
+           await axios.post('/api/aserradero',{espesor,ancho,largo,piezas,calidad,cantidad,fecha: new Date()})
+            // Resetear la app
+            setEspesor('')
+            setAncho('')
+            setLargo('')
+            setPiezas('')
+            setCalidad('')
+            setCantidad('')
+            toast.success('Agregando ⏳')
+
+            setTimeout(() =>{
+                router.push('/aserradero-actual')
+            },2000)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
+        console.log('agregando orden')
+    }
+
+
+
     return(
         <CombustibleContext.Provider
         value={{
@@ -408,7 +436,8 @@ const CombustibleProvider = ({children}) => {
             colocarProduccion,
             ingreso,setIngreso,
             ingreso01,setIngreso01,
-            colocarSecado
+            colocarSecado,
+            colocarAserradero
             // pedidos,
             // fechas,
             // fechauno,

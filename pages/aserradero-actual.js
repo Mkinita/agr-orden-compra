@@ -1,15 +1,15 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import Layout from "../layout/Layout"
-import EmpalilladoActual from '../components/EmpalilladoActual'
+import AserraderoActual from '../components/AserraderoActual'
 import Tabla from '@/components/Tabla'
 import React, { useState, useEffect } from 'react';
 import {formatoNumero} from "helpers/formato";
 
 export default function AdminProducciones() {
 
-  const fetcher = () => axios('/api/empalillado-actual').then(datos => datos.data)
-  const { data, error, isLoading } = useSWR('/api/empalillado-actual',fetcher,{refreshInterval: 100} )
+  const fetcher = () => axios('/api/aserradero-actual').then(datos => datos.data)
+  const { data, error, isLoading } = useSWR('/api/aserradero-actual',fetcher,{refreshInterval: 100} )
 
 
 
@@ -20,7 +20,7 @@ export default function AdminProducciones() {
   const [data1, setData1] = useState([]);
     useEffect(() => {
       async function fetchData() {
-      const response1 = await fetch('/api/empalillado-actual');
+      const response1 = await fetch('/api/aserradero-actual');
       const data1 = await response1.json();
       setData1(data1);
     }
@@ -30,7 +30,7 @@ export default function AdminProducciones() {
 
 
   //función para traer los datos de la API
-  const URL = '/api/empalillado-actual'
+  const URL = '/api/aserradero-actual'
   
   const showData = async () => {
       const response = await fetch(URL)
@@ -61,8 +61,8 @@ export default function AdminProducciones() {
 
   const sumarVolumenes = () => {
     let suma = 0;
-    results.forEach((emp) => {
-        suma += emp.espesor * emp.ancho * emp.largo * emp.piezas * emp.cantidad / 1000000;
+    results.forEach((asr) => {
+        suma += asr.espesor * asr.ancho * asr.largo * asr.piezas * asr.cantidad / 1000000;
       
     });
     setTotalVolumen(suma);
@@ -94,11 +94,11 @@ function calcularVolumen() {
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Escuadría' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>
             <Tabla/>
-            {data && data.length ? results.map(emp =>
+            {data && data.length ? results.map(asr =>
                 
-                <EmpalilladoActual
-                    key={emp.id}
-                    emp={emp}
+                <AserraderoActual
+                    key={asr.id}
+                    asr={asr}
                     
                 />
 

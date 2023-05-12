@@ -3,8 +3,8 @@ import {formatoNumero} from "helpers/formato"
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
-const ListadoProduccion = ({emp}) => {
-    const {id, nombre, total, pedido, fecha, folio, descripcion,espesor,ancho,largo,cantidad,calidad,piezas} = emp
+const ListadoProduccion = ({asr}) => {
+    const {id, nombre, total, pedido, fecha, folio, descripcion,espesor,ancho,largo,cantidad,calidad,piezas} = asr
 
     
 

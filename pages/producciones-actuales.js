@@ -18,8 +18,13 @@ export default function InformeAgr() {
     const fetcherEmpalillado = () => axios('/api/empalillado-actual').then(datos => datos.data)
     const { data: dataEmpalillado, error: errorEmpalillado, isLoading: isLoadingEmpalillado } = useSWR('/api/empalillado-actual', fetcherEmpalillado, {refreshInterval: 100})
 
+    const fetcherAserradero = () => axios('/api/aserradero-actual').then(datos => datos.data)
+    const { data: dataAserradero, error: errorAserradero, isLoading: isLoadingAserradero } = useSWR('/api/aserradero-actual', fetcherAserradero, {refreshInterval: 100})
+
+
     const [totalVolumen, setTotalVolumen] = useState(0);
-    const [totalVolumen01, setTotalVolumen01] = useState(0);
+    const [totalVolumen01, setTotalVolumen01] = useState(0)
+    const [totalVolumen02, setTotalVolumen02] = useState(0);
 
 
     const sumarVolumenes = () => {
@@ -39,6 +44,17 @@ export default function InformeAgr() {
           
         });
         setTotalVolumen01(sumas);
+    };
+
+
+
+    const sumarVolumenesasr = () => {
+        let sumas = 0;
+        dataAserradero.forEach((emp) => {
+            sumas += emp.espesor * emp.ancho * emp.largo * emp.piezas * emp.cantidad / 1000000;
+          
+        });
+        setTotalVolumen02(sumas);
     };
 
 
@@ -100,6 +116,7 @@ export default function InformeAgr() {
     function calcularVolumen() {
     sumarVolumenes();
     sumarVolumenesemp();
+    sumarVolumenesasr();
     }
 
 
@@ -148,8 +165,8 @@ export default function InformeAgr() {
                     <div className='grid gap-2 grid-cols-1 md:grid-cols-3 2xl:grid-cols-3'>  
                         <div className="border border-solid border-lime-500">
                             <p className="text-center uppercase font-bold text-xl">Aserradero</p>
-                            <p className="text-center text-lg">{formatoNumero(totalVolumen)} m³</p>
-                            <p className="text-center text-sm">{formatoNumero(totalVolumen / 9)} m³ Por Horas </p>
+                            <p className="text-center text-lg">{formatoNumero(totalVolumen02)} m³</p>
+                            <p className="text-center text-sm">{formatoNumero(totalVolumen02 / 9)} m³ Por Horas </p>
                         </div>
                         <div className="border border-solid border-lime-500">
                         <p className="text-center uppercase font-bold text-xl">Stacker</p>

@@ -123,6 +123,20 @@ model Secado {
 
 
 
+model Asr {
+  id Int @id @default(autoincrement())
+  espesor String
+  ancho String
+  largo String
+  piezas String
+  calidad String
+  cantidad String
+  fecha DateTime
+  estado Boolean  @default(false)
+}
+
+
+
 
 
 
