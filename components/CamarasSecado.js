@@ -53,9 +53,7 @@ const ListadoProduccion = ({seco}) => {
             <td className=" py-1 text-center uppercase font-bold  w-1/5">{cantidad}</td>
             <td className=" py-1 text-center uppercase font-bold  w-1/5">{calidad}</td>
             <td className=" py-1 text-center uppercase font-bold  w-1/5">{formatoNumero(resultado)}</td>
-          </tr>
-          <tr className="">
-            <td colspan="5" className="py-2"><button className="px-2 py-2 border rounded-xl border-solid border-lime-500 hover:scale-110 text-black" type="button" onClick={secadolisto}>✔️Finalizar Proceso✔️</button></td>
+            <td colspan="5" className="py-1 text-center uppercase font-bold  w-1/5"><button className="py-2 border rounded-xl border-solid border-lime-500 hover:scale-110 text-black px-2" type="button" onClick={secadolisto}>✔️</button></td>
           </tr>
         </tbody>
       </table>

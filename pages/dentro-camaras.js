@@ -5,6 +5,7 @@ import CamarasSecado from '../components/CamarasSecado'
 import React, { useState, useEffect } from 'react';
 import {formatoNumero} from "helpers/formato";
 
+
 export default function AdminProducciones() {
 
   const fetcher = () => axios('/api/camara1').then(datos => datos.data)
@@ -99,15 +100,16 @@ function calcularVolumen() {
                 
 
 
-            <div className='grid gap-2 grid-cols-2 md:grid-cols-2 2xl:grid-cols-2'>  
+            <div className='grid gap-2 grid-cols-1 md:grid-cols-2 2xl:grid-cols-2'>  
                 <div className="border border-solid border-lime-500 rounded-xl">
                     <p className="text-center uppercase font-bold text-xl">Camara 1</p>
-                    <div className='grid gap-2 grid-cols-5 md:grid-cols-5 2xl:grid-cols-5 py-2'>
-                        <p className="text-center uppercase font-bold text-xs">Ingreso</p>
-                        <p className="text-center uppercase font-bold text-xs ">Detalle</p>
-                        <p className="text-center uppercase font-bold text-xs">Cantidad</p>
-                        <p className="text-center uppercase font-bold text-xs">Calidad</p>
-                        <p className="text-center uppercase font-bold text-xs">m³</p>
+                    <div className='grid gap-1 grid-cols-6 md:grid-cols-6 2xl:grid-cols-6 py-2'>
+                        <p className="text-center  font-bold text-xs">Fecha</p>
+                        <p className="text-center  font-bold text-xs ">Detalle</p>
+                        <p className="text-center  font-bold text-xs">Cantidad</p>
+                        <p className="text-center  font-bold text-xs">Calidad</p>
+                        <p className="text-center  font-bold text-xs">Volumen</p>
+                        <p className="text-center  font-bold text-xs">Finalizar</p> 
                     </div>  
                     
                     
