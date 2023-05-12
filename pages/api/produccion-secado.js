@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   //Obtener Ordenes
   const produc = await prisma.producciones.findMany({
     where: {
-        nombre:'SECADO'
+        nombre:'SECO'
       },
     orderBy: {
       id: "asc",
