@@ -43,10 +43,10 @@ export default function Home() {
     <Layout pagina={`Inicio - Producto`}>
       <Head>
         <meta name="description" content="Carlos Jerez" />
-        <link rel="icon" href="/CJ-.png" />
-        <title>Control Produccion CJ</title>
-        <meta property="og:image" content="/CJ-.png" />
-        <meta name="twitter:image" content="/CJ-.png" />
+        <link rel="icon" href="/CJ.png" />
+        <title>Control Produccion AGR</title>
+        <meta property="og:image" content="/CJ.png" />
+        <meta name="twitter:image" content="/CJ.png" />
       </Head>
   
       <p className='text-2xl mx-5 my-3 text-center'>
