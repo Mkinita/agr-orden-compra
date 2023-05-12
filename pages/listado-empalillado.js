@@ -107,7 +107,7 @@ export default function AdminProducciones() {
       <ProduccionesEncabezado/>
       <p className="text-2xl my-10"></p>
       <div className='flex flex-col items-center justify-center'>
-        <h2 className="text-2xl font-black text-center">Staker</h2>
+        <h2 className="text-2xl font-black text-center">Stacker</h2>
         <input value={search} onChange={searcher} type="text" placeholder='Filtrar Por Fecha 🔍' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 
       </div>
 
@@ -148,7 +148,7 @@ export default function AdminProducciones() {
 
             {isVisibleproveedor && ( 
             <div className='flex justify-center items-center gap-2'>
-            <div className='w-1/2 p-2 m-auto items-center'>
+            <div className='w-full sm:w-1/2 p-2 m-auto items-center'>
               <Bar className='' data={data2} />
             </div>
             </div>

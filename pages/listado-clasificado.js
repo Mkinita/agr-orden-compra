@@ -188,10 +188,13 @@ export default function AdminProducciones() {
 
             {isVisibleproveedor && ( 
             <div className='flex justify-center items-center gap-2'>
-            <div className='w-1/2 p-2 m-auto items-center'>
+            <div className='w-full sm:w-1/2 p-2 m-auto items-center'>
               <Bar className='' data={data2} />
             </div>
             </div>
+
+
+
             )}
  
     </AdminLayoutInforme>

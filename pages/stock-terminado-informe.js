@@ -110,7 +110,7 @@ export default function InformeAgr() {
         setSearch03(e.target.value)   
     }
      //  metodo de filtrado 2   
-    const results03 = !search03 ? users03 : users03.filter((dato)=> JSON.stringify(dato.pedido).toLowerCase().includes(search02.toLowerCase()))
+    const results03 = !search03 ? users03 : users03.filter((dato)=> JSON.stringify(dato.pedido).toLowerCase().includes(search03.toLowerCase()))
 
      useEffect( ()=> {
       showData03()

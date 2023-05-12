@@ -205,6 +205,13 @@ export default function InformeAgr() {
                                 ):
                                 <p className='text-center m-10'>Sin Produccion</p>
                             }
+                            <div className='grid gap-2 grid-cols-5 md:grid-cols-5 2xl:grid-cols-5'>
+                                <p className="text-center uppercase font-bold text-xs"></p>
+                                <p className="text-center uppercase font-bold text-xs"></p>
+                                <p className="text-center uppercase font-bold text-xs"></p>
+                                <p className="text-center uppercase font-bold text-xs">Total</p>
+                                <p className="text-center uppercase font-bold text-xs">{formatoNumero(totalVolumen1)}</p>
+                            </div>
                         </div>
 
                         <p className="text-center uppercase font-bold text-xl">Camara 2</p> 
@@ -230,6 +237,13 @@ export default function InformeAgr() {
                                 ):
                                 <p className='text-center m-10'>Sin Produccion</p>
                             }
+                            <div className='grid gap-2 grid-cols-5 md:grid-cols-5 2xl:grid-cols-5'>
+                                <p className="text-center uppercase font-bold text-xs"></p>
+                                <p className="text-center uppercase font-bold text-xs"></p>
+                                <p className="text-center uppercase font-bold text-xs"></p>
+                                <p className="text-center uppercase font-bold text-xs">Total</p>
+                                <p className="text-center uppercase font-bold text-xs">{formatoNumero(totalVolumen2)}</p>
+                            </div>
                         </div>
 
 
