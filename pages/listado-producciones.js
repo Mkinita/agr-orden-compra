@@ -5,8 +5,7 @@ import ListadoProduccion from '../components/ListadoProduccion'
 import Tabla from '@/components/Tabla'
 import React, { useState, useEffect } from 'react';
 import {formatoNumero} from "helpers/formato";
-import { Bar } from 'react-chartjs-2';
-import Chart from 'chart.js/auto';
+
 
 
 

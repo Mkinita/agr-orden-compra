@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import axios from 'axios'
-import AdminLayout from "../layout/AdminLayout"
+import Layout from "../layout/Layout"
 import ListadoProduccionFecha from '../components/ListadoProduccionFecha'
 import Tabla from '@/components/Tabla'
 import * as XLSX from 'xlsx';
@@ -50,10 +50,14 @@ export default function AdminProducciones() {
 };
 
     return(
-        <AdminLayout pagina={'Produccion-fecha'}>
+        <Layout pagina={'Produccion-fecha'}>
 
             <h1 className="text-xl font-black text-center">BUSCAR PRODUCCION POR FECHA</h1>
             <p className="text-2xl my-10"></p>
+            <div className='flex justify-center items-center  m-auto gap-2 border border-solid border-amber-400 hover:scale-95 rounded-xl'>
+              <button className="py-2 px-4 text-black" onClick={sumarVolumenes}>Resumen</button>
+              <p className="">{formatoNumero(totalVolumen)} m³</p>
+            </div>
             <div className='mt-auto'>
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Fecha' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>
@@ -70,12 +74,7 @@ export default function AdminProducciones() {
             }
 
 
-<div className='flex justify-center items-center gap-2'>
-  <button className="my-4 py-2 px-4 text-black " onClick={sumarVolumenes}>Calcular Volumen</button>
-  <p className="">{formatoNumero(totalVolumen)} m³</p>
-</div>
-
-        </AdminLayout>
+        </Layout>
 
         
     )
