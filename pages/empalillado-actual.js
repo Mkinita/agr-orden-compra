@@ -93,7 +93,18 @@ function calcularVolumen() {
             <div className='mt-auto'>
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar Por Escuadría' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>
-            <Tabla/>
+            <table className="table-auto w-full text-center bg-white text-gray-700 text-sm">
+            <thead>
+                <tr>
+                    <th className="px-9 py-4 w-1/5 text-center border border-amber-400">Fecha</th>
+                    <th className="px-7 py-4 w-1/5 text-center border border-amber-400">Detalle </th>
+                    <th className="px-4 py-4 w-1/5 text-center border border-amber-400">Can</th>
+                    <th className="px-6 py-4 w-1/5 text-center border border-amber-400">Cali</th>
+                    <th className="px-8 py-4 w-1/5 text-center border border-amber-400">Vol</th>
+                    <th className="px-5 py-4 w-1/5 text-center border border-amber-400">❌</th>
+                </tr>
+            </thead>
+        </table>
             {data && data.length ? results.map(emp =>
                 
                 <EmpalilladoActual
