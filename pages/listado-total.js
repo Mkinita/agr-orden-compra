@@ -160,7 +160,7 @@ export default function InformeAgr() {
           labels: data4.map((producciones) => producciones.fecha),
           datasets: [
             {
-              label: 'Produccion Stacker',
+              label: 'secado',
               data: data4.map((producciones) => producciones.volumen),
               backgroundColor: ' #a3e635',
               borderColor: ' #a3e636',
@@ -233,14 +233,14 @@ export default function InformeAgr() {
                                                 <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
                                             </tr>
                                             <tr>
-                                                <td className="border border-lime-200 px-2 py-2">Ingreso</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m³</td> 
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m4</td>  
+                                                <td className="border border-lime-200 px-1 py-2">Ingreso</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngreso)} m³</td> 
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngreso)} m4</td>  
                                             </tr>
                                             <tr>
-                                                <td className="border border-lime-200 px-2 py-2">Produccion</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumens)} m³</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m4</td>   
+                                                <td className="border border-lime-200 px-1 py-2">Produccion</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumens)} m³</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngreso)} m4</td>   
                                             </tr>
                                         </tbody>
                                         </table>
@@ -275,14 +275,14 @@ export default function InformeAgr() {
                                                 <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
                                             </tr>
                                             <tr>
-                                                <td className="border border-lime-200 px-2 py-2">Ingreso</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumenscla)} m³</td> 
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresocla)} m4</td>  
+                                                <td className="border border-lime-200 px-1 py-2">Ingreso</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumenscla)} m³</td> 
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresocla)} m4</td>  
                                             </tr>
                                             <tr>
-                                                <td className="border border-lime-200 px-2 py-2">Produccion</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresocla)} m³</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumenscla)} m4</td>   
+                                                <td className="border border-lime-200 px-1 py-2">Produccion</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresocla)} m³</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumenscla)} m4</td>   
                                             </tr>
                                         </tbody>
                                         </table>
@@ -310,14 +310,14 @@ export default function InformeAgr() {
                                                 <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
                                             </tr>
                                             <tr>
-                                                <td className="border border-lime-200 px-2 py-2">Ingreso</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumensemp)} m³</td> 
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresoemp)} m4</td>  
+                                                <td className="border border-lime-200 px-1 py-2">Ingreso</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensemp)} m³</td> 
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoemp)} m4</td>  
                                             </tr>
                                             <tr>
-                                                <td className="border border-lime-200 px-2 py-2">Produccion</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresoemp)} m³</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumensemp)} m4</td>   
+                                                <td className="border border-lime-200 px-1 py-2">Produccion</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoemp)} m³</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensemp)} m4</td>   
                                             </tr>
                                         </tbody>
                                         </table>
@@ -344,14 +344,14 @@ export default function InformeAgr() {
                                                 <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
                                             </tr>
                                             <tr>
-                                                <td className="border border-lime-200 px-2 py-2">Ingreso</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumensseco)} m³</td> 
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresoseco)} m4</td>  
+                                                <td className="border border-lime-200 px-1 py-2">Ingreso</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensseco)} m³</td> 
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoseco)} m4</td>  
                                             </tr>
                                             <tr>
-                                                <td className="border border-lime-200 px-2 py-2">Produccion</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresoseco)} m³</td>
-                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumensseco)} m4</td>   
+                                                <td className="border border-lime-200 px-1 py-2">Produccion</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoseco)} m³</td>
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensseco)} m4</td>   
                                             </tr>
                                         </tbody>
                                         </table>
