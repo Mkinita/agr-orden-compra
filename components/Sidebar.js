@@ -107,7 +107,7 @@ const Sidebar = () => {
                     <li>
                         <Link href="/listado-producciones.-saldo" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
                             📝
-                            <span class="ml-3">Saldos</span>
+                            <span class="ml-3">Saldos Actual</span>
                         </Link>
                     </li>
 
@@ -181,6 +181,17 @@ const Sidebar = () => {
                         </Link>
                     </li>
 
+
+                    
+                    <li>
+                        <Link href="/acumulado-stacker" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            📅
+                            <span class="ml-3">Acumulado {currentMonth}</span>
+                        </Link>
+
+                        
+                    </li>
+
                     
 
 
@@ -224,6 +235,16 @@ const Sidebar = () => {
                         </Link>
                     </li>
 
+
+                    <li>
+                        <Link href="/acumulado-secado" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            📅
+                            <span class="ml-3">Acumulado {currentMonth}</span>
+                        </Link>  
+                    </li>
+
+                    
+
                     
 
 
@@ -265,6 +286,14 @@ const Sidebar = () => {
                             📆
                             <span class="ml-3">Produccion Actual</span>
                         </Link>
+                    </li>
+
+
+                    <li>
+                        <Link href="/acumulado-asr" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            📅
+                            <span class="ml-3">Acumulado {currentMonth}</span>
+                        </Link>  
                     </li>
 
                     
