@@ -8,6 +8,7 @@ import {formatoNumero} from "helpers/formato";
 import Produccion from '../components/Produccion'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import "react-circular-progressbar/dist/styles.css"
+import { Bar } from 'react-chartjs-2';
 
 
 
@@ -77,6 +78,99 @@ export default function InformeAgr() {
     const proyeccioncla = totalIngresocla !== 0 ? (totalVolumenscla / totalIngresocla) * 100 : 0;
 
 
+    const fetcherEmpalillado = () => axios('/api/produccion-empalillado').then(datos => datos.data)
+    const { data: dataEmpalillado, error: errorEmpalillado, isLoading: isLoadingEmpalillado } = useSWR('/api/produccion-empalillado',fetcherEmpalillado,{refreshInterval: 100} )
+
+
+    const [data3, setData3] = useState([]);
+      useEffect(() => {
+        async function fetchData3() {
+        const response3 = await fetch('/api/produccion-empalillado');
+        const data3 = await response3.json();
+        setData3(data3);
+      }
+  
+      fetchData3();
+    }, []);
+
+
+
+    let totalVolumensemp = 0;
+    let totalIngresoemp = 0;
+
+    data3.forEach((produccionesss) => {
+        totalVolumensemp += parseFloat(produccionesss.volumen);
+        totalIngresoemp += parseFloat(produccionesss.ingreso);
+        
+    });
+
+    const proyeccionemp = totalIngresoemp !== 0 ? (totalVolumensemp / totalIngresoemp) * 100 : 0;
+
+
+    const dataemp = {
+        labels: data3.map((producciones) => producciones.fecha),
+        datasets: [
+          {
+            label: 'Produccion Stacker',
+            data: data3.map((producciones) => producciones.volumen),
+            backgroundColor: ' #a3e635',
+            borderColor: ' #a3e636',
+            borderWidth: 1,
+            barPercentage: 0.3, // Ancho de las barras
+            categoryPercentage: 1, // Espacio entre barras
+          },
+        ],
+      };
+
+
+
+
+
+
+      const fetcherSecado = () => axios('/api/produccion-secado').then(datos => datos.data)
+      const { data: dataSecado, error: errorSecado, isLoading: isLoadingSecado } = useSWR('/api/produccion-secado',fetcherEmpalillado,{refreshInterval: 100} )
+  
+  
+      const [data4, setData4] = useState([]);
+        useEffect(() => {
+          async function fetchData4() {
+          const response4 = await fetch('/api/produccion-secado');
+          const data4 = await response4.json();
+          setData4(data4);
+        }
+    
+        fetchData4();
+      }, []);
+  
+  
+  
+      let totalVolumensseco = 0;
+      let totalIngresoseco = 0;
+  
+      data4.forEach((produccionesss) => {
+          totalVolumensseco += parseFloat(produccionesss.volumen);
+          totalIngresoseco += parseFloat(produccionesss.ingreso);
+          
+      });
+  
+      const proyeccionseco = totalIngresoseco !== 0 ? (totalVolumensseco / totalIngresoseco) * 100 : 0;
+  
+  
+      const dataseco = {
+          labels: data4.map((producciones) => producciones.fecha),
+          datasets: [
+            {
+              label: 'Produccion Stacker',
+              data: data4.map((producciones) => producciones.volumen),
+              backgroundColor: ' #a3e635',
+              borderColor: ' #a3e636',
+              borderWidth: 1,
+              barPercentage: 0.3, // Ancho de las barras
+              categoryPercentage: 1, // Espacio entre barras
+            },
+          ],
+        };
+
 
     
 
@@ -95,11 +189,11 @@ export default function InformeAgr() {
                     <meta property="og:image" content="/CJ.png" />
                     <meta name="twitter:image" content="/CJ.png" />
                 </Head>
-                <h1 className='text-2xl font-black text-center pb-5'>Indicadores {currentMonth}</h1>
+                {/* <h1 className='text-2xl font-black text-center pb-5'>Indicadores {currentMonth}</h1> */}
 
                 <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
                     <div className="flex items-center justify-between mb-4">
-                        <h2 className="text-lg font-semibold">Indicadores</h2>
+                        <h2 className="text-lg font-semibold">Indicadores {currentMonth}</h2>
                         <div className="flex space-x-4">
                         <div className="flex items-center">
                             <span className="bg-green-500 rounded-full w-4 h-4 mr-2"></span>
@@ -111,7 +205,7 @@ export default function InformeAgr() {
                         </div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         <div className="bg-white p-4 rounded-md shadow">
                             <div className='flex items-center'>
                                 <h2 className="text-lg font-semibold text-right ml-6">Aserradero</h2>
@@ -130,23 +224,23 @@ export default function InformeAgr() {
                                 </div>
                             </div>
                             <div className='flex justify-center'>     
-                                <div class="overflow-x-auto py-2 text-xs font-bold">
-                                    <div class="min-w-full">
-                                        <table class="table-auto">
+                                <div className="overflow-x-auto py-2 text-xs font-bold">
+                                    <div className="min-w-full">
+                                        <table className="table-auto">
                                         <tbody>
                                             <tr>
-                                                <td class="border border-lime-200 px-1 py-2 text-center" colspan="2">Real </td>
-                                                <td class="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
+                                                <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Real </td>
+                                                <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
                                             </tr>
                                             <tr>
-                                                <td class="border border-lime-200 px-2 py-2">Ingreso</td>
-                                                <td class="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m³</td> 
-                                                <td class="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m4</td>  
+                                                <td className="border border-lime-200 px-2 py-2">Ingreso</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m³</td> 
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m4</td>  
                                             </tr>
                                             <tr>
-                                                <td class="border border-lime-200 px-2 py-2">Produccion</td>
-                                                <td class="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumens)} m³</td>
-                                                <td class="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m4</td>   
+                                                <td className="border border-lime-200 px-2 py-2">Produccion</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumens)} m³</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngreso)} m4</td>   
                                             </tr>
                                         </tbody>
                                         </table>
@@ -154,11 +248,6 @@ export default function InformeAgr() {
                                 </div>
                             </div>  
                         </div>
-
-                        <div className="bg-white p-4 rounded-md shadow">
-                        
-                        </div>
-
                         <div className="bg-white p-4 rounded-md shadow">
                             <div className='flex items-center'>
                                 <h2 className="text-lg font-semibold text-right ml-6">Clasificacion</h2>
@@ -177,23 +266,23 @@ export default function InformeAgr() {
                                 </div>
                             </div>
                             <div className='flex justify-center'>     
-                                <div class="overflow-x-auto py-2 text-xs font-bold">
-                                    <div class="min-w-full">
-                                        <table class="table-auto">
+                                <div className="overflow-x-auto py-2 text-xs font-bold">
+                                    <div className="min-w-full">
+                                        <table className="table-auto">
                                         <tbody>
                                             <tr>
-                                                <td class="border border-lime-200 px-1 py-2 text-center" colspan="2">Real </td>
-                                                <td class="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
+                                                <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Real </td>
+                                                <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
                                             </tr>
                                             <tr>
-                                                <td class="border border-lime-200 px-2 py-2">Ingreso</td>
-                                                <td class="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumenscla)} m³</td> 
-                                                <td class="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresocla)} m4</td>  
+                                                <td className="border border-lime-200 px-2 py-2">Ingreso</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumenscla)} m³</td> 
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresocla)} m4</td>  
                                             </tr>
                                             <tr>
-                                                <td class="border border-lime-200 px-2 py-2">Produccion</td>
-                                                <td class="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresocla)} m³</td>
-                                                <td class="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumenscla)} m4</td>   
+                                                <td className="border border-lime-200 px-2 py-2">Produccion</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresocla)} m³</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumenscla)} m4</td>   
                                             </tr>
                                         </tbody>
                                         </table>
@@ -201,9 +290,86 @@ export default function InformeAgr() {
                                 </div>
                             </div>  
                         </div>
+
+                        <div className="bg-white p-4 rounded-md shadow">
+                            <div className=''>
+                                <h2 className="text-lg text-center font-semibold">Stacker</h2>
+                                <div className='p-2 m-auto items-center'>
+                                <Bar className='' data={dataemp} />
+                                </div>
+
+                               
+                            </div>
+                            <div className='flex justify-center'>     
+                                <div className="overflow-x-auto py-2 text-xs font-bold">
+                                    <div className="min-w-full">
+                                        <table className="table-auto">
+                                        <tbody>
+                                            <tr>
+                                                <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Real </td>
+                                                <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="border border-lime-200 px-2 py-2">Ingreso</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumensemp)} m³</td> 
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresoemp)} m4</td>  
+                                            </tr>
+                                            <tr>
+                                                <td className="border border-lime-200 px-2 py-2">Produccion</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresoemp)} m³</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumensemp)} m4</td>   
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div className="bg-white p-4 rounded-md shadow">
+                            <div className=''>
+                                <h2 className="text-lg text-center font-semibold">Secado</h2>
+                                <div className='p-2 m-auto items-center'>
+                                <Bar className='' data={dataseco} />
+                                </div>
+
+                               
+                            </div>
+                            <div className='flex justify-center'>     
+                                <div className="overflow-x-auto py-2 text-xs font-bold">
+                                    <div className="min-w-full">
+                                        <table className="table-auto">
+                                        <tbody>
+                                            <tr>
+                                                <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Real </td>
+                                                <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="border border-lime-200 px-2 py-2">Ingreso</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumensseco)} m³</td> 
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresoseco)} m4</td>  
+                                            </tr>
+                                            <tr>
+                                                <td className="border border-lime-200 px-2 py-2">Produccion</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalIngresoseco)} m³</td>
+                                                <td className="border border-lime-200 px-2 py-2">{formatoNumero(totalVolumensseco)} m4</td>   
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+
+                        
+                        
+                        
+                    
+
+                        
                         
                         
                     </div>
+                    
                 </div>
 
                 
