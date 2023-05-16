@@ -172,12 +172,57 @@ export default function InformeAgr() {
         };
 
 
-    
 
-    
-    
 
-    
+        const fetcherSeco = () => axios('/api/horas').then(datos => datos.data)
+        const { data: dataSeco, error: errorSeco, isLoading: isLoadingSeco } = useSWR('/api/horas', fetcherSeco, { refreshInterval: 100 })
+
+        const [data5, setData5] = useState([]);
+        const [users5, setUsers5] = useState([]);
+
+        // Función para traer los datos de la API
+        const URLSxxxx = '/api/horas';
+
+        const showData5 = async () => {
+        const response5 = await fetch(URLSxxxx);
+        const data5 = await response5.json();
+        setUsers5(data5);
+        };
+
+        useEffect(() => {
+        showData5();
+        }, []);
+
+        // Obtener horas mes y horas trabajadas como enteros
+        const horasMes = users5.map(user => parseInt(user.horasmes, 10));
+        const horasTrabajadas = users5.map(user => parseInt(user.horastrabajadas, 10));
+
+        // Sumar las horas
+        const horasmes = horasMes.reduce((total, hora) => total + hora, 0)
+        const horstrabajo = horasTrabajadas.reduce((total, hora) => total + hora, 0);
+
+       
+        const TOTAL_ = horasmes;
+        const TOTAL = horstrabajo;
+
+
+
+        
+        
+
+        
+
+
+
+        
+
+  
+
+
+        
+
+        
+
 
    return (
         <>
@@ -189,8 +234,7 @@ export default function InformeAgr() {
                     <meta property="og:image" content="/CJ.png" />
                     <meta name="twitter:image" content="/CJ.png" />
                 </Head>
-                {/* <h1 className='text-2xl font-black text-center pb-5'>Indicadores {currentMonth}</h1> */}
-
+                
                 <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
                     <div className="flex items-center justify-between mb-4">
                         <h2 className="text-lg font-semibold">Indicadores {currentMonth}</h2>
@@ -235,12 +279,12 @@ export default function InformeAgr() {
                                             <tr>
                                                 <td className="border border-lime-200 px-1 py-2">Ingreso</td>
                                                 <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngreso)} m³</td> 
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngreso)} m4</td>  
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngreso / TOTAL * TOTAL_)} m³</td>  
                                             </tr>
                                             <tr>
                                                 <td className="border border-lime-200 px-1 py-2">Produccion</td>
                                                 <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumens)} m³</td>
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngreso)} m4</td>   
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumens / TOTAL * TOTAL_)} m³</td>   
                                             </tr>
                                         </tbody>
                                         </table>
@@ -254,7 +298,7 @@ export default function InformeAgr() {
                                 <div style={{ width: '40%', margin: 'auto' }}>
                                     <CircularProgressbar
                                         styles={buildStyles({
-                                            pathColor: proyeccioncla >= 96 ? '#22c55e' : '#DC2626',
+                                            pathColor: proyeccioncla >= 97.5 ? '#22c55e' : '#DC2626',
                                             trailColor: '#F5F5F5',
                                             textColor: '#0a0a0a',
                                         })}
@@ -277,12 +321,12 @@ export default function InformeAgr() {
                                             <tr>
                                                 <td className="border border-lime-200 px-1 py-2">Ingreso</td>
                                                 <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumenscla)} m³</td> 
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresocla)} m4</td>  
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumenscla / TOTAL * TOTAL_)} m³</td>  
                                             </tr>
                                             <tr>
                                                 <td className="border border-lime-200 px-1 py-2">Produccion</td>
                                                 <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresocla)} m³</td>
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumenscla)} m4</td>   
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresocla / TOTAL * TOTAL_)} m³</td>   
                                             </tr>
                                         </tbody>
                                         </table>
@@ -309,15 +353,11 @@ export default function InformeAgr() {
                                                 <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Real </td>
                                                 <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
                                             </tr>
-                                            <tr>
-                                                <td className="border border-lime-200 px-1 py-2">Ingreso</td>
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensemp)} m³</td> 
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoemp)} m4</td>  
-                                            </tr>
+                                            
                                             <tr>
                                                 <td className="border border-lime-200 px-1 py-2">Produccion</td>
                                                 <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoemp)} m³</td>
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensemp)} m4</td>   
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensemp / TOTAL * TOTAL_)} m³</td>   
                                             </tr>
                                         </tbody>
                                         </table>
@@ -343,15 +383,11 @@ export default function InformeAgr() {
                                                 <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Real </td>
                                                 <td className="border border-lime-200 px-1 py-2 text-center" colspan="2">Proyeccion </td>
                                             </tr>
-                                            <tr>
-                                                <td className="border border-lime-200 px-1 py-2">Ingreso</td>
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensseco)} m³</td> 
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoseco)} m4</td>  
-                                            </tr>
+                                            
                                             <tr>
                                                 <td className="border border-lime-200 px-1 py-2">Produccion</td>
                                                 <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoseco)} m³</td>
-                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalVolumensseco)} m4</td>   
+                                                <td className="border border-lime-200 px-1 py-2">{formatoNumero(totalIngresoseco  / 384 * 744)} m³</td>   
                                             </tr>
                                         </tbody>
                                         </table>

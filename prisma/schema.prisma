@@ -136,6 +136,19 @@ model Asr {
 }
 
 
+model Horas {
+  id Int @id @default(autoincrement())
+  horasmes String
+  horastrabajadas String?
+}
+
+model Horasseco {
+  id Int @id @default(autoincrement())
+  horasmesseco String
+  horastrabajadasseco String?
+}
+
+
 
 
 

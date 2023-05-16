@@ -73,6 +73,14 @@ export const SidebarAdmin = () => {
                   <span class="ml-3">Produccion Actual aserradero</span>
                </Link>
             </li>
+
+
+            <li>
+               <Link href="/dentro-camaras" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                  📃
+                  <span class="ml-3">Dentro De Camaras</span>
+               </Link>
+            </li>
            
             </div>
             
@@ -238,6 +246,20 @@ export const SidebarAdmin = () => {
               <Link href="/agregar-producciones" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
                     ➕
                   <span class="ml-3">Agregar Producciones</span>
+              </Link>
+           </li>
+
+           <li>
+              <Link href="/agregar-horas" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                    ➕
+                  <span class="ml-3">Agregar Horas</span>
+              </Link>
+           </li>
+
+           <li>
+              <Link href="/editar-horas" class="flex items-center p-2 text-xs font-black text-black rounded-lg bg-lime-400 dark:text-black hover:bg-gray-100 dark:hover:bg-lime-500 uppercase">
+                    ➕
+                  <span class="ml-3">Editar Horas</span>
               </Link>
            </li>
             </div>

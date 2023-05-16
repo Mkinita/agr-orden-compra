@@ -44,6 +44,12 @@ const CombustibleProvider = ({children}) => {
     const [ingreso, setIngreso] = useState('')
     const [ingreso01, setIngreso01] = useState('')
 
+    const [horasmes, setHorasmes] = useState('')
+    const [horastrabajadas, setHorastrabajadas] = useState('')
+
+    const [horasmesseco, setHorasmesseco] = useState('')
+    const [horastrabajadasseco, setHorastrabajadasseco] = useState('')
+
 
 
 
@@ -385,6 +391,31 @@ const CombustibleProvider = ({children}) => {
     }
 
 
+    const colocarHoras = async (e) => {
+        e.preventDefault()
+
+        try {
+           await axios.post('/api/horas',{horasmes,horastrabajadas})
+           await axios.post('/api/horasseco',{horasmesseco,horastrabajadasseco})
+            // Resetear la app
+            setHorasmes('')
+            setHorastrabajadas('')
+            setHorasmesseco('')
+            setHorastrabajadasseco('')
+            toast.success('Agregando ⏳')
+            setTimeout(() =>{
+                router.push('/editar-horas')
+            },2000)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
+        console.log('agregando orden')
+    }
+
+
 
     return(
         <CombustibleContext.Provider
@@ -437,7 +468,11 @@ const CombustibleProvider = ({children}) => {
             ingreso,setIngreso,
             ingreso01,setIngreso01,
             colocarSecado,
-            colocarAserradero
+            colocarAserradero,
+            colocarHoras,
+            horasmes,setHorasmes,
+            horasmesseco,setHorasmesseco,
+            horastrabajadas,setHorastrabajadas
             // pedidos,
             // fechas,
             // fechauno,

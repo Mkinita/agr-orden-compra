@@ -139,6 +139,8 @@ export default function Pedido() {
                     </div>
                     )}
 
+                    
+
                     <div className="mt-6">
                             
                         <input
@@ -149,6 +151,8 @@ export default function Pedido() {
                                 
                         />
                     </div>
+
+                    
             
                     
                 </form>
@@ -173,3 +177,24 @@ export default function Pedido() {
         
    )
 }
+
+
+
+
+
+
+
+
+
+                        
+
+                        
+                        
+                        
+                    
+
+                        
+                        
+                        
+                    
+                    
