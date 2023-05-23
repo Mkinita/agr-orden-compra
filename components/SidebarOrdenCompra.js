@@ -31,13 +31,25 @@ const Sidebar = () => {
 
             <div class="px-3 py-4 overflow-y-auto rounded bg-white">
                 <ul class="space-y-2">
-                    {/* <li>
+                    <li>
+                        <Link href="/solicitudes" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            💬
+                            <span class="ml-3">Solicitides</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/cotizacion" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            💬
+                            <span class="ml-3">Solicitud Cotizaciones</span>
+                        </Link>
+                    </li>
+                    <li>
                         <button
                             className="flex w-full items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase"
                             onClick={toggleVisibility}
                                             
                         >
-                            {isVisible ? '➖ SOLICITUDES' : '📋 SOLICITUDES'}
+                            {isVisible ? '➖ Ordenes de compra' : '📋 Ordenes de compra'}
                         </button>
                                         
                                 
@@ -50,7 +62,7 @@ const Sidebar = () => {
                                 <li>
                                     <Link href="/solicitudes" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
                                         👁
-                                        <span class="ml-3">Revisar Solicitides</span>
+                                        <span class="ml-3">Generar Orden De Compra</span>
                                     </Link>
                                 </li>
 
@@ -80,18 +92,6 @@ const Sidebar = () => {
                             )}
 
                         </div>
-                    </li> */}
-                    <li>
-                        <Link href="/solicitudes" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
-                            👁
-                            <span class="ml-3">Solicitides</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/cotizacion" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
-                            👁
-                            <span class="ml-3">Solicitud Cotizaciones</span>
-                        </Link>
                     </li>
 
                     
