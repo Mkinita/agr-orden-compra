@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `stock` ADD COLUMN `cantidad` DOUBLE NOT NULL DEFAULT 0;

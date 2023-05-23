@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `orden` ADD COLUMN `cantidad` DOUBLE NOT NULL DEFAULT 0;

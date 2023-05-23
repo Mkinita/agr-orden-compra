@@ -9,145 +9,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
-model Equipo {
+model Articulo {
   id Int @id @default(autoincrement())
-  espesor Float 
-  ancho Float 
-  largo Float 
-  piezas Float
-  detalle String
-  faena Faena @relation(fields: [faenaId],references: [id])
-  faenaId Int
+  nombre String
 }
 
 
-
-model Faena {
+model Solicitud {
   id Int @id @default(autoincrement())
-  nombre String
-  equipos Equipo []
-}
-
-model Orden {
-  id Int @id @default(autoincrement())
-  nombre String
   fecha DateTime
-  cantidad String?
+  area String
+  nombre01 String
   pedido Json
-  estado Boolean  @default(false)
-  finalizado Boolean  @default(false)
-  cliente String?
-  
-}
-
-
-model Stock {
-  id Int @id @default(autoincrement())
-  nombre String
-  fecha String
-  cantidad String?
-  pedido Json
-  cliente String?
-  estado Boolean  @default(false)
-  finalizado Boolean  @default(false)
-}
-
-
-
-model Saldo {
-  id Int @id @default(autoincrement())
-  espesor String
-  ancho String
-  largo String
-  piezas String
-  calidad String
-  fecha DateTime
+  cotizar Boolean  @default(false)
+  compra Boolean  @default(false)
   estado Boolean  @default(false)
 }
-
-
-
-model Pedidos {
-  id Int @id @default(autoincrement())
-  tipo String
-  cliente String
-  oc String
-  producto String
-  solicitud String
-  despacho String?
-  ordenar String?
-  imagen String?
-  estado Boolean  @default(false)
-  finalizado Boolean  @default(false)
-}
-
-
-model Emp {
-  id Int @id @default(autoincrement())
-  espesor String
-  ancho String
-  largo String
-  piezas String
-  calidad String
-  cantidad String
-  fecha DateTime
-  estado Boolean  @default(false)
-}
-
-
-
-model Producciones {
-  id Int @id @default(autoincrement())
-  nombre String
-  volumen String
-  ingreso String?
-  ingreso01 String?
-  fecha String
-  estado Boolean  @default(false)
-}
-
-model Secado {
-  id Int @id @default(autoincrement())
-  nombre String
-  espesor String
-  ancho String
-  largo String
-  piezas String
-  calidad String
-  cantidad String
-  fecha String
-  estado Boolean  @default(false)
-}
-
-
-
-model Asr {
-  id Int @id @default(autoincrement())
-  espesor String
-  ancho String
-  largo String
-  piezas String
-  calidad String
-  cantidad String
-  fecha DateTime
-  estado Boolean  @default(false)
-}
-
-
-model Horas {
-  id Int @id @default(autoincrement())
-  horasmes String
-  horastrabajadas String?
-}
-
-model Horasseco {
-  id Int @id @default(autoincrement())
-  horasmesseco String
-  horastrabajadasseco String?
-}
-
 
 
 

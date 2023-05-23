@@ -31,13 +31,13 @@ const Sidebar = () => {
 
             <div class="px-3 py-4 overflow-y-auto rounded bg-white">
                 <ul class="space-y-2">
-                    <li>
+                    {/* <li>
                         <button
                             className="flex w-full items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase"
                             onClick={toggleVisibility}
                                             
                         >
-                            {isVisible ? '➖ SOLICITUD' : '📋 SOLICITUD'}
+                            {isVisible ? '➖ SOLICITUDES' : '📋 SOLICITUDES'}
                         </button>
                                         
                                 
@@ -48,16 +48,16 @@ const Sidebar = () => {
                                 
 
                                 <li>
-                                    <Link href="/agregar-solicitud" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
-                                        ➕
-                                        <span class="ml-3">Generar Solicutud</span>
+                                    <Link href="/solicitudes" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                        👁
+                                        <span class="ml-3">Revisar Solicitides</span>
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Link href="/resumen" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                    <Link href="/cotizacion" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
                                         ⌚
-                                    <span class="ml-3">Resumen</span>
+                                    <span class="ml-3">Solicitud Cotizaciones</span>
                                     </Link>
                                 </li>
 
@@ -80,14 +80,21 @@ const Sidebar = () => {
                             )}
 
                         </div>
-                    </li>
-
+                    </li> */}
                     <li>
-                        <Link href="/agregar-articulo" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
-                            ➕
-                            <span class="ml-3">Agregar Articulo</span>
+                        <Link href="/solicitudes" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            👁
+                            <span class="ml-3">Solicitides</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link href="/cotizacion" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                            👁
+                            <span class="ml-3">Solicitud Cotizaciones</span>
+                        </Link>
+                    </li>
+
+                    
                 </ul> 
             </div>
         </>

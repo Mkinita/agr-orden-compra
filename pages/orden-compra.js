@@ -1,41 +1,35 @@
-import ImprecionLayout from "../layout/ImprecionLayout"
-import useSWR from 'swr'
-import axios from 'axios'
-import OrdenAutorizada from '../components/OrdenAutorizada'
-
-
-export default function OrdenCompra() {
-
-
-
-    const fetcher = () => axios('/api/ordenes-autorizadas').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes',fetcher,{refreshInterval: 100} )
-
-
-   return (
-        <ImprecionLayout pagina='Produccion'>
-            <h1 className="text-4xl font-black text-center"></h1>
-            <p className="text-2xl my-5"></p>
+import { Inter } from '@next/font/google'
+import LayoutOrdenCompra from '../layout/LayoutOrdenCompra'
+// import Equipo from '../components/Equipo'
+import useCombustible from '../hooks/useCombustible'
+import {useState, useEffect} from 'react'
+import Head from 'next/head'
+import Image from 'next/image'
 
 
 
-            {data && data.length ? data.map(orden =>
-                
-                <OrdenAutorizada
-                    key={orden.id}
-                    orden={orden}
-                />
-
-                ):<p> Ordenes Pendientes</p>}
 
 
+export default function Home() {
 
-                <button className="bg-indigo-600 hover:bg-indigo-700 text-white mt-2 md:mt-0 py-3 px-5 uppercase font-bold rounded-xl mx-28" onClick={() => window.print()}>Imprimir</button>
+  
 
+  
 
-                
-            
+  return (
+    
+    <LayoutOrdenCompra pagina={`Inicio - Producto`}>
+      <Head>
+        <meta name="description" content="Carlos Jerez" />
+        <link rel="icon" href="/AGRF.png"/>
+        <title>Solicitud AGR</title>
+      </Head>
 
-        </ImprecionLayout>
-   )
+      <div className="py-0">
+            <Image width={380} height={200} src="/assets/img/inicioadminA.gif" alt="logo" className="m-auto"/>
+         </div>
+  
+      
+    </LayoutOrdenCompra>
+  )
 }

@@ -7,143 +7,52 @@ const CombustibleContext = createContext()
 
 
 const CombustibleProvider = ({children}) => {
-    const [faenas, setFaenas] = useState([])
-    const [orden, setOrden] = useState([])
-    const [faenaActual, setFaenaActual] = useState({})
-    const [equipo, setEquipo] = useState({})
-    const [saldo, setSaldo] = useState([])
-    const [modal, setModal] = useState(false)
-    const [pedido, setPedido] = useState([])
-    const [pedidose, setPedidose] = useState([])
-    const [nombre, setNombre] = useState('')
-    const [id, setId] = useState('')
-    const [cantidad, setCantidad] = useState('')
-    const [total, setTotal] = useState(0)
-    const [espesor, setEspesor] = useState('')
-    const [ancho, setAncho] = useState('')
-    const [largo, setLargo] = useState('')
-    const [piezas, setPiezas] = useState('')
-    const [calidad, setCalidad] = useState('')
-    const [totalsaldo, setTotalSaldo] = useState(0)
-
-
-    const [pedidos, setPedidos] = useState({})
-    const [tipo, setTipo] = useState('')
-    const [cliente, setCliente] = useState('')
-    const [oc, setOc] = useState('')
-    const [producto, setProducto] = useState('')
-    const [solicitud, setSolicitud] = useState('')
-    const [despacho, setDespacho] = useState('')
-    const [imagen, setImagen] = useState(null);
-    const [file, setFile] = useState(null)
-
-
-
-    const [volumen, setVolumen] = useState('')
-    const [fecha, setFecha] = useState('')
-    const [ingreso, setIngreso] = useState('')
-    const [ingreso01, setIngreso01] = useState('')
-
-    const [horasmes, setHorasmes] = useState('')
-    const [horastrabajadas, setHorastrabajadas] = useState('')
-
-    const [horasmesseco, setHorasmesseco] = useState('')
-    const [horastrabajadasseco, setHorastrabajadasseco] = useState('')
-
-
-
-
-
-    
 
     const router = useRouter()
-    
-    // const [paso, setPaso] = useState(1)
-
-    const obtenerFaenas = async () => {
-        const {data} = await axios('/api/faenas')
-        setFaenas(data)
-    }
-    useEffect(() => {
-        obtenerFaenas()
-    },[])
-
-
-    useEffect(() => {
-        setFaenaActual(faenas[0])
-    },[faenas])
-
-
-
-    useEffect(() => {
-        setFaenaActual(faenas[0])
-    },[faenas])
-
-
-    
-
-
-    useEffect(() => {
-        const nuevoTotal = pedido.reduce((total, producto) => (producto.espesor * producto.ancho * producto.largo * producto.piezas*producto.cantidad / 1000000 ) + total, 0)
-
-        setTotal(nuevoTotal)
-    }, [pedido])
+    const [articulo, setArticulo] = useState({})
+    const [nombre, setNombre] = useState('')
+    const [nombre01, setNombre01] = useState('Gavino Ugalde')
+    const [modal, setModal] = useState(false)
+    const [pedido, setPedido] = useState([])
+    const [solicitud, setSolicitud] = useState({})
+    const [fecha, setFecha] = useState('')
+    const [area, setArea] = useState('')
 
 
 
 
-
-    // useEffect(() => {
-    //     const nuevoTotalSaldo = ((totalSaldo, producto) => (producto.espesor * producto.ancho * producto.largo * producto.piezas*producto.cantidad / 1000000 ) + total, 0)
-
-    //     setTotal(nuevoTotalSaldo)
-    // }, [pedido])
-
-
-
-    
-
-
-    
-    
-
-
-   
-
-
-    
-
-    const handleClickFaena = id =>{
-        const faena = faenas.filter(cat => cat.id === id)
-        setFaenaActual(faena[0])
-        router.push('/')
+    const handlesetArticulo = articulo => {
+        setArticulo(articulo)
     }
 
 
-    const handlesetEquipo = equipo => {
-        setEquipo(equipo)
+    const handlesetOcpedidos = solicitud => {
+        setSolicitud(solicitud)
     }
-
-    const handlesetPedidos = pedidos => {
-        setPedidos(pedidos)
-        console.log('agregando orden')
-    }
-
-
-    const handlesetSaldo = saldo => {
-        setSaldo(saldo)
-    }
-
 
     const handleChangeModal = () => {
         setModal(!modal)
     }
 
 
-    const handleAgregarPedido = ({faenaId, ...equipo}) => {
-        if(pedido.some(equipoState => equipoState.id === equipo.id)) {
+    const handleEditarCantidades = id => {
+        const productoActualizar = pedido.filter( articulo => articulo.id === id)
+        setArticulo(productoActualizar[0])
+        setModal(!modal)
+    }
+
+
+
+    const handleElimanarSolicitud = id => {
+        const pedidoActualizado = pedido.filter( articulo => articulo.id !== id)
+        setPedido(pedidoActualizado)
+        toast.error('Solicitud Eliminada')
+    }
+
+    const handleAgregarPedido = ({...articulo}) => {
+        if(pedido.some(articuloState => articuloState.id === articulo.id)) {
            // Actualizar la cantidad
-           const pedidoActualizado = pedido.map(equipoState => equipoState.id === equipo.id ? equipo : equipoState)
+           const pedidoActualizado = pedido.map(articuloState => articuloState.id === articulo.id ? articulo : articuloState)
            setPedido(pedidoActualizado)
 
            toast.success('Guardado Correctamente')
@@ -151,7 +60,7 @@ const CombustibleProvider = ({children}) => {
             router.push('/resumen')
         },500)
         } else {
-            setPedido([...pedido, equipo])
+            setPedido([...pedido, articulo])
             toast.success('Agregado Solicitud')
 
             setTimeout(() =>{
@@ -165,325 +74,76 @@ const CombustibleProvider = ({children}) => {
 
 
 
-    const handleAgregarPedidos = () => {
-        if(pedidose.some(equipoState => equipoState.id === equipo.id)) {
-        } else {
-            toast.success('Generando PDF')
-            setTimeout(() =>{
-                router.push('/imagenoc')
-            },1000)
-        }
-
-        setModal(false)
-        
-    }
-
-
-
-    
-
-
-    const handleEditarCantidades = id => {
-        const productoActualizar = pedido.filter( equipo => equipo.id === id)
-        setEquipo(productoActualizar[0])
-        setModal(!modal)
-    }
-
-
-
-    const handleElimanarSolicitud = id => {
-        const pedidoActualizado = pedido.filter( equipo => equipo.id !== id)
-        setPedido(pedidoActualizado)
-        toast.error('Solicitud Eliminada')
-    }
-
-
-
-    const colocarOrden = async (e) => {
+    const agregarArticulo = async (e) => {
         e.preventDefault()
 
         try {
-           await axios.post('/api/ordenes',{pedido,nombre,cantidad,cliente,fecha: new Date()})
-           await axios.post('/api/stock',{pedido,nombre,cantidad,cliente,fecha: new Date()})
+           await axios.post('/api/articulo',{nombre})
             // Resetear la app
-            setFaenaActual(faenas[0])
+            setNombre('')
+            toast.success('Agregando ⏳')
+
+            setTimeout(() =>{
+                router.push('/agregar-solicitud')
+            },3000)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
+    const agregarSolicitud01 = async (e) => {
+        e.preventDefault()
+
+        try {
+           await axios.post('/api/solicitud',{pedido,nombre01,area,fecha: new Date()})
+            // Resetear la app
+            setNombre01('Gavino Ugalde')
+            setArea('')
+            setFecha('')
             setPedido([])
-            setNombre('')
-            setCalidad('')
             toast.success('Agregando ⏳')
 
             setTimeout(() =>{
-                router.push('/imprecion-etiqueta')
-            },1000)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-
-        console.log('agregando orden')
-    }
-
-
-    const colocarSaldo = async (e) => {
-        e.preventDefault()
-
-        try {
-           await axios.post('/api/saldos',{espesor,ancho,largo,piezas,calidad,fecha: new Date()})
-            // Resetear la app
-            setEspesor('')
-            setAncho('')
-            setLargo('')
-            setPiezas('')
-            setCalidad('')
-            toast.success('Agregando ⏳')
-
-            setTimeout(() =>{
-                router.push('/imprecion-etiqueta-saldo')
+                router.push('/agregar-solicitud')
             },3000)
 
         } catch (error) {
             console.log(error)
         }
-
-
-        console.log('agregando orden')
     }
 
-
-
-
-    const colocarEmpalilado = async (e) => {
-        e.preventDefault()
-
-        try {
-           await axios.post('/api/empalillado',{espesor,ancho,largo,piezas,calidad,cantidad,fecha: new Date()})
-            // Resetear la app
-            setEspesor('')
-            setAncho('')
-            setLargo('')
-            setPiezas('')
-            setCalidad('')
-            setCantidad('')
-            toast.success('Agregando ⏳')
-
-            setTimeout(() =>{
-                router.push('/empalillado-actual')
-            },3000)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-
-        console.log('agregando orden')
-    }
-
-
-
-    const colocarPedido = async (e) => {
-        e.preventDefault()
-
-        try {
-           await axios.post('/api/pedidos',{tipo,cliente,oc,producto,solicitud,despacho,imagen})
-            // Resetear la app
-            setTipo('')
-            setCliente('')
-            setOc('')
-            setProducto('')
-            setSolicitud('')
-            setImagen(null)
-            toast.success('Agregando Pedido⏳')
-
-            setTimeout(() =>{
-                router.push('/lista-pedidos')
-            },3000)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-
-        console.log('agregando orden')
-    }
-
-
-    const colocarProduccion = async (e) => {
-        e.preventDefault()
-
-        try {
-           await axios.post('/api/producciones',{nombre,volumen,fecha,ingreso,ingreso01})
-            // Resetear la app
-            setNombre('')
-            setVolumen('')
-            setFecha('')
-            setIngreso('')
-            setIngreso01('')
-            toast.success('Agregando Produccion⏳')
-
-            setTimeout(() =>{
-                router.push('/listado-aserradero')
-            },3000)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-
-        console.log('agregando orden')
-    }
-
-
-    const colocarSecado = async (e) => {
-        e.preventDefault()
-
-        try {
-           await axios.post('/api/secado',{nombre,espesor,ancho,largo,piezas,calidad,cantidad,fecha})
-            // Resetear la app
-            setNombre('')
-            setFecha('')
-            setEspesor('')
-            setAncho('')
-            setLargo('')
-            setPiezas('')
-            setCalidad('')
-            setCantidad('')
-            toast.success('Agregando ⏳')
-
-            setTimeout(() =>{
-                router.push('/dentro-camaras')
-            },3000)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-
-        console.log('agregando orden')
-    }
-
-
-
-    const colocarAserradero = async (e) => {
-        e.preventDefault()
-
-        try {
-           await axios.post('/api/aserradero',{espesor,ancho,largo,piezas,calidad,cantidad,fecha: new Date()})
-            // Resetear la app
-            setEspesor('')
-            setAncho('')
-            setLargo('')
-            setPiezas('')
-            setCalidad('')
-            setCantidad('')
-            toast.success('Agregando ⏳')
-
-            setTimeout(() =>{
-                router.push('/aserradero-actual')
-            },2000)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-
-        console.log('agregando orden')
-    }
-
-
-    const colocarHoras = async (e) => {
-        e.preventDefault()
-
-        try {
-           await axios.post('/api/horas',{horasmes,horastrabajadas})
-           await axios.post('/api/horasseco',{horasmesseco,horastrabajadasseco})
-            // Resetear la app
-            setHorasmes('')
-            setHorastrabajadas('')
-            setHorasmesseco('')
-            setHorastrabajadasseco('')
-            toast.success('Agregando ⏳')
-            setTimeout(() =>{
-                router.push('/editar-horas')
-            },2000)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-
-        console.log('agregando orden')
-    }
 
 
 
     return(
         <CombustibleContext.Provider
         value={{
-            faenas,
-            faenaActual,
-            handleClickFaena,
-            equipo,
-            saldo,
-            handlesetEquipo,
-            handlesetSaldo,
-            modal,
-            handleChangeModal,
-            pedido,
-            handleAgregarPedido,
-            handleElimanarSolicitud,
-            handleEditarCantidades,
-            nombre,
-            setNombre,
-            colocarOrden,
-            colocarSaldo,
-            total,
-            espesor,
-            setEspesor,
-            ancho,
-            setAncho,
-            largo,
-            setLargo,
-            piezas,
-            setPiezas,
-            calidad,
-            setCalidad,
-            setCantidad,
-            colocarPedido,
-            tipo,setTipo,
-            cliente,setCliente,
-            oc,setOc,
-            producto,setProducto,
+            articulo,
+            nombre,setNombre,
+            nombre01,setNombre01,
+            pedido,setPedido,
+            modal,setModal,
+            area, setArea,
             solicitud,setSolicitud,
-            despacho,setDespacho,
-            handlesetPedidos,
-            pedidos,setPedidos,
-            handleAgregarPedidos,
-            imagen,setImagen,
-            id,
-            orden,setOrden,colocarEmpalilado,
-            fecha,setFecha,
-            volumen,setVolumen,
-            colocarProduccion,
-            ingreso,setIngreso,
-            ingreso01,setIngreso01,
-            colocarSecado,
-            colocarAserradero,
-            colocarHoras,
-            horasmes,setHorasmes,
-            horasmesseco,setHorasmesseco,
-            horastrabajadas,setHorastrabajadas
-            // pedidos,
-            // fechas,
-            // fechauno,
-            // fechados
+
+            agregarArticulo,
+            agregarSolicitud01,
+
+            handlesetArticulo,
+            handlesetOcpedidos,
+            handleChangeModal,
+            handleAgregarPedido,
+            handleEditarCantidades,
+            handleElimanarSolicitud
         }}
-        
-        
         >
-            {children}
+        {children}
         </CombustibleContext.Provider>
     )
+
 }
 export {
     CombustibleProvider
