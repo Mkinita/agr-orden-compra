@@ -18,7 +18,7 @@ export default function Admin() {
 
             <h1 className="text-2xl font-black text-center py-8"></h1>
             <p className="text-2xl my-5"></p>
-            <div className='grid gap-4 grid-cols-1 px-5'>
+            <div className='grid gap-4 grid-cols-1 px-48'>
                 {data && data.length ? data.map(solicitud =>
                 <div className=''>
                         
