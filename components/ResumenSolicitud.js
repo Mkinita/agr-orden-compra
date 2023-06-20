@@ -9,9 +9,6 @@ const ResumenSolicitud = ({articulo}) => {
     <>
       
       <div class="container mx-auto">
-      {/* <div className="w-1/4 text-center m-auto pb-2">
-        <h2 className="px-2 border font-bold">Solicitud Nº: </h2>
-      </div> */}
         <div class="w-full px-4">
           <div class="overflow-x-auto">
             <table class="min-w-full bg-white border border-gray-300">

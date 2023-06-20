@@ -12,6 +12,7 @@ datasource db {
 model Articulo {
   id Int @id @default(autoincrement())
   nombre String
+  valor String
 }
 
 
@@ -24,7 +25,75 @@ model Solicitud {
   cotizar Boolean  @default(false)
   compra Boolean  @default(false)
   estado Boolean  @default(false)
+  planta Boolean  @default(false)
 }
+
+
+
+model Proveedores {
+  id Int @id @default(autoincrement())
+  nombreproveedor String
+  rut String
+}
+
+
+model Orden {
+  id Int @id @default(autoincrement())
+  fecha DateTime
+  pedido01 Json
+  solicita String
+  cotizacion String
+  atencion String
+  area String
+  numerosoli String
+
+
+  cantidades Float?
+  detalles String?
+  valores String?
+
+  cantidad01 Float?
+  detalle01 String?
+  valor01 String?
+
+  cantidad02 Float?
+  descripcion02 String?
+  valor02 String?
+
+  cantidad03 Float?
+  descripcion03 String?
+  valor03 String?
+
+  cantidad04 Float?
+  descripcion04 String?
+  valor04 String?
+
+  cantidad05 Float?
+  descripcion05 String?
+  valor05 String?
+
+  cantidad06 Float?
+  descripcion06 String?
+  valor06 String?
+
+  cantidad07 Float?
+  descripcion07 String?
+  valor07 String?
+
+  cantidad08 Float?
+  descripcion08 String?
+  valor08 String?
+
+  cantidad09 Float?
+  descripcion09 String?
+  valor09 String?
+
+  estado Boolean  @default(false)
+  planta Boolean  @default(false)
+}
+
+
+
 
 
 

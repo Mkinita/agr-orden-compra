@@ -13,6 +13,7 @@ export default function Pedido() {
     { 
         agregarArticulo,
         nombre,setNombre,
+        valor,setValor
 
     } = useCombustible()
 
@@ -52,6 +53,11 @@ export default function Pedido() {
                                     <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Articulo</label>
                                     <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={nombre} onChange={e => setNombre(e.target.value)} />
                                 </div> 
+
+                                <div className="hidden">
+                                    <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Valor</label>
+                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={valor} onChange={e => setValor(e.target.value)} />
+                                </div>
                                     
                                 <div class="grid grid-cols-1 gap-4 w-1/2 m-auto py-5">
 

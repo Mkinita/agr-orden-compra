@@ -33,7 +33,7 @@ const OrdenGeneral = ({solicitud}) => {
             <div className="border p-5 space-y-2">
                 <div className="grid gap-4 grid-cols-2">
                     <div className="px-1"><Image width={280} height={100} src="/assets/img/AGRF.png" alt="logo" className=""/></div>
-                    <div className="text-center"><h1 className="text-2xl font-black py-16 pb-0 px-4">Solicitud De Cotizacion</h1>
+                    <div className="text-center"><h1 className="text-2xl font-black py-16 pb-0 px-4">Solicitud De Cotizacion Nº {id}</h1>
                         <p className='py-2'>Fecha: {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric' })}</p>
                     </div>
                 </div>

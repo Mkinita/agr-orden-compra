@@ -9,6 +9,7 @@ export default async function handler(req, res) {
     const articulo = await prisma.articulo.create({
       data: {
         nombre: req.body.nombre,
+        valor: req.body.valor
       },
     });
     res.json(articulo);
