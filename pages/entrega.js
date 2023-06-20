@@ -60,7 +60,7 @@ export default function Admin() {
                     />
 
                     ):
-                    <p>No Hay Ordenes Autorizadas</p>
+                    <p>No Hay Ordenes Pendientes</p>
                 }
 
             </div>
