@@ -44,24 +44,27 @@ export default function Pedido() {
                     class="text-center"
                 >
                     
-                    <div class="grid grid-cols-2 lg:grid-cols-2 gap-4  px-4 m-auto">
+                    <div class="grid grid-cols-2 lg:grid-cols-2 gap-4  m-auto">
                                 
-                        <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
-                            <div className="bg-white p-4 rounded-md shadow">
-                                <div>
-                                    <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Nombre</label>
+                        <div className="bg-gray-50 p-2 rounded-lg shadow-lg">
+                            <div className="bg-white p-2 rounded-md shadow">
+                                <p className="p-2"></p>
+                                <div className="py-2">
+                                    <label for="ingreso" class="block text-lg font-medium text-gray-700 mb-1">Nombre</label>
                                     <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={nombreproveedor} onChange={e => setNombreproveedor(e.target.value)} />
+                                </div> 
+                                <p className="p-5"></p>
+                                <div className="pb-5">
+                                    <label for="ingreso" class="block text-lg font-medium text-gray-700 mb-1">Rut</label>
+                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={rut} onChange={e => setRut(e.target.value)} placeholder="Ingrese Rut con punto y guion ejemplo:18.000.000-0" />
                                 </div> 
                             </div>
                         </div>
 
-                        <div className="bg-gray-200 p-4 rounded-lg shadow-lg">
-                            <div className="bg-white p-4 rounded-md shadow">  
-                                <div>
-                                    <label for="ingreso" class="block text-xs font-medium text-gray-700 mb-1">Rut</label>
-                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-2 rounded-md" value={rut} onChange={e => setRut(e.target.value)} placeholder="Ingrese Rut con punto y guion ejemplo:18.000.000-0" />
-                                </div>    
-                            </div>
+                        <div className="bg-gray-50 p-2 rounded-lg shadow-lg">
+                        <video autoPlay muted loop className="w-full">
+                            <source src="/assets//video/agregar_proveedores.mp4" type="video/mp4" />
+                        </video>
                         </div>
                     
                     </div> 
