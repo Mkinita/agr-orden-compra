@@ -339,6 +339,8 @@ export default function GenerarOrdenDeCompra() {
         }
     }
 
+    
+
 
 
     const handleEstadoClick = () => {
@@ -571,6 +573,9 @@ export default function GenerarOrdenDeCompra() {
 
                 </div>
 
+
+                                
+
                 
                         
                 <div class="grid grid-cols-1 gap-4 w-1/2 m-auto py-5">
@@ -579,7 +584,8 @@ export default function GenerarOrdenDeCompra() {
                     className= {`${comprobarOrdenDeCompra() ? 'bg-indigo-100' : 'bg-amber-400 hover:bg-amber-500'}  lg:w-auto px-5 py-2 rounded uppercase font-bold text-white text-center`}
                     value="Generar Orden De Compra"
                     disabled={comprobarOrdenDeCompra()}   
-                    onClick={handleEstadoClick}                                             
+                    onClick={handleEstadoClick}  
+                                                               
                 />
                 </div>      
                                      
