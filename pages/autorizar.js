@@ -2,6 +2,7 @@ import useSWR from 'swr'
 import axios from 'axios'
 import LayoutAutorizar from "../layout/LayoutAutorizar"
 import Autorizar from '../components/Autorizar'
+import Head from 'next/head'
 
 
 const autorizar = () => {
@@ -11,6 +12,11 @@ const autorizar = () => {
 
   return (
     <LayoutAutorizar pagina={'Autorizar'}>
+        <Head>
+        <meta name="description" content="Carlos Jerez" />
+        <link rel="icon" href="/AGRF.png"/>
+        <title>Solicitud AGR</title>
+      </Head>
 
             <h1 className="text-2xl font-black text-center py-6">Ordenes Pendientes</h1>
             <div className='grid gap-4 grid-cols-1 md:grid-cols-3 2xl:grid-cols-3'>
