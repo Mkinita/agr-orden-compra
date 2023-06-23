@@ -9,7 +9,7 @@ const ModalProveedor = () => {
   
 
   return (
-    <div className="md:flex gap-10">
+    <div className="gap-10">
       
       <div className="text-center">
         <div className="flex justify-end">
@@ -30,8 +30,8 @@ const ModalProveedor = () => {
             </svg>
           </button>
         </div>
-        <h1 className="text-lg font-bold mt-1">{proveedor.nombreproveedor}</h1>
-        <p className="mt-1 font-black text-lg text-amber-500">{proveedor.rut}</p>
+        <h1 className="text-2xl font-bold mt-1 py-5">{proveedor.nombreproveedor}</h1>
+        <p className="mt-1 font-black text-xl text-amber-500 py-1 pb-5">{proveedor.rut}</p>
         
         
 

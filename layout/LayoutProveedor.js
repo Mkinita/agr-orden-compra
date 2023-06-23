@@ -15,6 +15,8 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
+    width: '300px',
+    height: '300px',
     transform: 'translate(-50%, -50%)',
   },
 };
