@@ -5,7 +5,7 @@ import useCombustible from '../hooks/useCombustible';
 
 const OrdenGeneral = ({solicitud}) => {
 
-    const {id,nombre01,fecha,pedido} = solicitud
+    const {id,nombre01,fecha,pedido,area} = solicitud
     const {handlesetOcpedidos, handleChangeModal} =useCombustible()
    
   return (
@@ -18,6 +18,7 @@ const OrdenGeneral = ({solicitud}) => {
                     <h3 className="text-xl font-bold pb-1">Solicitud Nº {id}</h3>
                     <p className="text-sm font-bold pb-1">Fecha: {formatiarFecha(fecha)}</p>
                     <p className="text-sm font-bold pb-3">Solicita: {nombre01}</p>
+                    <p className="text-sm font-bold pb-3">Área: {area}</p>
 
 
                     <button

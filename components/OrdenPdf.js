@@ -264,12 +264,16 @@ const OrdenCompraAutorizada = ({orden}) => {
         </div>
 
 
-        <div className="grid gap-4 grid-cols-2 py-24 pb-8">
-            <div className="px-6"><p className=""></p></div>
-            <div className="px-6"><p className="border-b border-black text-black font-bold text-sm"></p></div>
+        <div className="grid gap-4 grid-cols-1 py-4 pb-8">
+            
+            
+            <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
+                <Image width={280} height={80} src="/assets/img/firma.png" alt="logo" className=""/>
+                </p></div>
         </div>
 
-        <div className=" py-5 pb-8">
+
+        <div className="py-2 pb-8">
             <div className="px-6"><p className="text-black font-bold text-sm">NOTA: En la Factura se deberá mencionar el Nº de esta orden.</p></div>
 
         </div>
