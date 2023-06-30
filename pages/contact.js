@@ -18,7 +18,7 @@ export default function ContactPage() {
         if (data) {
           setSolicitudesPendientes(data.length);
           setFormData({
-            to: 'Robertohot@123.cl',
+            to: '',
             subject: 'Sistema De Compra !Notificacion¡',
             text: `Tienes ${data.length} Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/autorizar`,
           });
@@ -26,7 +26,7 @@ export default function ContactPage() {
       }, [data]);
       
       const [formData, setFormData] = useState({
-        to: 'Robertohot@123.cl',
+        to: '',
         subject: 'Notificacion',
         text: `Tienes ${solicitudesPendientes} https://agr-orden-compra-production.up.railway.app/autorizar`,
       });
