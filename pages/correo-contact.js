@@ -20,7 +20,7 @@ export default function ContactPage() {
           setFormData({
             to: '',
             subject: 'Sistema De Compra !Notificacion¡',
-            text: `Tienes ${data.length} Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/autorizar`,
+            text: `Tienes Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
           });
         }
       }, [data]);
