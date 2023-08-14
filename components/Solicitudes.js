@@ -11,14 +11,14 @@ const OrdenGeneral = ({solicitud}) => {
   return (
    
     <>
-      <div className='border shadow'>
+      <div className='border rounded-lg shadow'>
       
-            <div className="border p-5 space-y-2 ">
+            <div className="p-5 space-y-2 ">
                 <div className='text-center'>
                     <h3 className="text-xl font-bold pb-1">Solicitud Nº {id}</h3>
                     <p className="text-sm font-bold pb-1">Fecha: {formatiarFecha(fecha)}</p>
                     <p className="text-sm font-bold pb-3">Solicita: {nombre01}</p>
-                    <p className="text-sm font-bold pb-3">Área: {area}</p>
+                    {/* <p className="text-sm font-bold pb-3">Área: {area}</p> */}
 
 
                     <button
@@ -32,11 +32,7 @@ const OrdenGeneral = ({solicitud}) => {
                         Detalle
                     </button>
 
-                    {pedido.map(oc => (
-                        <div key={oc.id}>
-                        </div>
-                
-                    ))}
+                    
                 </div>
             </div>  
       </div>

@@ -7,7 +7,7 @@ export default async function handler (req,res){
         const { id }  = req.query
         
 
-        const autorizarorden = await prisma.orden.update({
+        const autorizarorden = await prisma.nuevaorden.update({
             where:{
                 id: parseInt(id)
             },

@@ -8,7 +8,7 @@ const ResumenSolicitudGeneral = ({proveedor}) => {
   return (
 
     <>
-      <div className="shadow p-5 mb-3 flex gap-2 items-center text-center">
+      <div className="shadow p-5 mb-3 flex gap-2 items-center text-center rounded-lg">
         <button
           type="button"
           className="border rounded-3xl border-solid border-black p-2"
@@ -24,6 +24,7 @@ const ResumenSolicitudGeneral = ({proveedor}) => {
               <p className="text-sm font-bold">{proveedor.nombreproveedor}</p>
               <p className="text-sm font-bold">{proveedor.rut}</p>
           </div>  
+          
       </div>
     </>
   )

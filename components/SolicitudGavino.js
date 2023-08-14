@@ -3,7 +3,15 @@ import {formatiarFecha} from "helpers/fecha"
 
 
 const OrdenGeneral = ({solicitud}) => {
-    const {id,nombre01,cotizar,compra,fecha,planta,pedido} = solicitud
+    const {id,nombre01,cotizar,compra,fecha,planta,
+        area
+        ,cantidades,detalles,
+        cantidad01 ,detalle01,
+        cantidad02, descripcion02,
+        cantidad03, descripcion03,
+        cantidad04, descripcion04
+    
+    } = solicitud
 
 
 
@@ -11,107 +19,93 @@ const OrdenGeneral = ({solicitud}) => {
   return (
    
     <>
-      {/* <div className=''>
-        <div className="border p-5 space-y-2 ">
-          <div className=' border-b last-of-type:border-0 items-center'>
-            <h3 className="text-xl font-bold">Solicitud Nº {id}</h3>
-            <p className="text-sm font-bold">Solicita: {nombre01}</p>
-            {pedido.map(oc => (
-                        <tr className="bg-white border-b text-sm"key={oc.id}>
-                            <td className="px-2 py-1 w-1/12 text-center border border-black">{oc.nombre}</td>
-                        </tr>
-                    ))}
-            <p className="text-sm font-bold ">Cotizacion: {cotizar ? "✔️" : "Pendiente 🔒⏱"}</p>
-            <p className="text-sm font-bold ">Orden De Compra: {compra ? "✔️" : "Pendiente 🔒⏱"}</p>
-            <p className="text-sm font-bold ">Recibido: {planta ? "✔️" : "En Camino 🔒⏱"}</p>
-          </div>
+    
+
+
+    <div class="max-w-lg mx-auto my-2 bg-white p-8 rounded-xl shadow shadow-slate-300">
+        <div class="flex flex-row justify-between items-center">
+            <div>
+                <h1 class="text-xl font-medium">Solicitud nº {id}</h1>
+            </div>
+            <div class="inline-flex space-x-2 items-center">
+                <a href="#" class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200">
+                <p class="text-xs text-slate-500 text-center">{nombre01} </p>                         
+                </a>
+                <a href="#" class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200">
+                <p class="text-xs text-slate-500 text-center">{formatiarFecha(fecha)} </p>                 
+                </a>
+            </div>
         </div>
-      </div> */}
+        
 
-<div class="col-span-12 mt-5">
-            <div class="grid gap-2 grid-cols-1 lg:grid-cols-1">
-                <div class="bg-white p-4 shadow-lg rounded-lg">
-                    <h1 class="font-bold text-base">Solicitud Nº {id}</h1>
-                    <div class="mt-4">
-                        <div class="flex flex-col">
-                            <div class="-my-2 overflow-x-auto">
-                                <div class="py-2 align-middle inline-block min-w-full">
-                                    <div
-                                        class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
-                                        <table class="min-w-full divide-y divide-gray-200 tex">
-                                            <thead>
-                                                <tr>
-                                                    <th
-                                                        class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                        <div class="flex cursor-pointer">
-                                                            <span class="mr-2">Solicita</span>
-                                                        </div>
-                                                    </th>
-                                                <th
-                                                                            class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                                            <div class="flex cursor-pointer">
-                                                                                <span class="mr-2">Pedido</span>
-                                                                            </div>
-                                                                        </th>
-                                                                        <th
-                                                                            class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                                            <div class="flex cursor-pointer">
-                                                                                <span class="mr-2">Cotizacion</span>
-                                                                            </div>
-                                                                        </th>
-                                                                        <th
-                                                                            class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                                            <div class="flex cursor-pointer">
-                                                                                <span class="mr-2">Orden De Compra</span>
-                                                                            </div>
-                                                                        </th>
-                                                                        <th
-                                                                            class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                                            <div class="flex cursor-pointer">
-                                                                                <span class="mr-2">Recibido</span>
-                                                                            </div>
-                                                                        </th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody class="bg-white divide-y divide-gray-200">
-                                                                {pedido.map(oc => (
-                                                                    <tr key={oc.id}>
-                                                                        <td
-                                                                            class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                            <p>{nombre01}</p>
-                                                                        </td>
-                                                                        <td
-                                                                            class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                            <p>{oc.nombre}</p>
-                                                                        </td>
-                                                                        <td
-                                                                            class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                            <p>{cotizar ? "✔️" : "Pendiente 🔒"}</p>
-                                                                        </td>
-
-                                                                        <td
-                                                                            class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                            <p>{compra ? "✔️" : "Pendiente 🔒"}</p>
-                                                                        </td>
-
-                                                                        <td
-                                                                            class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                            <p>{planta ? "✔️" : "En Espera 🔒"}</p>
-                                                                        </td>
-                                                                        
-                                                                        
-                                                                    </tr>
-                                                                    ))}
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <div id="tasks" class="my-5">
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-6">
+                    <div>
+                        <div className="text-slate-500">{cantidades}</div>                         
+                    </div>
+                    <div class="text-slate-500">{detalles}</div>
+                </div>
+                
+                 
+            </div>
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-2">
+                    <div>
+                        <div className="text-slate-500">{cantidad01}</div>                         
+                    </div>
+                    <div class="text-slate-500">{detalle01}</div>
+                </div>
+                
+                 
+            </div>
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-2">
+                    <div>
+                        <div className="text-slate-500">{cantidad02}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion02}</div>
+                </div>
+                
+                 
+            </div>
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-2">
+                    <div>
+                        <div className="text-slate-500">{cantidad03}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion03}</div>
+                </div>
+                
+                 
+            </div>
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-2">
+                    <div>
+                        <div className="text-slate-500">{cantidad04}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion04}</div>
+                </div>
+                
+                 
+            </div>
+            
+        </div>
+        <table className="w-full text-xs">
+        <tbody>
+                        <tr className="font-bold">
+                            <td className="px-2 py-4 pb-1 w-1/3 text-center">Cotizacion</td>
+                            <td className="px-2 py-4 pb-1 w-1/3 text-center">O.C.</td>
+                            <td className="px-2 py-4 pb-1 w-1/3 text-center">Recepcion</td>
+                        </tr>
+                        <tr className="bg-white">
+                            <td className="px-2 py-2 w-1/3 text-center">{cotizar ? "✔️" : "Pendiente 🔒"}</td>    
+                            <td className="px-2 py-2 w-1/3 text-center">{compra ? "✔️" : "Pendiente 🔒"}</td>
+                            <td className="px-2 py-2 w-1/3 text-center ">{planta ? "✔️" : "En Camino 🔒"}</td>
+                        </tr>    
+            </tbody>
+        </table>      
+    </div>
     </>
   )
 }

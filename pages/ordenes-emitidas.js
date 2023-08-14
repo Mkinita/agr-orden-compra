@@ -7,8 +7,8 @@ import OrdenesEmitidas from '../components/OrdenesEmitidas'
 
 export default function Admin() {
 
-    const fetcher = () => axios('/api/ordenes-emitidas').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-emitidas',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/ordenes-emitidas-auz').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/ordenes-emitidas-auz',fetcher,{refreshInterval: 100} )
 
     
      

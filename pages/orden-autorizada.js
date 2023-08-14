@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import LayoutAutorizar from "../layout/LayoutAutorizar"
-import OrdenesCompra from '../components/OrdenesCompra'
+import OrdenesCompraSup from '../components/OrdenesCompraSup'
 import {useState, useEffect} from 'react'
 
 
@@ -11,14 +11,14 @@ import {useState, useEffect} from 'react'
 
 export default function Admin() {
 
-    const fetcher = () => axios('/api/ordenes-autorizadas').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/ordenes-autorizadas-sup').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-sup',fetcher,{refreshInterval: 100} )
 
     const [ datos, setDatos ] = useState([])
     const [ buscar, setBuscar ] = useState("")
   
     //función para traer los datos de la API
-    const URL = '/api/ordenes-autorizadas'
+    const URL = '/api/ordenes-autorizadas-sup'
   
     const showData = async () => {
       const response = await fetch(URL)
@@ -54,7 +54,7 @@ export default function Admin() {
             
                 {data && data.length ? results.map(orden =>
                     
-                    <OrdenesCompra
+                    <OrdenesCompraSup
                         key={orden.id}
                         orden={orden}
                     />

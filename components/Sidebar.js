@@ -20,6 +20,10 @@ const Sidebar = () => {
       setIsVisible(!isVisible);
     };
 
+    const toggleVisibility1 = () => {
+        setIsVisible1(!isVisible1);
+      };
+
 
     
  
@@ -48,18 +52,12 @@ const Sidebar = () => {
                                 
 
                                 <li>
-                                    <Link href="/agregar-solicitud" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                    <Link href="/generar-solicitud" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
                                         ➕
                                         <span class="ml-3">Generar Solicutud</span>
                                     </Link>
                                 </li>
 
-                                <li>
-                                    <Link href="/resumen" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
-                                        ⌚
-                                    <span class="ml-3">Resumen</span>
-                                    </Link>
-                                </li>
 
                                 <li>
                                     <Link href="/solicitud-pendiente-gavino" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
@@ -75,11 +73,42 @@ const Sidebar = () => {
                     </li>
 
                     <li>
-                        <Link href="/agregar-articulo" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
-                            ➕
-                            <span class="ml-3">Agregar Articulo</span>
-                        </Link>
+                        <button
+                            className="flex w-full items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase"
+                            onClick={toggleVisibility1}
+                                            
+                        >
+                            {isVisible1 ? '➖ Ordenes de compra' : '📋 Ordenes de compra'}
+                        </button>
+                                        
+                                
+                        <div className="">
+                            
+                            {isVisible1 && (
+                            <div className="p-2 space-y-1">
+                                
+
+                                <li>
+                                    <Link href="autorizar-oc" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                        🔐
+                                        <span class="ml-3">Autorizar OC</span>
+                                    </Link>
+                                </li>
+
+
+                                <li>
+                                    <Link href="/orden-autorizada-oc" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                        ✔️
+                                        <span class="ml-3">Ordenes Atorizadas</span>
+                                    </Link>
+                                </li>
+                            </div>
+                            
+                            )}
+                        </div>
                     </li>
+
+
                 </ul> 
             </div>
         </>

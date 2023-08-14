@@ -7,7 +7,7 @@ export default async function handler (req,res){
         const { id }  = req.query
         
 
-        const solicitudcotizada = await prisma.solicitud.update({
+        const solicitudcotizada = await prisma.nuevaSolicitud.update({
             where:{
                 id: parseInt(id)
             },

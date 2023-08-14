@@ -23,25 +23,26 @@ const CombustibleProvider = ({children}) => {
     const [cotizacion, setCotizacion] = useState('')
     const [atencion, setAtencion] = useState('')
     const [numerosoli, setNumeroSoli] = useState('')
+    const [pago, setPago] = useState('')
 
-    const [cantidades, setCantidades] = useState([]);
-    const [detalles, setDetalles] = useState([]);
+    const [cantidades, setCantidades] = useState('');
+    const [detalles, setDetalles] = useState('');
     const [valores, setValores] = useState('');
 
-    const [cantidad01 , setCantidad01] = useState([]);
-    const [detalle01, setDetalle01] = useState([]);
+    const [cantidad01 , setCantidad01] = useState('');
+    const [detalle01, setDetalle01] = useState('');
     const [valor01, setValore01] = useState('');
 
-    const [cantidad02, setCantidad02] = useState([])
-    const [descripcion02, setDescripcion02] = useState([])
+    const [cantidad02, setCantidad02] = useState('')
+    const [descripcion02, setDescripcion02] = useState('')
     const [valor02, setValor02] = useState('')
 
-    const [cantidad03, setCantidad03] = useState([])
-    const [descripcion03, setDescripcion03] = useState([])
+    const [cantidad03, setCantidad03] = useState('')
+    const [descripcion03, setDescripcion03] = useState('')
     const [valor03, setValor03] = useState('')
 
-    const [cantidad04, setCantidad04] = useState([])
-    const [descripcion04, setDescripcion04] = useState([])
+    const [cantidad04, setCantidad04] = useState('')
+    const [descripcion04, setDescripcion04] = useState('')
     const [valor04, setValor04] = useState('')
 
     const [cantidad05, setCantidad05] = useState([])
@@ -158,14 +159,35 @@ const CombustibleProvider = ({children}) => {
 
            toast.success('Guardado Correctamente')
            setTimeout(() =>{
-            router.push('/generarordencompra')
+            router.push('/resumen-oc')
         },500)
         } else {
             setPedido01([...pedido01, proveedor])
             toast.success('Agregado Solicitud')
 
             setTimeout(() =>{
-                router.push('/generarordencompra')
+                router.push('/resumen-oc')
+            },500)
+        }
+        setModal(false)
+    }
+
+
+
+    const handleAgregarOrdenSolicitud = ({...solicitud}) => {
+        if(pedido.some(solicitudState => solicitudState.id === solicitud.id)) {
+           
+
+           toast.success('Guardado Correctamente')
+           setTimeout(() =>{
+            router.push('/proveedores')
+        },500)
+        } else {
+            setPedido([...pedido, solicitud])
+            toast.success('Agregado Solicitud')
+
+            setTimeout(() =>{
+                router.push('/proveedores')
             },500)
         }
         setModal(false)
@@ -241,6 +263,48 @@ const CombustibleProvider = ({children}) => {
         }
     }
 
+    const AgregarNuevaSolicitud = async (e) => {
+        e.preventDefault();
+
+        try {
+            await axios.post('/api/nuevasolicitud',
+            {   
+                cantidades,detalles,valores,
+                cantidad01,detalle01,valor01,
+                cantidad02,descripcion02,valor02,
+                cantidad03,descripcion03,valor03,
+                cantidad04,descripcion04,valor04,
+                nombre01,area,fecha: new Date()
+            })
+            //resetear la app
+            setNombre01('Gavino Ugalde')
+            setArea('')
+            setFecha('')
+            setCantidades('')
+            setDetalles('')
+            setValores('')
+            setCantidad01('')
+            setDetalle01('')
+            setValore01('')
+            setCantidad02('')
+            setCantidad03('')
+            setCantidad04('')
+            setDescripcion02('')
+            setDescripcion03('')
+            setDescripcion04('')
+            setValor02('')
+            setValor03('')
+            setValor04('')
+            toast.success('Genrando Solicitud ⏳')
+            setTimeout(() =>{
+                router.push('/solicitud-pendiente-gavino')
+            },3000)
+
+        } catch (error) {
+            
+        }
+    }
+
 
 
     const agregarOC = async (e) => {
@@ -306,6 +370,64 @@ const CombustibleProvider = ({children}) => {
     }
 
 
+    const crearOC = async (e) => {
+        e.preventDefault()
+
+        try {
+           await axios.post('/api/crearordencompra',{pedido,pedido01,pago,cotizacion,atencion,solicita,fecha: new Date(),})
+            // Resetear la app
+            setPago('')
+            setArea('')
+            setNumeroSoli('')
+            setCotizacion('')
+            setSolicita([])
+            setPedido01([])
+            setCantidades([])
+            setDetalles([])
+            setValores('')
+            setCantidad01([])
+            setDetalle01([])
+            setValore01('')
+            setCantidad02([])
+            setCantidad03([])
+            setCantidad04([])
+            setCantidad05([])
+            setCantidad06([])
+            setCantidad07([])
+            setCantidad08([])
+            setCantidad09([])
+            setDescripcion02([])
+            setDescripcion03([])
+            setDescripcion04([])
+            setDescripcion05([])
+            setDescripcion06([])
+            setDescripcion07([])
+            setDescripcion08([])
+            setDescripcion09([])
+            setValor02('')
+            setValor03('')
+            setValor04('')
+            setValor05('')
+            setValor06('')
+            setValor07('')
+            setValor08('')
+            setValor09('')
+            setAtencion('')
+            toast.success('Agregando ⏳')
+
+            setTimeout(() =>{
+                router.push('/pdf-imprimir')
+            },3000)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
+
+
 
 
     return(
@@ -368,6 +490,7 @@ const CombustibleProvider = ({children}) => {
 
             atencion,setAtencion,
             cotizacion,setCotizacion,
+            pago,setPago,
             
 
 
@@ -376,6 +499,8 @@ const CombustibleProvider = ({children}) => {
             agregarProveedor,
             agregarOC,
             handleAgregarOrden,
+            AgregarNuevaSolicitud,
+            crearOC,
             
 
             handlesetProveedor,
@@ -384,6 +509,7 @@ const CombustibleProvider = ({children}) => {
             handlesetOcpedidos,
             handleChangeModal,
             handleAgregarPedido,
+            handleAgregarOrdenSolicitud,
             handleEditarCantidades,
             handleElimanarSolicitud,
             handleElimanarproveedor

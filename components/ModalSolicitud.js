@@ -2,15 +2,22 @@ import useCombustible from "../hooks/useCombustible";
 import { useRouter } from 'next/router'
 import axios  from 'axios'
 import { toast } from "react-toastify"
+import {formatiarFecha} from "helpers/fecha"
 
 const ModalSolicitud = () => {
-  const { solicitud, handleChangeModal, handleAgregarPedido, modal,setModal } = useCombustible();
-  const {id,nombre01,fecha,pedido} = solicitud
+  const { solicitud, handleChangeModal, handleAgregarPedido, modal,setModal, } = useCombustible();
+  const {nombre01,fecha,id,compra,planta,
+    area,cotizar
+    ,cantidades,detalles,
+    cantidad01 ,detalle01,
+    cantidad02, descripcion02,
+    cantidad03, descripcion03,
+    cantidad04, descripcion04} = solicitud
 
 
   const router = useRouter()
 
-    const cotizar = async () => {
+    const cotizarsolicitud = async () => {
 
         try {
 
@@ -18,7 +25,7 @@ const ModalSolicitud = () => {
             toast.success('generando solicitud de cotizacion')
             setModal(false);
             setTimeout(() =>{
-              router.push('/cotizacion')
+              router.push('/continuar')
           },1500)
         } catch (error) {
             toast.error('Hubo un error')
@@ -49,25 +56,93 @@ const ModalSolicitud = () => {
                 </svg>
             </button>
             </div>
-            <h1 className="text-xl font-bold  text-center pb-5">Detalle</h1>
+            
 
-            <table className="table-auto w-full text-center bg-white text-gray-700">
-                <tbody>
-                    {pedido.map(oc => (
-                        <tr className="bg-white border-b hover:bg-amber-300 text-sm"key={oc.id}>
-                            <td className="px-6 py-4 w-1/12 text-center border border-amber-400">{oc.cantidad}</td>
-                            <td className="px-6 py-4 w-2/3 text-center border border-amber-400">{oc.nombre}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div class="mx-auto my-2 bg-white p-8 rounded-xl shadow shadow-slate-300">
+        <div class="flex flex-row justify-between items-center">
+            <div>
+                <h1 class="text-xl font-medium">Solicitud nº {id}</h1>
+                <p class="text-xs text-slate-500 py-1">{area} </p> 
+            </div>
+            <div class="inline-flex space-x-2 items-center">
+                <div  class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200">
+                <p class="text-xs text-slate-500 text-center">{nombre01} </p>                         
+                </div>
+                <div  class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200">
+                <p class="text-xs text-slate-500 text-center">{formatiarFecha(fecha)} </p>                 
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="tasks" class="my-5">
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-6">
+                    <div>
+                        <div className="text-slate-500">{cantidades}</div>                         
+                    </div>
+                    <div class="text-slate-500">{detalles}</div>
+                </div>
+                
+                 
+            </div>
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-2">
+                    <div>
+                        <div className="text-slate-500">{cantidad01}</div>                         
+                    </div>
+                    <div class="text-slate-500">{detalle01}</div>
+                </div>
+                
+                 
+            </div>
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-2">
+                    <div>
+                        <div className="text-slate-500">{cantidad02}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion02}</div>
+                </div>
+                
+                 
+            </div>
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-2">
+                    <div>
+                        <div className="text-slate-500">{cantidad03}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion03}</div>
+                </div>
+                
+                 
+            </div>
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-2">
+                    <div>
+                        <div className="text-slate-500">{cantidad04}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion04}</div>
+                </div>
+                
+                 
+            </div>
+            
+            
+        </div>
+
+        <div class="flex flex-row items-center justify-center">
+            <div class="inline-flex space-x-2 items-center justify-center">
+                <button href="#" class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200" type="button" onClick={cotizarsolicitud}>
+                <p class="text-xs text-slate-500 text-center hover:scale-110">Cotizacion Realizada</p>                         
+                </button>
+                
+            </div>
+        </div>
+          
+    </div>
 
             
-            <div className="m-auto text-center">
-                <button className="bg-amber-400 hover:bg-amber-500 px-5 py-2 mt-5 text-white font-bold uppercase rounded-xl" type="button" onClick={cotizar} >
-                    Generar Cotizacion
-              </button>
-            </div>
+            
 
         </div>
     </div>

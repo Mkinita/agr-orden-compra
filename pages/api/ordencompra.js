@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         fecha: req.body.fecha,
         cotizacion: req.body.cotizacion,
         atencion: req.body.atencion,
-        area: req.body.area,
+        pago: req.body.pago,
 
         cantidades: req.body.cantidades,
         detalles: req.body.detalles,

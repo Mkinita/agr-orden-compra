@@ -2,7 +2,7 @@ import Head from "next/head"
 import SidebarAutorizar from "../components/SidebarAutorizar"
 import Modal from "react-modal"
 import { ToastContainer } from'react-toastify'
-import ModalOrden from "../components/ModalOrden";
+import Modalautorizar from "../components/Modalautorizar";
 import useCombustible from "../hooks/useCombustible";
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -52,7 +52,7 @@ export default function Layout({children, pagina}) {
 
       {modal && (
         <Modal isOpen={modal} style={customStyles}>
-          <ModalOrden />
+          <Modalautorizar />
         </Modal>
       )}
       <ToastContainer/>

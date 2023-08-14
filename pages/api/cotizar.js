@@ -4,10 +4,11 @@ export default async function handler(req, res) {
   const prisma = new PrismaClient();
   const fechaActual = new Date(); // Obtener la fecha actual
   //Obtener solicitudes
-  const solicitudes = await prisma.solicitud.findMany({
+  const solicitudes = await prisma.nuevaSolicitud.findMany({
     where: {
       estado:false,
-      cotizar:true
+      cotizar:true,
+      compra:false,
     },
     orderBy: {
       id: "desc",

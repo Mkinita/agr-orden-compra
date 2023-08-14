@@ -93,7 +93,50 @@ model Orden {
 }
 
 
+model NuevaSolicitud {
+  id Int @id @default(autoincrement())
+  fecha DateTime
+  area String
+  nombre01 String
 
+  cantidades String?
+  detalles String?
+  valores String?
+
+  cantidad01 String?
+  detalle01 String?
+  valor01 String?
+
+  cantidad02 String?
+  descripcion02 String?
+  valor02 String?
+
+  cantidad03 String?
+  descripcion03 String?
+  valor03 String?
+
+  cantidad04 String?
+  descripcion04 String?
+  valor04 String?
+
+  cotizar Boolean  @default(false)
+  compra Boolean  @default(false)
+  estado Boolean  @default(false)
+  planta Boolean  @default(false)
+}
+
+model Nuevaorden{
+  id Int @id @default(autoincrement())
+  fecha DateTime
+  cotizacion String
+  atencion String
+  pago String?
+  pedido Json
+  pedido01 Json
+  estado Boolean  @default(false)
+  estado01 Boolean  @default(false)
+  planta Boolean  @default(false)
+}
 
 
 

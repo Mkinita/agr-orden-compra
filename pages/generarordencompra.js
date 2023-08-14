@@ -4,12 +4,13 @@ import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
 import { useEffect, useCallback, useState } from "react"
 import useCombustible from "../hooks/useCombustible"
 import ResumenSolicitusGeneral from "../components/ResumenSolicitusGeneral"
+import ResumenSolicitudOc from "../components/ResumenSolicitudOc"
 import SolicitudesOrdenes from '../components/SolicitudesOrdenes'
 import { useRouter } from 'next/router'
 
 export default function GenerarOrdenDeCompra() {
     
-    const {pedido01, agregarOC,cantidades,setCantidades,detalles,setDetalles,valores,setValores,solicita,setSolicita,numerosoli,setNumeroSoli,
+    const {pedido01,pedido, agregarOC,cantidades,setCantidades,detalles,setDetalles,valores,setValores,solicita,setSolicita,numerosoli,setNumeroSoli,
         cantidad01 ,setCantidad01,detalle01, setDetalle01,valor01, setValore01,
         cantidad02, setCantidad02, descripcion02, setDescripcion02, valor02, setValor02,
         cantidad03, setCantidad03, descripcion03, setDescripcion03, valor03, setValor03,
@@ -357,9 +358,27 @@ export default function GenerarOrdenDeCompra() {
     return (
         <LayoutOrdenCompra pagina='GenerarOrdenDeCompra O.C.'>
             <h1 className="text-2xl font-bold py-8 text-center">Generar Orden De Compra</h1>
-            {pedido01.map(proveedor=>(
-                <ResumenSolicitusGeneral key={proveedor.id} proveedor={proveedor}/>      
-            ))}
+
+            
+
+            
+
+
+            {pedido01.length === 0 ? (
+                <p className="text-center text-2xl"></p>
+            ) : (
+                pedido01.map((proveedor) => (
+                <ResumenSolicitusGeneral  key={proveedor.id} proveedor={proveedor} />
+                ))
+            )}
+
+            {pedido.length === 0 ? (
+                <p className="text-center text-2xl"></p>
+                ) : (
+              pedido.map(solicitud=>(
+                  <ResumenSolicitudOc key={solicitud.id} solicitud={solicitud}/>      
+              ))
+            )}
 
             
 

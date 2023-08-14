@@ -1,7 +1,6 @@
 import { Inter } from '@next/font/google'
 import LayoutProveedor from '../layout/LayoutProveedor'
 import Proveedor from '../components/Proveedor'
-import useCombustible from '../hooks/useCombustible'
 import {useState, useEffect} from 'react'
 
 
@@ -35,7 +34,7 @@ export default function Solicitud() {
 
   return (
     <LayoutProveedor pagina={`Proveedores`}>
-      <p className='text-2xl mx-5 my-3 font-bold py-8'>Seleccione Un Proveedor</p>
+      <p className='text-2xl mx-5 my-3 font-bold py-8 pb-2'>Seleccione Un Proveedor</p>
       <div className='mt-auto'>
         <input value={search} onChange={searcher} type="text" placeholder='Buscar' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
       </div>

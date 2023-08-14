@@ -3,9 +3,10 @@ import { PrismaClient } from "@prisma/client";
 export default async function handler(req, res) {
   const prisma = new PrismaClient();
   //Obtener Ordenes
-  const ordenes = await prisma.orden.findMany({
+  const ordenes = await prisma.nuevaorden.findMany({
    where:  {
-    estado:true
+    estado:true,
+    planta:true
     },
     orderBy: {
       id: "desc",

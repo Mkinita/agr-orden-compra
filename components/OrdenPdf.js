@@ -10,7 +10,7 @@ import {formatoNumero} from "helpers/formato"
 
 
 const OrdenCompraAutorizada = ({orden}) => {
-    const {id,fecha,pedido01,atencion,cotizacion,
+    const {id,fecha,pedido01,pedido,atencion,cotizacion,
       valor01,cantidad01,detalle01,
       valor02,cantidad02,descripcion02,
       valor03,cantidad03,descripcion03,
@@ -24,6 +24,7 @@ const OrdenCompraAutorizada = ({orden}) => {
     
     }  
     = orden
+    
 
 
 
@@ -160,7 +161,10 @@ const OrdenCompraAutorizada = ({orden}) => {
             </div>
         ))}
 
-
+    {pedido.map(o => (
+            <div key={o.id}
+                className=""
+            >
         <div className="p-2 space-y-2 m-2">
             <table className="table-auto w-full text-center bg-white">
                 <thead>
@@ -171,41 +175,41 @@ const OrdenCompraAutorizada = ({orden}) => {
                 </thead>
                 <tbody>
                     <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidades}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{detalles}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valores}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado)}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.cantidades}</td>
+                        <td className="px-6 py-1 w-2/3 text-center border border-black">{o.detalles}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.valores}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (o.cantidades * o.valores)}</td>
                     </tr>
 
                     <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad01}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{detalle01}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor01}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado01)}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.cantidad01}</td>
+                        <td className="px-6 py-1 w-2/3 text-center border border-black">{o.detalle01}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.valor01}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (o.cantidad01 * o.valor01)}</td>
                     </tr>
 
                     <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad02}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion02}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor02}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado02)}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.cantidad02}</td>
+                        <td className="px-6 py-1 w-2/3 text-center border border-black">{o.descripcion02}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.valor02}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (o.cantidad02 * o.valor02)}</td>
                     </tr>
 
                     <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad03}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion03}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor03}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado03)}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.cantidad03}</td>
+                        <td className="px-6 py-1 w-2/3 text-center border border-black">{o.descripcion03}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.valor03}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (o.cantidad03 * o.valor03)}</td>
                     </tr>
 
                     <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad04}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion04}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor04}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado04)}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.cantidad04}</td>
+                        <td className="px-6 py-1 w-2/3 text-center border border-black">{o.descripcion04}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{o.valor04}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (o.cantidad04 * o.valor04)}</td>
                     </tr>
 
-                    <tr className="bg-white border-b  text-sm">
+                    {/* <tr className="bg-white border-b  text-sm">
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad05}</td>
                         <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion05}</td>
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{valor05}</td>
@@ -238,7 +242,7 @@ const OrdenCompraAutorizada = ({orden}) => {
                         <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion09}</td>
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{valor09}</td>
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado09)}</td>
-                    </tr>
+                    </tr> */}
 
                     
                 </tbody>
@@ -246,25 +250,27 @@ const OrdenCompraAutorizada = ({orden}) => {
                         <td className="px-6 py-1 w-1/12 text-center"></td>
                         <td className="px-6 py-1 w-2/3 text-center"></td>
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">NETO</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero(subtotal)}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores)+(o.cantidad01 * o.valor01)+(o.cantidad02 * o.valor02)+(o.cantidad03 * o.valor03)+(o.cantidad04 * o.valor04))}</td>
                     </tr>
                     <tr className="bg-white text-sm">
                         <td className="px-6 py-1 w-1/12 text-center"></td>
                         <td className="px-6 py-1 w-2/3 text-center"></td>
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">IVA 19%</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero(iva)}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores+ o.cantidad01 * o.valor01+o.cantidad02 * o.valor02+o.cantidad03 * o.valor03+o.cantidad04 * o.valor04) *(0.19))}</td>
                     </tr>
                     <tr className="bg-white text-sm">
                         <td colSpan="2" className="px-2 py-1 w-1/12 text-left">Sin otro particular saluda(n) Atte. a Ud(s)</td>
                         
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">TOTAL</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero(totaldubiva)}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores+ o.cantidad01 * o.valor01+o.cantidad02 * o.valor02+o.cantidad03 * o.valor03+o.cantidad04 * o.valor04)*(1.19))}</td>
                     </tr>
             </table>
         </div>
+         </div>
+         ))}
 
 
-        <div className="grid gap-4 grid-cols-1 py-4 pb-8">
+        {/* <div className="grid gap-4 grid-cols-1 py-4 pb-8">
             
             
             <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
@@ -276,7 +282,7 @@ const OrdenCompraAutorizada = ({orden}) => {
         <div className="py-2 pb-8">
             <div className="px-6"><p className="text-black font-bold text-sm">NOTA: En la Factura se deberá mencionar el Nº de esta orden.</p></div>
 
-        </div>
+        </div> */}
 
 
 
