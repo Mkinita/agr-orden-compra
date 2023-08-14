@@ -257,7 +257,7 @@ const ModalSolicitud = () => {
             
             <div className="m-auto text-center">
                 <button className="px-5 py-2 mt-5 text-black font-bold uppercase rounded-xl shadow" type="button" onClick={autorizar} >
-                    <Image width={200} height={50} src="/assets/img/firma.png" alt="logo" className=""/>
+                    {/* <Image width={200} height={50} src="/assets/img/firma.png" alt="logo" className=""/> */}
                     Firmar Autorizacion
                 </button>
             </div>
