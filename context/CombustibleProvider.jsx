@@ -417,6 +417,7 @@ const CombustibleProvider = ({children}) => {
 
             setTimeout(() =>{
                 router.push('/pdf-imprimir')
+                
             },3000)
 
         } catch (error) {

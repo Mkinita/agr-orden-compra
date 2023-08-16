@@ -7,8 +7,8 @@ import ImprimirOrden from '../components/ImprimirOrden'
 
 export default function Admin() {
 
-    const fetcher = () => axios('/api/ordenes-emitidas').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-emitidas',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/ordenes-emitidas-pdf').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/ordenes-emitidas-pdf',fetcher,{refreshInterval: 100} )
 
     
      

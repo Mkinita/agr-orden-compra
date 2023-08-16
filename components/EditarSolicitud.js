@@ -302,7 +302,7 @@ export default function EditarOrdenGeneral({solicitud}) {
   <button type="submit" className="w-full py-4 pb-0 hover:scale-95">
     Guardar ♻️
   </button>
-  <Link href="/cotizacion" className="border border-r-slate-200 p-2 flex items-center hover:scale-95">
+  <Link href="/cotizacion" className=" p-2 flex items-center hover:scale-95">
     ⏩ <span className="ml-3">Siguiente ⏩</span>
   </Link>
 </div>

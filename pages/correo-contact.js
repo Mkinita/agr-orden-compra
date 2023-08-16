@@ -41,9 +41,10 @@ export default function ContactPage() {
       console.error('Error al enviar el correo electrónico:', error);
     }
 
-    toast.success('Enviando Notificacion')
+    toast.success('Notificacion Enviada')
     setTimeout(() =>{
       router.push('/orden-compra')
+      router.reload();
     },1500)
 
     setFormData({
