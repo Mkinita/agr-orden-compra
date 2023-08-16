@@ -23,7 +23,7 @@ const CombustibleProvider = ({children}) => {
     const [cotizacion, setCotizacion] = useState('')
     const [atencion, setAtencion] = useState('')
     const [numerosoli, setNumeroSoli] = useState('')
-    const [pago, setPago] = useState('')
+    const [pago, setPago] = useState('-')
 
     const [cantidades, setCantidades] = useState('');
     const [detalles, setDetalles] = useState('');

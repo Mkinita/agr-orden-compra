@@ -5,6 +5,7 @@ import {formatiarFecha} from "helpers/fecha"
 import {formatearDinero} from "helpers/index"
 import { useRouter } from 'next/router'
 import {formatoNumero} from "helpers/formato"
+import EditarPago from "./EditarPago"
 
 
 
@@ -209,46 +210,12 @@ const OrdenCompraAutorizada = ({orden}) => {
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (o.cantidad04 * o.valor04)}</td>
                     </tr>
 
-                    {/* <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad05}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion05}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor05}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado05)}</td>
-                    </tr>
-
-                    <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad06}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion06}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor06}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado06)}</td>
-                    </tr>
-
-                    <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad07}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion07}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor07}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado07)}</td>
-                    </tr>
-
-                    <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad08}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion08}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor08}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado08)}</td>
-                    </tr>
-
-                    <tr className="bg-white border-b  text-sm">
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{cantidad09}</td>
-                        <td className="px-6 py-1 w-2/3 text-center border border-black">{descripcion09}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{valor09}</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (resultado09)}</td>
-                    </tr> */}
-
+                  
                     
                 </tbody>
-                    <tr className="bg-white text-sm">
+                    <tr className="bg-white text-sm" >
                         <td className="px-6 py-1 w-1/12 text-center"></td>
-                        <td className="px-6 py-1 w-2/3 text-center"></td>
+                        <td className="px-6 py-1 w-2/3 text-left border border-black" ><EditarPago orden={orden} /></td>
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">NETO</td>
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores)+(o.cantidad01 * o.valor01)+(o.cantidad02 * o.valor02)+(o.cantidad03 * o.valor03)+(o.cantidad04 * o.valor04))}</td>
                     </tr>

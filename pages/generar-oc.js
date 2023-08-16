@@ -95,7 +95,7 @@ export default function Home() {
                 <div class="w-full rounded-2xl bg-gray-50 px-4 ring-2 ring-gray-200 focus-within:ring-blue-400">
                     <input type="text" placeholder="Nº COTIZACION" class="my-3 w-full border-none bg-transparent outline-none focus:outline-none" value={cotizacion} onChange={e => setCotizacion(e.target.value)}/>
                 </div>
-                <div class="w-full rounded-2xl bg-gray-50 px-4 ring-2 ring-gray-200 focus-within:ring-blue-400">
+                <div class="w-full hidden rounded-2xl bg-gray-50 px-4 ring-2 ring-gray-200 focus-within:ring-blue-400">
                     <select
                         
                         class="my-3 w-full border-none bg-transparent outline-none focus:outline-none"
@@ -106,8 +106,6 @@ export default function Home() {
                     >
                         <option value="" disabled selected>Tipo De Pago</option>
                         <option value="option1"> 1</option>
-                        <option value="option2"> 2</option>
-                        <option value="option3"> 3</option>
                     </select>
                 </div>
                 

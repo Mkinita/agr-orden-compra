@@ -19,7 +19,7 @@ export default function Admin() {
             {data && data.length ? data.map(orden =>
                 <div className=''>
                 <ImprimirOrden
-                    key={orden.id}
+
                     orden={orden}
                 />
                 </div>

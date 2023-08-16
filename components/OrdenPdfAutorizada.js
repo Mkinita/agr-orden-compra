@@ -10,7 +10,7 @@ import {formatoNumero} from "helpers/formato"
 
 
 const OrdenCompraAutorizada = ({orden}) => {
-    const {id,fecha,pedido01,atencion,cotizacion,pedido,
+    const {id,fecha,pedido01,atencion,cotizacion,pedido,pago,
       valor01,cantidad01,detalle01,
       valor02,cantidad02,descripcion02,
       valor03,cantidad03,descripcion03,
@@ -248,7 +248,7 @@ const OrdenCompraAutorizada = ({orden}) => {
                 </tbody>
                     <tr className="bg-white text-sm">
                         <td className="px-6 py-1 w-1/12 text-center"></td>
-                        <td className="px-6 py-1 w-2/3 text-center"></td>
+                        <td className="px-6 py-1 w-2/3 text-left">{pago}</td>
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">NETO</td>
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores)+(o.cantidad01 * o.valor01)+(o.cantidad02 * o.valor02)+(o.cantidad03 * o.valor03)+(o.cantidad04 * o.valor04))}</td>
                     </tr>
