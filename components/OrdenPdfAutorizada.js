@@ -25,6 +25,8 @@ const OrdenCompraAutorizada = ({orden}) => {
     }  
     = orden
 
+    const image = ('gavino')
+
 
 
     const formatoNumero = (num) => {
@@ -145,20 +147,38 @@ const OrdenCompraAutorizada = ({orden}) => {
             </div>
         </div>
 
+        <div className="grid gap-4 grid-cols-2 md:grid-cols-2">
+
+        {pedido.map(o => (
+            <div key={o.id}
+                className=""
+            >
+                <div className="grid gap-2 grid-cols-1 py-1 pb-5">
+                    <div className="px-6"><p className="w-full border-b border-black">Atencion: {atencion}</p></div>
+                    <div className="px-6"><p className="w-full border-b border-black">Cotizacion: {cotizacion}</p></div>
+                    <div className="px-6"><p className="w-full border-b border-black">Autorizado: {o.nombre01}</p></div>
+                </div>
+                </div>
+        ))}
+
         {pedido01.map(oc => (
             <div key={oc.id}
                 className=""
             >
-                <div className="grid gap-4 grid-cols-2">
-                    <div className="px-6"><p className="border-b border-black">Señor(es): {oc.nombreproveedor}</p></div>
-                    <div className="px-6"><p className="border-b border-black">Rut: {oc.rut}</p></div>
+                <div className="grid gap-4 grid-cols-1">
+                    <div className="px-6"><p className="w-full border-b border-black">Señor(es): {oc.nombreproveedor}</p></div>
+                    <div className="px-6"><p className="w-full border-b border-black">Rut: {oc.rut}</p></div>
                 </div>
-                <div className="grid gap-4 grid-cols-2 py-2 pb-5">
-                    <div className="px-6"><p className="border-b border-black">Atencion: {atencion}</p></div>
-                    <div className="px-6"><p className="border-b border-black">Cotizacion: {cotizacion}</p></div>
                 </div>
-            </div>
         ))}
+
+
+
+
+        
+
+</div>
+            
 
 
 {pedido.map(o => (
@@ -270,13 +290,25 @@ const OrdenCompraAutorizada = ({orden}) => {
          ))}
 
 
-        <div className="grid gap-4 grid-cols-1 py-4 pb-8">
+        <div className="grid gap-1 grid-cols-2 py-4 pb-8">
             
             
             <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
                 <Image width={280} height={80} src="/assets/img/firma.png" alt="logo" className=""/>
                 </p></div>
-        </div>
+
+                {/* <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
+                <Image width={280} height={80} src="/assets/img/gavino.png" alt="logo" className=""/>
+                </p></div> */}
+{pedido.map(o => (
+            
+                <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
+                <Image width={280} height={80} src={`/assets/img/${o.firma}.png`} alt="logo" className=""/>
+                                </p></div>
+                
+        
+         
+         ))} </div>
 
 
         <div className="py-2 pb-8">

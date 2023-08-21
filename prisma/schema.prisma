@@ -123,6 +123,7 @@ model NuevaSolicitud {
   compra Boolean  @default(false)
   estado Boolean  @default(false)
   planta Boolean  @default(false)
+  firma String
 }
 
 model Nuevaorden{

@@ -135,7 +135,7 @@ const ModalSolicitud = () => {
                 <tbody>
                     <tr className="bg-white border-b text-sm">
                         <td className="px-2 py-1 w-1/12 text-center border border-black font-bold">Proveedor</td>
-                        <td className="px-2 py-1 w-1/12 text-center border border-black font-bold">Validado Por</td>
+                        <td className="px-2 py-1 w-1/12 text-center border border-black font-bold">Autorizado</td>
                     </tr>
                     {pedido01.map(oc => (
                         <tr className="bg-white border-b text-sm"key={oc.id}>

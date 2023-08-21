@@ -15,8 +15,8 @@ const CombustibleProvider = ({children}) => {
     const [fecha, setFecha] = useState('')
     const [area, setArea] = useState('')
     const [valor, setValor] = useState('0')
-    const [nombre01, setNombre01] = useState('Gavino Ugalde')
-    
+    const [nombre01, setNombre01] = useState('')
+    const [firma, setFirma] = useState ('')
     
     const [solicita, setSolicita] = useState([]);
 
@@ -273,11 +273,12 @@ const CombustibleProvider = ({children}) => {
                 cantidad01,detalle01,valor01,
                 cantidad02,descripcion02,valor02,
                 cantidad03,descripcion03,valor03,
-                cantidad04,descripcion04,valor04,
+                cantidad04,descripcion04,valor04,firma,
                 nombre01,area,fecha: new Date()
             })
             //resetear la app
-            setNombre01('Gavino Ugalde')
+            setFirma('')
+            setNombre01('')
             setArea('')
             setFecha('')
             setCantidades('')

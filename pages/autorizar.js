@@ -19,7 +19,7 @@ const autorizar = () => {
       </Head>
 
             <h1 className="text-2xl font-black text-center py-6">Ordenes Pendientes</h1>
-            <div className='grid gap-4 grid-cols-1 md:grid-cols-3 2xl:grid-cols-3'>
+            <div className='grid gap-4 grid-cols-1 md:grid-cols-2 2xl:grid-cols-2'>
                 {data && data.length ? data.map(orden =>
                     <div className=''>
                     <Autorizar
