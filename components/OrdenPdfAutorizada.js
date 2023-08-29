@@ -294,16 +294,16 @@ const OrdenCompraAutorizada = ({orden}) => {
             
             
             <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
-                <Image width={280} height={80} src="/assets/img/firma.png" alt="logo" className=""/>
+                <Image width={280} height={80} src="/assets/img/firma.png" alt="Autorizacion-Pendiente" className=""/>
                 </p></div>
 
                 {/* <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
-                <Image width={280} height={80} src="/assets/img/gavino.png" alt="logo" className=""/>
+                <Image width={280} height={80} src="/assets/img/gavino.png" alt="Autorizacion-Pendiente" className=""/>
                 </p></div> */}
 {pedido.map(o => (
             
                 <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
-                <Image width={280} height={80} src={`/assets/img/${o.firma}.png`} alt="logo" className=""/>
+                <Image width={280} height={80} src={`/assets/img/${o.firma}.png`} alt="Autorizacion-Pendiente" className=""/>
                                 </p></div>
                 
         

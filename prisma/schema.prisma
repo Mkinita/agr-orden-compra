@@ -137,6 +137,7 @@ model Nuevaorden{
   estado Boolean  @default(false)
   estado01 Boolean  @default(false)
   planta Boolean  @default(false)
+  conforme Boolean  @default(false)
 }
 
 

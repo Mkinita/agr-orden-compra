@@ -68,7 +68,7 @@ export default function Home() {
       </Head>
       
 
-      <div className='grid gap-2 grid-cols-3 py-20 px-2'>
+      <div className='grid gap-2 grid-cols-1 md:grid-cols-3 py-20 px-2'>
       
         <div className="border border-solid text-center shadow grid gap-1 grid-cols-2 p-2">
           <div>

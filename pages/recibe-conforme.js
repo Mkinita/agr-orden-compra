@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import axios from 'axios'
-import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
-import Entrega from '../components/Entrega'
+import Layout from "../layout/Layout"
+import RecepcionConforme from '../components/RecepcionConforme'
 import {useState, useEffect} from 'react'
 
 
@@ -11,14 +11,14 @@ import {useState, useEffect} from 'react'
 
 export default function Admin() {
 
-    const fetcher = () => axios('/api/ordenes-autorizadas-false').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-false',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/recibe-conforme').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/recibe-conforme',fetcher,{refreshInterval: 100} )
 
     const [ datos, setDatos ] = useState([])
     const [ buscar, setBuscar ] = useState("")
   
     //función para traer los datos de la API
-    const URL = '/api/ordenes-autorizadas-false'
+    const URL = '/api/recibe-conforme'
   
     const showData = async () => {
       const response = await fetch(URL)
@@ -36,12 +36,6 @@ export default function Admin() {
         return id.toLowerCase().includes(buscar.toLowerCase());
       });
 
-    // const results = !buscar
-    //     ? datos
-    //     : datos.filter((dato) => {
-    //           const pedidoID = dato.pedido[0].id.toString(); // Supongo que solo hay un pedido por elemento en tus datos
-    //           return pedidoID.toLowerCase().includes(buscar.toLowerCase());
-    //       });
       
      useEffect( ()=> {
       showData()
@@ -49,9 +43,9 @@ export default function Admin() {
 
 
     return(
-        <LayoutOrdenCompra pagina={'ordenes-compra'}>
+        <Layout pagina={'ordenes-compra'}>
 
-            <h1 className="text-2xl font-black text-center">Notificar</h1>
+            <h1 className="text-2xl font-black text-center">Recibe Conforme</h1>
             <p className="text-2xl my-4"></p>
             <div className='flex justify-center mt-auto'>
                 <input value={buscar} onChange={buscador} type="number" placeholder='Filtra Por Nº O.C. 🔍' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400 shadow rounded-lg'/> 
@@ -61,7 +55,7 @@ export default function Admin() {
             
                 {data && data.length ? results.map(orden =>
                     
-                    <Entrega
+                    <RecepcionConforme
                         key={orden.id}
                         orden={orden}
                     />
@@ -75,7 +69,7 @@ export default function Admin() {
 
         
 
-        </LayoutOrdenCompra>
+        </Layout>
 
         
     )

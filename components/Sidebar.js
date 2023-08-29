@@ -22,7 +22,11 @@ const Sidebar = () => {
 
     const toggleVisibility1 = () => {
         setIsVisible1(!isVisible1);
-      };
+    };
+
+    const toggleVisibility2 = () => {
+        setIsVisible2(!isVisible2);
+    };    
 
 
     
@@ -102,6 +106,48 @@ const Sidebar = () => {
                                         <span class="ml-3">Ordenes Atorizadas</span>
                                     </Link>
                                 </li>
+
+                                
+                            </div>
+                            
+                            )}
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <button
+                            className="flex w-full items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase"
+                            onClick={toggleVisibility2}
+                                            
+                        >
+                            {isVisible2 ? '➖ Recepcion' : '📦 Recepcion'}
+                        </button>
+                                        
+                                
+                        <div className="">
+                            
+                            {isVisible2 && (
+                            <div className="p-2 space-y-1">
+                                
+                                <li>
+                                    <Link href="/recibe-conforme" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                        ✔️
+                                        <span class="ml-3">En Planta</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link href="conforme" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                        ✔️
+                                        <span class="ml-3">Conforme</span>
+                                    </Link>
+                                </li>
+
+
+                                
+
+                                
                             </div>
                             
                             )}

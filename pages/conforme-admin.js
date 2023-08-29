@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import axios from 'axios'
-import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
-import Entrega from '../components/Entrega'
+import LayoutAutorizar from "../layout/LayoutAutorizar"
+import ListaConformeAdmin from '../components/ListaConformeAdmin'
 import {useState, useEffect} from 'react'
 
 
@@ -11,14 +11,14 @@ import {useState, useEffect} from 'react'
 
 export default function Admin() {
 
-    const fetcher = () => axios('/api/ordenes-autorizadas-false').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-false',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/conforme').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/conforme',fetcher,{refreshInterval: 100} )
 
     const [ datos, setDatos ] = useState([])
     const [ buscar, setBuscar ] = useState("")
   
     //función para traer los datos de la API
-    const URL = '/api/ordenes-autorizadas-false'
+    const URL = '/api/conforme'
   
     const showData = async () => {
       const response = await fetch(URL)
@@ -36,12 +36,6 @@ export default function Admin() {
         return id.toLowerCase().includes(buscar.toLowerCase());
       });
 
-    // const results = !buscar
-    //     ? datos
-    //     : datos.filter((dato) => {
-    //           const pedidoID = dato.pedido[0].id.toString(); // Supongo que solo hay un pedido por elemento en tus datos
-    //           return pedidoID.toLowerCase().includes(buscar.toLowerCase());
-    //       });
       
      useEffect( ()=> {
       showData()
@@ -49,25 +43,34 @@ export default function Admin() {
 
 
     return(
-        <LayoutOrdenCompra pagina={'ordenes-compra'}>
+        <LayoutAutorizar pagina={'ordenes-compra'}>
 
-            <h1 className="text-2xl font-black text-center">Notificar</h1>
+            <h1 className="text-2xl font-black text-center">Recepcion Conforme</h1>
             <p className="text-2xl my-4"></p>
             <div className='flex justify-center mt-auto'>
                 <input value={buscar} onChange={buscador} type="number" placeholder='Filtra Por Nº O.C. 🔍' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400 shadow rounded-lg'/> 
             </div>
+            <table className="table-auto w-full text-center bg-white text-gray-700">
+            
+                <tbody>
+                    <tr className="bg-white border-b text-sm font-bold">
+                        <td className="px-6 py-2 w-3/4 text-center border border-amber-400">Recibe Conforme</td>
+                        <td className="px-6 py-2 w-1/4 text-center border border-amber-400">PDF</td>
+                    </tr>
+                </tbody>
+            </table> 
 
-            <div className='grid gap-2 grid-cols-1 md:grid-cols-2 2xl:grid-cols-2'>
+            <div className=''>
             
                 {data && data.length ? results.map(orden =>
                     
-                    <Entrega
+                    <ListaConformeAdmin
                         key={orden.id}
                         orden={orden}
                     />
 
                     ):
-                    <p>No Hay Ordenes Pendientes</p>
+                    <p>Sin Recepcion</p>
                 }
                 
 
@@ -75,7 +78,7 @@ export default function Admin() {
 
         
 
-        </LayoutOrdenCompra>
+        </LayoutAutorizar>
 
         
     )

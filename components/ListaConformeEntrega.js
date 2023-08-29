@@ -4,22 +4,31 @@ import { useRouter } from 'next/router'
 import axios  from 'axios'
 import { toast } from "react-toastify"
 import CorreoContac from '../components/CorreoContac'
+import { useState,useEffect } from 'react';
 
 
 
 const ListadoPdfOcGeneral = ({orden}) => {
     const {id,pedido01, pedido, fecha,numerosoli,solicita,nombre01} = orden
 
+    const pedidoID = orden.pedido[0].id.toString();
+    const [isVisible, setIsVisible] = useState(false);
+    const router = useRouter()
+
+
+    const toggleVisibility = () => {
+        setIsVisible(!isVisible);
+      };
+
     
 
 
 
     
 
-  return (
-    
-    <>
-        <div class="flex h-96 w-full items-center justify-center bg-white bg-cover bg-no-repeat">
+    return (
+        <>
+            <div class="flex h-96 w-full items-center justify-center bg-white bg-cover bg-no-repeat">
                 <div class="rounded-xl bg-gray-200 bg-opacity-50 px-16 py-5 shadow-lg backdrop-blur-md max-sm:px-8">
                     <div class="text-black">
                         <div class="mb-8 flex flex-col items-center">
@@ -45,17 +54,20 @@ const ListadoPdfOcGeneral = ({orden}) => {
                                 </div>
                             ))}
                         </div>
-                        <div class="mt-8 flex justify-center text-lg text-black">
+                        {/* <div class="mt-8 flex justify-center text-lg text-black">
                             <div className="m-auto"> 
-                               <CorreoContac/>
+                                <button className="rounded-3xl bg-yellow-400 bg-opacity-50 px-10 py-2 text-black shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600" type="button">
+                                    🔔 En Planta 🔔
+                            </button>
                         
-                        {/*  */}
+                        
                         </div>
-                        </div>
+                        </div> */}
                 </div>  
             </div>
-    </>
-  )
+            
+        </>
+    )
 }
 
 export default ListadoPdfOcGeneral
