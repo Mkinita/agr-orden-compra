@@ -54,7 +54,7 @@ const ListadoPdfOcGeneral = ({orden}) => {
             <tbody>
                 <tr className="bg-white border-b hover:bg-amber-300 text-sm">
                     
-                    <td className="px-6 py-2 w-3/4 text-center border border-amber-400">
+                    <td className="px-6 py-2 w-1/2 text-center border border-amber-400">
                         {pedido.map(oc => (
                             <div key={oc.id}>
                                 <div className="m-auto">
@@ -63,6 +63,7 @@ const ListadoPdfOcGeneral = ({orden}) => {
                             </div>
                         ))}
                     </td>
+                    <td className="px-6 py-2 w-1/4 text-center border border-amber-400">{id}</td>
                     <td className="px-6 py-2 w-1/4 text-center border border-amber-400">
                         {pedido01.map(oc => (
                             <div key={oc.id}>

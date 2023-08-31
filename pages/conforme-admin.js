@@ -54,7 +54,8 @@ export default function Admin() {
             
                 <tbody>
                     <tr className="bg-white border-b text-sm font-bold">
-                        <td className="px-6 py-2 w-3/4 text-center border border-amber-400">Recibe Conforme</td>
+                        <td className="px-6 py-2 w-1/1 text-center border border-amber-400">Recibe Conforme</td>
+                        <td className="px-6 py-2 w-1/4 text-center border border-amber-400">Nº O.C.</td>
                         <td className="px-6 py-2 w-1/4 text-center border border-amber-400">PDF</td>
                     </tr>
                 </tbody>
