@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import axios from 'axios'
 import LayoutOrdenCompraSolicitud from "../layout/LayoutOrdenCompraSolicitud"
 import EditarSolicitud from '../components/EditarSolicitud'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useCallback} from 'react'
 
 
 
@@ -73,6 +73,18 @@ export default function Admin() {
     localStorage.setItem('searchValue', search);
   }, [search]);
 
+
+
+    // const comprobarPedido = useCallback(() => {
+    //     return pedido.length === 0 || area === "" || area.length <2 ;
+        
+    // },[pedido, area])
+
+
+    // useEffect(() => {
+    //     comprobarPedido()
+    // },[pedido, comprobarPedido])
+
     
      
 
@@ -89,27 +101,27 @@ export default function Admin() {
             </ul>
             </div> */}
             
-<div class="flex flex-col  md:h-56 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row my-10">
-        <div class="md:flex items-center justify-center md:w-1/2 md:bg-gray-50">
-            <div class="py-6 px-8 md:py-0">
-                <h2 class="text-black text-2xl font-bold">Seleccione Una Solicitud</h2>
-                <p class="mt-2 text-black md:text-black">Agrega los Valores a la Solicitud</p>
-            </div>
-        </div>
-        <div class="flex items-center justify-center pb-6 md:py-0 md:w-1/2 bg-gray-50">
-            <form>
-                <div class="flex flex-col rounded-lg overflow-hidden sm:flex-row">
-                <input className='py-3 px-4 bg-gray-200 text-gray-800 border-gray-300 border-2 outline-none placeholder-gray-500 focus:bg-gray-100' type="text" onChange={searcher} placeholder="Buscar..." />
-            <ul>
-                {filteredUsers.map(user => (
-                    <li key={user.id}>{user.name}</li>
-                ))}
-            </ul>
-                    
-                </div>
-            </form>
-        </div>
-    </div>
+                <div class="flex flex-col  md:h-56 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row my-10">
+                        <div class="md:flex items-center justify-center md:w-1/2 md:bg-gray-50">
+                            <div class="py-6 px-8 md:py-0">
+                                <h2 class="text-black text-2xl font-bold">Seleccione Una Solicitud</h2>
+                                <p class="mt-2 text-black md:text-black">Agrega los Valores a la Solicitud</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center pb-6 md:py-0 md:w-1/2 bg-gray-50">
+                            <form>
+                                <div class="flex flex-col rounded-lg overflow-hidden sm:flex-row">
+                                <input className='py-3 px-4 bg-gray-200 text-gray-800 border-gray-300 border-2 outline-none placeholder-gray-500 focus:bg-gray-100' type="text" onChange={searcher} placeholder="Buscar..." />
+                            <ul>
+                                {filteredUsers.map(user => (
+                                    <li key={user.id}>{user.name}</li>
+                                ))}
+                            </ul>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
             <div className='grid gap-4 grid-cols-1 md:grid-cols-1 2xl:grid-cols-1 shadow px-2 rounded-lg'>
                 {data && data.length ? filteredUsers.map(solicitud =>
                 <div className=''>

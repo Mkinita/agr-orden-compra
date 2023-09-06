@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback} from 'react';
 import useCombustible from '../hooks/useCombustible';
 import axios from 'axios';
 import Link from 'next/link';
+import { toast } from 'react-toastify'
 
 export default function EditarOrdenGeneral({solicitud}) {
   const [newcantidad, setNewCantidad] = useState('');
@@ -86,6 +87,8 @@ export default function EditarOrdenGeneral({solicitud}) {
       setDescripcion04(newdescripcion04);
       setValor04(newvalor04);
 
+      toast.success('Valores Agregados')
+
 
     } catch (error) {
       console.log(error);
@@ -158,6 +161,11 @@ export default function EditarOrdenGeneral({solicitud}) {
     const valor5 =newvalor04;
     const cantidadxvalor5 = (cantidad5) * (valor5);
     const resultado5 = cantidadxvalor5 === 0 ? '' : cantidadxvalor5;
+
+
+
+
+    
 
 
 
