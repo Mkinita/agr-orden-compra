@@ -71,16 +71,16 @@ export default function Home() {
                 onSubmit={AgregarNuevaSolicitud}
                 className="text-center"
             >
-                <div className='grid grid-cols-2 gap-2'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                     <div class="text-left">
-                        <label htmlFor="solicita" className="block uppercase text-slate-800 font-bold text-lg text-center py-2">Solicita: </label>
-                        <input id="ingreso" type="text" class="w-full  px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-amber-400" value={nombre01} onChange={e => setNombre01(e.target.value)} />
+                        <label htmlFor="solicita" className="block uppercase text-slate-800 font-bold text-lg text-center py-1">Solicita: </label>
+                        <p className='w-full  px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-amber-400'>GAVINO UGALDE</p>
                     </div>
 
                     <div>
                         <label 
                             htmlFor="nombre"
-                            className="block uppercase text-slate-800 font-bold text-lg text-center py-2">Área: </label>
+                            className="block uppercase text-slate-800 font-bold text-lg text-center py-1">Área: </label>
                         <select
                             id="nombre"
                             className="bg-gray-200 w-full lg:w-3/4 p-2 rounded-md"

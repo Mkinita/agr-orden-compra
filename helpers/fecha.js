@@ -1,19 +1,17 @@
-const formatiarFecha = fecha => {
-    try {
-      const nuevaFecha = new Date(fecha).toISOString().slice(0, 10);
-      const opciones = {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric'
-      };
-      return new Date(nuevaFecha).toLocaleDateString('es-ES', opciones);
-    } catch (error) {
-      console.error('Error parsing or formatting date:', error);
-      return ''; // Return an empty string or handle the error as needed
-    }
-  };
-  
-  export {
-    formatiarFecha
-  };
-  
+const formatiarFecha = (fecha) => {
+  try {
+    const fechaSinHora = new Date(fecha).toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    });
+    return fechaSinHora;
+  } catch (error) {
+    console.error('Error al analizar o formatear la fecha:', error);
+    return ''; // Devuelve una cadena vacía o maneja el error según sea necesario
+  }
+};
+
+export {
+  formatiarFecha
+};

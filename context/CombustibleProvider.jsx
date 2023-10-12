@@ -298,7 +298,7 @@ const CombustibleProvider = ({children}) => {
             setValor04('')
             toast.success('Genrando Solicitud ⏳')
             setTimeout(() =>{
-                router.push('/solicitud-pendiente-gavino')
+                router.push('/notificar-solicitud')
             },3000)
 
         } catch (error) {
