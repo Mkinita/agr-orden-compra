@@ -100,7 +100,7 @@ const ModalSolicitud = () => {
             toast.success('Autorizando')
             setModal(false);
             setTimeout(() =>{
-              router.push('/orden-autorizada')
+              router.push('/notificacion-autorizacion')
           },1500)
         } catch (error) {
             toast.error('Hubo un error')
