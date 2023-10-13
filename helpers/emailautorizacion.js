@@ -6,8 +6,10 @@ const transporter = nodemailer.createTransport({
   
     service: 'Gmail',
     auth: {
-    user: 'comprasagrifor@gmail.com',
-    pass: 'dazk udzz zslp twyb',
+    // user: 'comprasagrifor@gmail.com',
+    // pass: 'dazk udzz zslp twyb',
+    user: 'jerez4959@gmail.com',
+    pass: 'ttwxenwctoujzlcb',
   },
   tls: {
     rejectUnauthorized: false,
@@ -19,7 +21,7 @@ const recipients = ['comprasagrifor@gmail.com', 'ugavino@gmail.com'];
 // Función para enviar correo electrónico
 async function sendEmail({ to, subject, text }) {
   const mailOptions = {
-    from: 'comprasagrifor@gmail.com',
+    from: 'jerez4959@gmail.com',
     to: recipients,
     subject,
     text,
