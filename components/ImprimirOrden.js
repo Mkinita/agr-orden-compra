@@ -1,11 +1,35 @@
 import {formatiarFecha} from "helpers/fecha"
 import Link from "next/link"
+import { useRouter } from 'next/router'
+import axios  from 'axios'
+import { toast } from "react-toastify"
 
 
 
 const ListadoPdfOcGeneral = ({orden}) => {
     const {id,pedido01, fecha,} = orden
 
+    const router = useRouter()
+
+    
+
+    const cambiarestado = async () => {
+        try {
+
+           await axios.post(`/api/anular/${id}`)
+           toast.success('anulando...')
+            setTimeout(() =>{
+              router.push('/oc-anuladas')
+          },1500)
+        } catch (error) {
+            toast.error('Hubo un error')
+        }
+    }
+
+
+    const handleEstadoClick = () => {
+        cambiarestado();
+    }
 
 
     
@@ -16,6 +40,7 @@ const ListadoPdfOcGeneral = ({orden}) => {
     <div class="flex h-screen w-full items-center justify-center bg-white bg-cover bg-no-repeat">
         <div class="rounded-xl bg-gray-200 bg-opacity-50 px-16 py-5 shadow-lg backdrop-blur-md max-sm:px-8">
             <div class="text-black">
+                
             <div class="mb-8 flex flex-col items-center">
                 {pedido01.map(oc => (
                     <div key={oc.id}>
@@ -50,13 +75,33 @@ const ListadoPdfOcGeneral = ({orden}) => {
                         <h1 class="rounded-3xl border-none bg-gray-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md">O.C Nº {id}</h1>
                         </div>
                     </div>
+
+
+
+
+
+
                 ))}
+
+
+                
+
+                    <div className="grid grid-cols-1">
+                    <button className="mb-4 text-lg" type="button" onClick={handleEstadoClick}>
+                            <h1 className="rounded-3xl border-none bg-gray-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md">ANULAR</h1>
+                        </button>
+                            </div>
+                
 
                 <div className='mb-4 text-lg'>
                 <Link Link href="/correo-contact" class="mb-4 text-lg">
                 <h1 class="rounded-3xl border-none bg-gray-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md">NOTIFICAR</h1>
                 </Link>
                 </div>
+
+                
+
+                
                         
                         
             
@@ -79,7 +124,9 @@ const ListadoPdfOcGeneral = ({orden}) => {
            
             </div>
             
+            
         </div>
+        
         </div>
         <div className="border p-1 w-full h-full rounded-3xl text-center">
             <div className="py-1 border-b last-of-type:border-0">

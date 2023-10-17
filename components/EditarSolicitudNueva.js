@@ -306,11 +306,11 @@ export default function EditarOrdenGeneral({solicitud}) {
           </tr>
         </tbody>
       </table>
-      <div className="grid grid-cols-2 p-2 gap-4">
+      <div className="grid grid-cols-2 p-2 gap-4 py-14">
   <button type="submit" className="w-full rounded-2xl border-b-4 border-b-amber-600 bg-amber-400 py-3 font-bold text-white hover:bg-amber-500 active:translate-y-[0.125rem] active:border-b-amber-400">
     Guardar ♻️
   </button>
-  <Link href="/cotizacion " className="w-full rounded-2xl text-center border-b-4 border-b-amber-600 bg-amber-400 py-3 font-bold text-white hover:bg-amber-500 active:translate-y-[0.125rem] active:border-b-amber-400">
+  <Link href="/resumen-oc" className="w-full rounded-2xl text-center border-b-4 border-b-amber-600 bg-amber-400 py-3 font-bold text-white hover:bg-amber-500 active:translate-y-[0.125rem] active:border-b-amber-400">
     <span className="">Siguiente ⏩</span>
   </Link>
 </div>

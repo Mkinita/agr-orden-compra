@@ -60,6 +60,9 @@ export default function ContactPage() {
     }));
   };
 
+
+  
+
   return (
     <Layout pagina='Notificar O.C.'>
     <form onSubmit={handleSubmit}>

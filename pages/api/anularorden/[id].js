@@ -12,7 +12,7 @@ export default async function handler (req,res){
                 id: parseInt(id)
             },
             data:{
-                visto:true,
+                anular:true,
                 
             }
         })

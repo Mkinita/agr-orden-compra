@@ -61,6 +61,8 @@ export default function Home() {
                     )}
 
 
+
+
                     <div className="shadow p-5 mb-3 flex gap-2 items-center text-center rounded-lg">
                         <Link
                             href="/resumen-oc"
@@ -118,6 +120,7 @@ export default function Home() {
                     onClick={handleEstadoClick}  
                                                                
                 />
+                
            
             </div>
 

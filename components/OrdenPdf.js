@@ -6,6 +6,7 @@ import {formatearDinero} from "helpers/index"
 import { useRouter } from 'next/router'
 import {formatoNumero} from "helpers/formato"
 import EditarPago from "./EditarPago"
+import EditPedido01 from "./EditPedido01"
 
 
 
@@ -216,6 +217,7 @@ const OrdenCompraAutorizada = ({orden}) => {
                     <tr className="bg-white text-sm" >
                         <td className="px-6 py-1 w-1/12 text-center"></td>
                         <td className="px-6 py-1 w-2/3 text-left border border-black" ><EditarPago orden={orden} /></td>
+                        {/* <td className="px-6 py-1 w-2/3 text-left border border-black" ><EditPedido01 orden={orden} /></td> */}
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">NETO</td>
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores)+(o.cantidad01 * o.valor01)+(o.cantidad02 * o.valor02)+(o.cantidad03 * o.valor03)+(o.cantidad04 * o.valor04))}</td>
                     </tr>

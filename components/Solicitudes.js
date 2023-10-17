@@ -4,10 +4,10 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const OrdenGeneral = ({ solicitud }) => {
-  const { id, nombre01, fecha, estado } = solicitud;
+  const { id, nombre01, fecha, visto } = solicitud;
   const { handlesetOcpedidos, handleChangeModal } = useCombustible();
 
-  const visto = async () => {
+  const vistos = async () => {
     try {
       await axios.post(`/api/ordenvista/${id}`);
       toast.success('Notificando');
@@ -17,7 +17,7 @@ const OrdenGeneral = ({ solicitud }) => {
   };
 
   const handleEstadoClick = () => {
-    visto();
+    vistos();
   };
 
   return (
@@ -30,7 +30,7 @@ const OrdenGeneral = ({ solicitud }) => {
             <p className="text-sm font-bold pb-3">Solicita: {nombre01}</p>
 
             <div className="grid grid-cols-1 gap-2 px-10">
-              {estado ? null : (
+              {visto ? null : (
                 <button
                   type='button'
                   className='flex-1 bg-amber-400 hover:bg-amber-500 text-white mt-1 md:mt-0 py-1 px-5 font-bold ml-1 rounded-3xl'

@@ -3,7 +3,7 @@ import {formatiarFecha} from "helpers/fecha"
 
 
 const OrdenGeneral = ({solicitud}) => {
-    const {id,nombre01,cotizar,compra,fecha,planta,estado,
+    const {id,nombre01,cotizar,compra,fecha,planta,estado,visto,
         area
         ,cantidades,detalles,
         cantidad01 ,detalle01,
@@ -100,7 +100,7 @@ const OrdenGeneral = ({solicitud}) => {
                             <td className="px-2 py-4 pb-1 w-1/4 text-center">Recepcion</td>
                         </tr>
                         <tr className="bg-white">
-                            <td className="px-2 py-2 w-1/4 text-center">{estado ? "✔️" : "Pendiente 🔒"}</td>
+                            <td className="px-2 py-2 w-1/4 text-center">{visto ? "✔️" : "Pendiente 🔒"}</td>
                             <td className="px-2 py-2 w-1/4 text-center">{cotizar ? "✔️" : "Pendiente 🔒"}</td>    
                             <td className="px-2 py-2 w-1/4 text-center">{compra ? "✔️" : "Pendiente 🔒"}</td>
                             <td className="px-2 py-2 w-1/4 text-center ">{planta ? "✔️" : "En Camino 🔒"}</td>

@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     where: {
       estado:false,
       cotizar:true,
-      compra:false,
+      anular:false
     },
     orderBy: {
       id: "desc",
