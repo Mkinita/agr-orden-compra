@@ -41,7 +41,7 @@ export default function EditarOrdenGeneral({solicitud}) {
             setDescripcion04,
             setValor02,
             setValor03,
-            setValor04,
+            setValor04
   } = useCombustible();
 
 
@@ -52,6 +52,7 @@ export default function EditarOrdenGeneral({solicitud}) {
     cantidad02,descripcion02,valor02,
     cantidad03,descripcion03,valor03,
     cantidad04,descripcion04,valor04,
+    nombre01, area
   } = solicitud;
 
 

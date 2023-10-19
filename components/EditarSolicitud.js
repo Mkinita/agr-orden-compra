@@ -52,6 +52,7 @@ export default function EditarOrdenGeneral({solicitud}) {
     cantidad02,descripcion02,valor02,
     cantidad03,descripcion03,valor03,
     cantidad04,descripcion04,valor04,
+    nombre01, area
   } = solicitud;
 
 
@@ -172,6 +173,10 @@ export default function EditarOrdenGeneral({solicitud}) {
 
   return (
     <>
+    <div className='font-semibold'>
+      <p>{nombre01}</p>
+      <p>{area}</p>
+    </div>
     <form onSubmit={handleSubmit} className='font-semibold text-sm'>
       <br/>
       <table className="table-auto w-full text-center bg-white text-gray-700">

@@ -383,6 +383,7 @@ const CombustibleProvider = ({children}) => {
             setCotizacion('')
             setSolicita([])
             setPedido01([])
+            setPedido([])
             setCantidades([])
             setDetalles([])
             setValores('')

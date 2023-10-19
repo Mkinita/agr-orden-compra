@@ -90,22 +90,13 @@ export default function Admin() {
 
     return(
         <LayoutOrdenCompraSolicitud pagina={'EditarSolicitudes'}>
-
-            {/* <p className='text-2xl mx-5 my-3 font-bold py-8 pb-2'>Seleccione Una Solicitud</p> */}
-            {/* <div className='mt-auto'>
-            <input className='shadow rounded-lg text-center' type="text" onChange={searcher} placeholder="Buscar..." />
-            <ul>
-                {filteredUsers.map(user => (
-                    <li key={user.id}>{user.name}</li>
-                ))}
-            </ul>
-            </div> */}
             
-                <div class="flex flex-col  md:h-56 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row my-10">
+                <div class="flex flex-col  md:h-56 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row my-5">
                         <div class="md:flex items-center justify-center md:w-1/2 md:bg-gray-50">
                             <div class="py-6 px-8 md:py-0">
                                 <h2 class="text-black text-2xl font-bold">Seleccione Una Solicitud</h2>
                                 <p class="mt-2 text-black md:text-black">Agrega los Valores a la Solicitud</p>
+                                <p class="mt-2 text-black md:text-black">Nº: {search}</p>
                             </div>
                         </div>
                         <div class="flex items-center justify-center pb-6 md:py-0 md:w-1/2 bg-gray-50">
