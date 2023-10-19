@@ -55,7 +55,7 @@ const Sidebar = () => {
                                 <li>
                                     <Link href="autorizar" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
                                         🔐
-                                        <span class="ml-3">Autorizar Ordenes De Compra</span>
+                                        <span class="ml-3">Autorizar Ordenes</span>
                                     </Link>
                                 </li>
 
@@ -64,6 +64,13 @@ const Sidebar = () => {
                                     <Link href="/orden-autorizada" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
                                         ✔️
                                         <span class="ml-3">Ordenes Atorizadas</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link href="autorizar-pendientes" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                        📊
+                                        <span class="ml-3">Estado De Ordenes</span>
                                     </Link>
                                 </li>
                             </div>

@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
-import OrdenesCompra from '../components/OrdenesCompra'
+import OrdenesCompraAutorizadas from '../components/OrdenesCompraAutorizadas'
 import {useState, useEffect} from 'react'
 
 
@@ -11,14 +11,14 @@ import {useState, useEffect} from 'react'
 
 export default function Admin() {
 
-    const fetcher = () => axios('/api/ordenes-autorizadas-listado').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-listado',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/ordenes-autorizadas-listado-admin').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-listado-admin',fetcher,{refreshInterval: 100} )
 
     const [ datos, setDatos ] = useState([])
     const [ buscar, setBuscar ] = useState("")
   
     //función para traer los datos de la API
-    const URL = '/api/ordenes-autorizadas-listado'
+    const URL = '/api/ordenes-autorizadas-listado-admin'
   
     const showData = async () => {
       const response = await fetch(URL)
@@ -50,11 +50,11 @@ export default function Admin() {
                 <input value={buscar} onChange={buscador} type="text" placeholder='Filtra Por Nº O.C.' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>
 
-            <div className='grid gap-4 grid-cols-1 md:grid-cols-6 2xl:grid-cols-4'>
+            <div className='grid gap-4 grid-cols-1 md:grid-cols-3 2xl:grid-cols-4'>
             
                 {data && data.length ? results.map(orden =>
                     
-                    <OrdenesCompra
+                    <OrdenesCompraAutorizadas
                         key={orden.id}
                         orden={orden}
                     />

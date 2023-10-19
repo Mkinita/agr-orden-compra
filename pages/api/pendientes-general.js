@@ -3,12 +3,10 @@ import { PrismaClient } from "@prisma/client";
 export default async function handler(req, res) {
   const prisma = new PrismaClient();
   const fechaActual = new Date(); // Obtener la fecha actual
-  //Obtener ordenes
-  const ordenes = await prisma.nuevaorden.findMany({
+  //Obtener solicitudes
+  const solicitudes = await prisma.nuevaSolicitud.findMany({
     where: {
-      estado:false,
-      estado01:true,
-      anular:false
+      planta:false,
     },
     orderBy: {
       id: "desc",
@@ -17,5 +15,5 @@ export default async function handler(req, res) {
   });
   
 
-  res.status(200).json(ordenes);
+  res.status(200).json(solicitudes);
 }

@@ -5,7 +5,8 @@ export default async function handler(req, res) {
   //Obtener Ordenes
   const ordenes = await prisma.nuevaorden.findMany({
    where:  {
-    estado:true
+    estado:true,
+    anular:false
     },
     orderBy: {
       id: "desc",
