@@ -11,14 +11,14 @@ import {useState, useEffect} from 'react'
 
 export default function Admin() {
 
-    const fetcher = () => axios('/api/ordenes-autorizadas-sup').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-sup',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/ordenes-autorizadas-sup-don').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-sup-don',fetcher,{refreshInterval: 100} )
 
     const [ datos, setDatos ] = useState([])
     const [ buscar, setBuscar ] = useState("")
   
     //función para traer los datos de la API
-    const URL = '/api/ordenes-autorizadas-sup'
+    const URL = '/api/ordenes-autorizadas-sup-don'
   
     const showData = async () => {
       const response = await fetch(URL)
