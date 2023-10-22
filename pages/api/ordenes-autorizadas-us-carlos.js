@@ -11,9 +11,11 @@
 //       id: "desc",
 //     },
 //   })
+  
 
 //   res.status(200).json(ordenes);
 // }
+
 
 import { PrismaClient } from "@prisma/client";
 
@@ -34,7 +36,7 @@ export default async function handler(req, res) {
 
   // Filtrar las órdenes que contienen el nombre "Carlos Vera" en el campo "nombre01"
   const ordenesFiltradas = ordenes.filter((orden) => {
-    return orden.pedido.some((item) => item.nombre01 === "Gavino Ugalde");
+    return orden.pedido.some((item) => item.nombre01 === "Carlos Vera");
   });
 
   res.status(200).json(ordenesFiltradas);

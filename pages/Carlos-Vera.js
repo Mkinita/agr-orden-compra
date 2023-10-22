@@ -8,8 +8,8 @@ import { useRouter } from 'next/router'
 export default function ContactPage() {
 
 
-    const fetcher = () => axios('/api/ordenes-autorizadas-us').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-us',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/ordenes-autorizadas-us-carlos').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-us-carlos',fetcher,{refreshInterval: 100} )
 
     const [solicitudesPendientes, setSolicitudesPendientes] = useState(0);
     const router = useRouter()
@@ -20,7 +20,7 @@ export default function ContactPage() {
           setFormData({
             to: '',
             subject: 'Sistema De Compra !Notificacion¡',
-            text: `Tienes Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
+            text: `Tienes Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/autorizar-oc-carlos`,
           });
         }
       }, [data]);
@@ -28,14 +28,14 @@ export default function ContactPage() {
       const [formData, setFormData] = useState({
         to: '',
         subject: 'Notificacion',
-        text: `Tienes ${solicitudesPendientes} https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
+        text: `Tienes ${solicitudesPendientes} https://agr-orden-compra-production.up.railway.app/autorizar-oc-carlos`,
       });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('/api/sendMailNuevo', formData);
+      await axios.post('/api/sendMailNuevoCarlos', formData);
       console.log('Correo electrónico enviado');
     } catch (error) {
       console.error('Error al enviar el correo electrónico:', error);

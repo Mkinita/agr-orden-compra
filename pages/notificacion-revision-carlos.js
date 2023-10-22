@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
+import LayoutCarlos from "../layout/LayoutCarlos"
 import useSWR from 'swr'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
@@ -8,8 +8,8 @@ import { useRouter } from 'next/router'
 export default function ContactPage() {
 
 
-    const fetcher = () => axios('/api/ordenes-autorizadas-us').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-us',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/solicitudes').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/solicitudes',fetcher,{refreshInterval: 100} )
 
     const [solicitudesPendientes, setSolicitudesPendientes] = useState(0);
     const router = useRouter()
@@ -19,32 +19,31 @@ export default function ContactPage() {
           setSolicitudesPendientes(data.length);
           setFormData({
             to: '',
-            subject: 'Sistema De Compra !Notificacion¡',
-            text: `Tienes Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
+            subject: 'Sistema De Compra !Recordatorio¡',
+            text: `Tienes ${data.length} Solicitudes Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/solicitudes`,
           });
         }
       }, [data]);
       
       const [formData, setFormData] = useState({
         to: '',
-        subject: 'Notificacion',
-        text: `Tienes ${solicitudesPendientes} https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
+        subject: 'Recordatorio',
+        text: `Tienes ${solicitudesPendientes} https://agr-orden-compra-production.up.railway.app/solicitudes`,
       });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('/api/sendMailNuevo', formData);
+      await axios.post('/api/sendMailSolicitud', formData);
       console.log('Correo electrónico enviado');
     } catch (error) {
       console.error('Error al enviar el correo electrónico:', error);
     }
 
-    toast.success('Notificacion Enviada')
+    toast.success('Enviando Notificacion')
     setTimeout(() =>{
-      router.push('/orden-compra')
-      router.reload();
+      router.push('/carlos-vera-index')
     },1500)
 
     setFormData({
@@ -61,13 +60,11 @@ export default function ContactPage() {
     }));
   };
 
-    
 
-
-
+  
 
   return (
-    <LayoutOrdenCompra pagina='Notificar O.C.'>
+    <LayoutCarlos pagina='Notificar O.C.'>
     <form onSubmit={handleSubmit}>
       <input  className='hidden'
         type="email"
@@ -93,8 +90,8 @@ export default function ContactPage() {
       <br/>
       <br/>
       <br/>
-      <div className='p-2 w-1/2 text-center shadow px-6 m-auto'>
-        <p className='font-bold text-s'>Esta notificación se enviará por correo electrónico para obtener la aprobación de tu orden de compra.</p>
+      <div className='p-2 w-1/2 text-center shadow rounded-lg px-6 m-auto'>
+        <p className='font-bold text-s'>Esta Notificación se enviará por correo electrónico como recordatorio de solicitudes y ordenes de compras pendientes</p>
         <br/>
         <br/>
         <div className='flex justify-center'>
@@ -103,12 +100,12 @@ export default function ContactPage() {
           </svg>
         </div>
         <br/>
-      <button type="submit" className='font-bold hover:scale-110 shadow p-2 bg-amber-400'>Enviar Notificación</button>
+      <button type="submit" className='font-bold hover:scale-110 shadow rounded-lg p-2 bg-amber-400'>Enviar Notificación</button>
       </div>
     </form>
 
 
 
-    </LayoutOrdenCompra>
+    </LayoutCarlos>
   );
 }

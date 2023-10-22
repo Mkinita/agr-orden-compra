@@ -7,7 +7,7 @@ import { toast } from "react-toastify"
 
 
 const ListadoPdfOcGeneral = ({orden}) => {
-    const {id,pedido01, fecha,} = orden
+    const {id,pedido01, fecha,pedido} = orden
 
     const router = useRouter()
 
@@ -92,12 +92,15 @@ const ListadoPdfOcGeneral = ({orden}) => {
                         </button>
                             </div>
                 
-
-                <div className='mb-4 text-lg'>
-                <Link Link href="/correo-contact" class="mb-4 text-lg">
-                <h1 class="rounded-3xl border-none bg-gray-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md">NOTIFICAR</h1>
-                </Link>
-                </div>
+                            {pedido.map(oc => (
+                            <div key={oc.id}>
+                                <div className='mb-4 text-lg'>
+                                <Link href={`/${oc.nombre01.replace(/ /g, '-')}`} className="mb-4 text-lg">
+                                    <h1 className="rounded-3xl border-none bg-gray-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md">NOTIFICAR</h1>
+                                </Link>
+                                </div>
+                            </div>
+                            ))}
 
                 
 

@@ -307,6 +307,50 @@ const CombustibleProvider = ({children}) => {
     }
 
 
+    const AgregarNuevaSolicitudCarlos = async (e) => {
+        e.preventDefault();
+
+        try {
+            await axios.post('/api/nuevasolicitudcarlos',
+            {   
+                cantidades,detalles,valores,
+                cantidad01,detalle01,valor01,
+                cantidad02,descripcion02,valor02,
+                cantidad03,descripcion03,valor03,
+                cantidad04,descripcion04,valor04,firma,
+                nombre01,area,fecha: new Date()
+            })
+            //resetear la app
+            setFirma('')
+            setNombre01('')
+            setArea('')
+            setFecha('')
+            setCantidades('')
+            setDetalles('')
+            setValores('')
+            setCantidad01('')
+            setDetalle01('')
+            setValore01('')
+            setCantidad02('')
+            setCantidad03('')
+            setCantidad04('')
+            setDescripcion02('')
+            setDescripcion03('')
+            setDescripcion04('')
+            setValor02('')
+            setValor03('')
+            setValor04('')
+            toast.success('Genrando Solicitud ⏳')
+            setTimeout(() =>{
+                router.push('/notificar-solicitud-carlos')
+            },3000)
+
+        } catch (error) {
+            
+        }
+    }
+
+
 
     const agregarOC = async (e) => {
         e.preventDefault()
@@ -419,7 +463,6 @@ const CombustibleProvider = ({children}) => {
 
             setTimeout(() =>{
                 router.push('/pdf-imprimir')
-                
             },3000)
 
         } catch (error) {
@@ -515,7 +558,8 @@ const CombustibleProvider = ({children}) => {
             handleAgregarOrdenSolicitud,
             handleEditarCantidades,
             handleElimanarSolicitud,
-            handleElimanarproveedor
+            handleElimanarproveedor,
+            AgregarNuevaSolicitudCarlos
         }}
         >
         {children}

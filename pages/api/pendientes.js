@@ -11,8 +11,7 @@ export default async function handler(req, res) {
     },
     orderBy: {
       id: "desc",
-    },
-    take: 20,
+    }
   });
   
 

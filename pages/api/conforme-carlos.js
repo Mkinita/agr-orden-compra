@@ -5,7 +5,8 @@
 //   //Obtener Ordenes
 //   const ordenes = await prisma.nuevaorden.findMany({
 //    where:  {
-//     estado01:true
+//     estado:true,
+//     conforme:true,
 //     },
 //     orderBy: {
 //       id: "desc",
@@ -24,8 +25,8 @@ export default async function handler(req, res) {
   // Obtener ordenes
   const ordenes = await prisma.nuevaorden.findMany({
     where: {
-      estado01: true,
-      anular: false
+      estado: true,
+      conforme: true
     },
     orderBy: {
       id: "desc"
@@ -34,7 +35,7 @@ export default async function handler(req, res) {
 
   // Filtrar las órdenes que contienen el nombre "Carlos Vera" en el campo "nombre01"
   const ordenesFiltradas = ordenes.filter((orden) => {
-    return orden.pedido.some((item) => item.nombre01 === "Gavino Ugalde");
+    return orden.pedido.some((item) => item.nombre01 === "Carlos Vera");
   });
 
   res.status(200).json(ordenesFiltradas);

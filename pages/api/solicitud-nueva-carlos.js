@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   //Obtener solicitudes
   const solicitudes = await prisma.nuevaSolicitud.findMany({
     where: {
-      nombre01:"gavino ugalde"
+      nombre01:"carlos vera"
     },
     orderBy: {
       id: "desc",

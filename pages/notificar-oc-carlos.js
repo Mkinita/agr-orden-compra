@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
+import LayoutCarlos from "../layout/LayoutCarlos"
 import useSWR from 'swr'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
@@ -8,8 +8,8 @@ import { useRouter } from 'next/router'
 export default function ContactPage() {
 
 
-    const fetcher = () => axios('/api/ordenes-autorizadas-us').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-us',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/autorizar-ordenes').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/autorizar-ordenes',fetcher,{refreshInterval: 100} )
 
     const [solicitudesPendientes, setSolicitudesPendientes] = useState(0);
     const router = useRouter()
@@ -20,7 +20,7 @@ export default function ContactPage() {
           setFormData({
             to: '',
             subject: 'Sistema De Compra !Notificacion¡',
-            text: `Tienes Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
+            text: `Tienes ${data.length} Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/autorizar`,
           });
         }
       }, [data]);
@@ -28,23 +28,22 @@ export default function ContactPage() {
       const [formData, setFormData] = useState({
         to: '',
         subject: 'Notificacion',
-        text: `Tienes ${solicitudesPendientes} https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
+        text: `Tienes ${solicitudesPendientes} https://agr-orden-compra-production.up.railway.app/autorizar`,
       });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('/api/sendMailNuevo', formData);
+      await axios.post('/api/sendMail', formData);
       console.log('Correo electrónico enviado');
     } catch (error) {
       console.error('Error al enviar el correo electrónico:', error);
     }
 
-    toast.success('Notificacion Enviada')
+    toast.success('Enviando Notificacion')
     setTimeout(() =>{
-      router.push('/orden-compra')
-      router.reload();
+      router.push('/orden-autorizada-oc-carlos')
     },1500)
 
     setFormData({
@@ -61,13 +60,8 @@ export default function ContactPage() {
     }));
   };
 
-    
-
-
-
-
   return (
-    <LayoutOrdenCompra pagina='Notificar O.C.'>
+    <LayoutCarlos pagina='Notificar O.C.'>
     <form onSubmit={handleSubmit}>
       <input  className='hidden'
         type="email"
@@ -109,6 +103,6 @@ export default function ContactPage() {
 
 
 
-    </LayoutOrdenCompra>
+    </LayoutCarlos>
   );
 }
