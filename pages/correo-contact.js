@@ -20,7 +20,7 @@ export default function ContactPage() {
           setFormData({
             to: '',
             subject: 'Sistema De Compra !Notificacion¡',
-            text: `Tienes Ordenes De Compra Pendientes Puedes Revisarlas En El Siguiente Enlace https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
+            text: `Tienes Ordenes De Compra Pendientes Por Autorizar`,
           });
         }
       }, [data]);
@@ -28,7 +28,7 @@ export default function ContactPage() {
       const [formData, setFormData] = useState({
         to: '',
         subject: 'Notificacion',
-        text: `Tienes ${solicitudesPendientes} https://agr-orden-compra-production.up.railway.app/orden-autorizada-oc`,
+        text: `.-.`,
       });
 
   const handleSubmit = async (e) => {
@@ -43,8 +43,8 @@ export default function ContactPage() {
 
     toast.success('Notificacion Enviada')
     setTimeout(() =>{
-      router.push('/orden-compra')
-      router.reload();
+      router.push('/orden-compra-notificada')
+      
     },1500)
 
     setFormData({

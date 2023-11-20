@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import axios  from 'axios'
 import { toast } from "react-toastify"
 import {formatiarFecha} from "helpers/fecha"
+import {useEffect, useCallback, useState} from 'react'
 
 const ModalSolicitud = () => {
   const { solicitud, handleChangeModal, handleAgregarPedido, modal,setModal, } = useCombustible();
@@ -12,7 +13,12 @@ const ModalSolicitud = () => {
     cantidad01 ,detalle01,
     cantidad02, descripcion02,
     cantidad03, descripcion03,
-    cantidad04, descripcion04} = solicitud
+    cantidad04, descripcion04,
+    cantidad05, descripcion05,
+    cantidad06, descripcion06,
+    cantidad07, descripcion07,
+    cantidad08, descripcion08,
+    cantidad09, descripcion09,} = solicitud
 
 
   const router = useRouter()
@@ -31,6 +37,11 @@ const ModalSolicitud = () => {
             toast.error('Hubo un error')
         }
     }
+
+    const comprobarsolicitud = useCallback(() => {
+        return solicitud.length === 0 || id === "" || id.length <5;
+        
+    },[solicitud, id])
 
   
 
@@ -76,68 +87,125 @@ const ModalSolicitud = () => {
         
 
         <div id="tasks" class="my-5">
-            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
-                <div class="inline-flex items-center space-x-6">
-                    <div>
-                        <div className="text-slate-500">{cantidades}</div>                         
+            {cantidades || detalles ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidades}</div>                         
+                        </div>
+                        <div class="text-slate-500">{detalles}</div>
                     </div>
-                    <div class="text-slate-500">{detalles}</div>
                 </div>
-                
-                 
-            </div>
-            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
-                <div class="inline-flex items-center space-x-2">
-                    <div>
-                        <div className="text-slate-500">{cantidad01}</div>                         
+            ):null }
+            {cantidad01 || detalle01 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad01}</div>                         
+                        </div>
+                        <div class="text-slate-500">{detalle01}</div>
+                    </div>   
+                </div>
+            ):null }
+            {cantidad02 || descripcion02 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad02}</div>                         
+                        </div>
+                        <div class="text-slate-500">{descripcion02}</div>
+                    </div> 
+                </div>
+            ):null }
+            {cantidad03 || descripcion03 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad03}</div>                         
+                        </div>
+                        <div class="text-slate-500">{descripcion03}</div>
                     </div>
-                    <div class="text-slate-500">{detalle01}</div>
                 </div>
-                
-                 
-            </div>
-            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
-                <div class="inline-flex items-center space-x-2">
-                    <div>
-                        <div className="text-slate-500">{cantidad02}</div>                         
+            ):null }
+            {cantidad04 || descripcion04 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad04}</div>                         
+                        </div>
+                        <div class="text-slate-500">{descripcion04}</div>
                     </div>
-                    <div class="text-slate-500">{descripcion02}</div>
                 </div>
-                
-                 
-            </div>
-            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
-                <div class="inline-flex items-center space-x-2">
-                    <div>
-                        <div className="text-slate-500">{cantidad03}</div>                         
+            ):null }
+            {cantidad05 || descripcion05 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad05}</div>                         
+                        </div>
+                        <div class="text-slate-500">{descripcion05}</div>
                     </div>
-                    <div class="text-slate-500">{descripcion03}</div>
                 </div>
-                
-                 
-            </div>
-            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
-                <div class="inline-flex items-center space-x-2">
-                    <div>
-                        <div className="text-slate-500">{cantidad04}</div>                         
+            ):null }
+            {cantidad06 || descripcion06 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad06}</div>                         
+                        </div>
+                        <div class="text-slate-500">{descripcion06}</div>
                     </div>
-                    <div class="text-slate-500">{descripcion04}</div>
                 </div>
-                
-                 
-            </div>
-            
+            ):null }
+            {cantidad07 || descripcion07 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad07}</div>                         
+                        </div>
+                        <div class="text-slate-500">{descripcion07}</div>
+                    </div>
+                </div>
+            ):null }
+            {cantidad08 || descripcion08 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad08}</div>                         
+                        </div>
+                        <div class="text-slate-500">{descripcion08}</div>
+                    </div>
+                </div>
+            ):null }
+            {cantidad09 || descripcion09 ? (
+                <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                    <div class="inline-flex items-center space-x-6">
+                        <div>
+                            <div className="text-slate-500">{cantidad09}</div>                         
+                        </div>
+                        <div class="text-slate-500">{descripcion09}</div>
+                    </div>
+                </div>
+            ):null }
             
         </div>
 
         <div class="flex flex-row items-center justify-center">
             <div class="inline-flex space-x-2 items-center justify-center">
-                <button href="#" class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200" type="button" onClick={cotizarsolicitud}>
-                <p class="text-xs text-slate-500 text-center hover:scale-110">Cotizacion Realizada</p>                         
+                <button href="#" className= {`${comprobarsolicitud() ? 'bg-indigo-100' : 'bg-amber-400 hover:bg-amber-500'}  lg:w-auto px-5 py-2 rounded uppercase font-bold text-white text-center`}  onClick={cotizarsolicitud}>
+                <p class="text-xs text-black text-center hover:scale-110">Generar Orden De Compra</p>      
+                                   
                 </button>
                 
             </div>
         </div>
+
+        <input
+                    type="submit"
+                    className= {`${comprobarsolicitud() ? 'bg-indigo-100' : 'bg-amber-400 hover:bg-amber-500'}  lg:w-auto px-5 py-2 rounded uppercase font-bold text-white text-center`}
+                    value="Generar Solicitud"
+                    disabled={comprobarsolicitud()}       
+                />   
           
     </div>
 

@@ -119,6 +119,26 @@ model NuevaSolicitud {
   descripcion04 String?
   valor04 String?
 
+  cantidad05 String?
+  descripcion05 String?
+  valor05 String?
+
+  cantidad06 String?
+  descripcion06 String?
+  valor06 String?
+
+  cantidad07 String?
+  descripcion07 String?
+  valor07 String?
+
+  cantidad08 String?
+  descripcion08 String?
+  valor08 String?
+
+  cantidad09 String?
+  descripcion09 String?
+  valor09 String?
+
   cotizar Boolean  @default(false)
   compra Boolean  @default(false)
   estado Boolean  @default(false)

@@ -43,8 +43,7 @@ export default function ContactPage() {
 
     toast.success('Notificacion Enviada')
     setTimeout(() =>{
-      router.push('/orden-compra')
-      router.reload();
+      router.push('/orden-compra-notificada')
     },1500)
 
     setFormData({

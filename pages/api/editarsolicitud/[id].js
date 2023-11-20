@@ -12,6 +12,11 @@ export default async function handler (req,res){
                 cantidad02,descripcion02,valor02,
                 cantidad03,descripcion03,valor03,
                 cantidad04,descripcion04,valor04,
+                cantidad05,descripcion05,valor05,
+                cantidad06,descripcion06,valor06,
+                cantidad07,descripcion07,valor07,
+                cantidad08,descripcion08,valor08,
+                cantidad09,descripcion09,valor09,
             } = req.body
         
 
@@ -24,6 +29,12 @@ export default async function handler (req,res){
                 cantidad02: cantidad02, descripcion02: descripcion02, valor02: valor02,
                 cantidad03: cantidad03, descripcion03: descripcion03, valor03: valor03,
                 cantidad04: cantidad04, descripcion04: descripcion04, valor04: valor04,
+                cantidad05: cantidad05, descripcion05: descripcion05, valor05: valor05,
+                cantidad06: cantidad06, descripcion06: descripcion06, valor06: valor06,
+                cantidad07: cantidad07, descripcion07: descripcion07, valor07: valor07,
+                cantidad08: cantidad08, descripcion08: descripcion08, valor08: valor08,
+                cantidad09: cantidad09, descripcion09: descripcion09, valor09: valor09,
+
             },
           })
 

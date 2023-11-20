@@ -10,7 +10,7 @@ const OrdenGeneral = ({ solicitud }) => {
   const vistos = async () => {
     try {
       await axios.post(`/api/ordenvista/${id}`);
-      toast.success('Notificando');
+      toast.success('Visto');
     } catch (error) {
       console.log('Hubo un error');
     }
@@ -30,7 +30,7 @@ const OrdenGeneral = ({ solicitud }) => {
             <p className="text-sm font-bold pb-3">Solicita: {nombre01}</p>
 
             <div className="grid grid-cols-1 gap-2 px-10">
-              {visto ? null : (
+              {/* {visto ? null : (
                 <button
                   type='button'
                   className='flex-1 bg-amber-400 hover:bg-amber-500 text-white mt-1 md:mt-0 py-1 px-5 font-bold ml-1 rounded-3xl'
@@ -38,15 +38,17 @@ const OrdenGeneral = ({ solicitud }) => {
                 >
                   Visto
                 </button>
-              )}
+              )} */}
 
               <div className="flex-1 mt-1 md:mt-0">
                 <button
                   type='button'
                   className='w-full bg-amber-400 hover:bg-amber-500 text-white py-1 px-5 font-bold rounded-3xl'
                   onClick={() => {
+                    handleEstadoClick()
                     handleChangeModal();
                     handlesetOcpedidos(solicitud);
+                    
                   }}
                 >
                   Detalle

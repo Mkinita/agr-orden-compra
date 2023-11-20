@@ -107,6 +107,23 @@ const ModalSolicitud = () => {
         }
     }
 
+    const cambiarestado = async () => {
+        try {
+
+           await axios.post(`/api/anular/${id}`)
+           toast.success('O.C Rechazada')
+           setModal(false);
+            setTimeout(() =>{
+              router.push('/oc-rechazadas')
+          },1500)
+        } catch (error) {
+            toast.error('Hubo un error')
+        }
+    }
+
+    const handleEstadoClick = () => {
+        cambiarestado();
+    }
   
 
   return (
@@ -256,11 +273,17 @@ const ModalSolicitud = () => {
 
             
             <div className="m-auto text-center">
-                <button className="px-5 py-2 mt-5 text-black font-bold uppercase rounded-xl shadow" type="button" onClick={autorizar} >
+                <button className="px-5 py-2 mt-5 text-black font-bold uppercase rounded-xl shadow bg-green-400" type="button" onClick={autorizar} >
                     {/* <Image width={200} height={50} src="/assets/img/firma.png" alt="logo" className=""/> */}
                     Firmar Autorizacion
                 </button>
             </div>
+
+            <div className="m-auto text-center">
+                    <button className="px-5 py-2 mt-5 text-black font-bold uppercase rounded-xl shadow bg-red-400" type="button" onClick={handleEstadoClick}>
+                            Rechazar
+                        </button>
+                            </div>
             
 
         </div>

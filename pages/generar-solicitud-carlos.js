@@ -1,7 +1,8 @@
-import LayoutCarlos from '../layout/LayoutCarlos'
-import useCombustible from '../hooks/useCombustible'
-import {useEffect, useCallback, useState} from 'react'
-import Head from 'next/head'
+import LayoutCarlos from '../layout/LayoutCarlos';
+import useCombustible from '../hooks/useCombustible';
+import { useEffect, useCallback, useState } from 'react';
+import Head from 'next/head';
+
 
 
 export default function Home() {
@@ -11,6 +12,11 @@ export default function Home() {
     const [isVisible2, setIsVisible2] = useState(false);
     const [isVisible3, setIsVisible3] = useState(false);
     const [isVisible4, setIsVisible4] = useState(false);
+    const [isVisible5, setIsVisible5] = useState(false);
+    const [isVisible6, setIsVisible6] = useState(false);
+    const [isVisible7, setIsVisible7] = useState(false);
+    const [isVisible8, setIsVisible8] = useState(false);
+    const [isVisible9, setIsVisible9] = useState(false);
 
 
     const toggleVisibility = () => {
@@ -33,12 +39,38 @@ export default function Home() {
         setIsVisible4(!isVisible4);
     };
 
+    const toggleVisibility5 = () => {
+        setIsVisible5(!isVisible5);
+    };
+
+    const toggleVisibility6 = () => {
+        setIsVisible6(!isVisible6);
+    };
+
+    const toggleVisibility7 = () => {
+        setIsVisible7(!isVisible7);
+    };
+
+    const toggleVisibility8 = () => {
+        setIsVisible8(!isVisible8);
+    };
+
+    const toggleVisibility9 = () => {
+        setIsVisible9(!isVisible9);
+    };
+
+
     const {AgregarNuevaSolicitudCarlos,area,setArea, nombre01,setNombre01,
         setDetalles,cantidades,setCantidades,detalles,
         cantidad01 ,setCantidad01,detalle01, setDetalle01,
         cantidad02, setCantidad02, descripcion02, setDescripcion02,
         cantidad03, setCantidad03, descripcion03, setDescripcion03,
         cantidad04, setCantidad04, descripcion04, setDescripcion04,
+        cantidad05, setCantidad05, descripcion05, setDescripcion05, valor05, setValor05,
+        cantidad06, setCantidad06, descripcion06, setDescripcion06, valor06, setValor06,
+        cantidad07, setCantidad07, descripcion07, setDescripcion07, valor07, setValor07,
+        cantidad08, setCantidad08, descripcion08, setDescripcion08, valor08, setValor08,
+        cantidad09, setCantidad09, descripcion09, setDescripcion09, valor09, setValor09,
     } = useCombustible()
 
 
@@ -201,14 +233,117 @@ export default function Home() {
                                 <td className="px-2 py-2 w-1/12 text-center  ">
                                     <button
                                         type="button"
-                                        onClick={toggleVisibility3}      
+                                        onClick={toggleVisibility4}      
                                     >
                                         
-                                    {isVisible3 ? '-':'+'}
+                                    {isVisible4 ? '-':'+'}
                                     </button>
                                 </td>
                             </tr>    
                         )}   
+
+
+                        {isVisible4 && (
+                            <tr className="bg-white border border-gray-200">
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <input id="ingreso" type="number" class="bg-gray-200 w-full p-1 rounded-md" value={cantidad05} onChange={e => setCantidad05(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-2/3 text-center">
+                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-1 rounded-md" value={descripcion05} onChange={e => setDescripcion05(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <button
+                                        type="button"
+                                        onClick={toggleVisibility5}
+                                    >
+                                        {isVisible5 ? '-' : '+'}
+                                    </button>
+                                </td>
+                            </tr>
+                        )}
+
+
+                        {isVisible5 && (
+                            <tr className="bg-white border border-gray-200">
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <input id="ingreso" type="number" class="bg-gray-200 w-full p-1 rounded-md" value={cantidad06} onChange={e => setCantidad06(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-2/3 text-center">
+                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-1 rounded-md" value={descripcion06} onChange={e => setDescripcion06(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <button
+                                        type="button"
+                                        onClick={toggleVisibility6}
+                                    >
+                                        {isVisible6 ? '-' : '+'}
+                                    </button>
+                                </td>
+                            </tr>
+                        )}
+
+                        {isVisible6 && (
+                            <tr className="bg-white border border-gray-200">
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <input id="ingreso" type="number" class="bg-gray-200 w-full p-1 rounded-md" value={cantidad07} onChange={e => setCantidad07(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-2/3 text-center">
+                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-1 rounded-md" value={descripcion07} onChange={e => setDescripcion07(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <button
+                                        type="button"
+                                        onClick={toggleVisibility7}
+                                    >
+                                        {isVisible7 ? '-' : '+'}
+                                    </button>
+                                </td>
+                            </tr>
+                        )}
+
+                        {isVisible7 && (
+                            <tr className="bg-white border border-gray-200">
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <input id="ingreso" type="number" class="bg-gray-200 w-full p-1 rounded-md" value={cantidad08} onChange={e => setCantidad08(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-2/3 text-center">
+                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-1 rounded-md" value={descripcion08} onChange={e => setDescripcion08(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <button
+                                        type="button"
+                                        onClick={toggleVisibility8}
+                                    >
+                                        {isVisible8 ? '-' : '+'}
+                                    </button>
+                                </td>
+                            </tr>
+                        )}
+
+                        {isVisible8 && (
+                            <tr className="bg-white border border-gray-200">
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <input id="ingreso" type="number" class="bg-gray-200 w-full p-1 rounded-md" value={cantidad09} onChange={e => setCantidad09(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-2/3 text-center">
+                                    <input id="ingreso" type="text" class="bg-gray-200 w-full p-1 rounded-md" value={descripcion09} onChange={e => setDescripcion09(e.target.value)} />
+                                </td>
+                                <td className="px-2 py-2 w-1/12 text-center">
+                                    <button
+                                        type="button"
+                                        onClick={toggleVisibility9}
+                                    >
+                                        {isVisible8 ? '-' : '+'}
+                                    </button>
+                                </td>
+                            </tr>
+                        )}
+
+
+
+                        
+
+                        
                     </tbody>
                 </table>
                 <div className='py-2'></div>

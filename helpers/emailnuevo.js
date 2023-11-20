@@ -14,11 +14,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const recipients = ['carlos.vera.aparicio@gmail.com', 'ugavino@gmail.com'];
+
 // Función para enviar correo electrónico
 async function sendEmail({ to, subject, text }) {
   const mailOptions = {
     from: 'jerez4959@gmail.com',
-    to:'ugavino@gmail.com',
+    to:recipients,
     subject,
     text,
   };

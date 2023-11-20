@@ -43,6 +43,29 @@ export default async function handler(req, res) {
         cantidad04: req.body.cantidad04,
         descripcion04: req.body.descripcion04,
         valor04: req.body.valor04,
+
+        cantidad05: req.body.cantidad05,
+        descripcion05: req.body.descripcion05,
+        valor05: req.body.valor05,
+
+        cantidad06: req.body.cantidad06,
+        descripcion06: req.body.descripcion06,
+        valor06: req.body.valor06,
+
+        cantidad07: req.body.cantidad07,
+        descripcion07: req.body.descripcion07,
+        valor07: req.body.valor07,
+        
+        cantidad08: req.body.cantidad08,
+        descripcion08: req.body.descripcion08,
+        valor08: req.body.valor08,
+
+        cantidad09: req.body.cantidad09,
+        descripcion09: req.body.descripcion09,
+        valor09: req.body.valor09,
+
+        
+
         firma: req.body.firma=('carlos')
         
       },

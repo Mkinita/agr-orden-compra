@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 
 
-export default function Admin() {
+export default function Admin({}) {
 
     const fetcher = () => axios('/api/cotizar').then(datos => datos.data)
     const { data, error, isLoading } = useSWR('/api/cotizar',fetcher,{refreshInterval: 100} )

@@ -12,7 +12,13 @@ const ModalProveedor = () => {
     cantidad01 ,detalle01,valor01,
     cantidad02, descripcion02,valor02,
     cantidad03, descripcion03,valor03,
-    cantidad04, descripcion04,valor04} = solicitud
+    cantidad04, descripcion04,valor04,
+    cantidad05, descripcion05,valor05,
+    cantidad06, descripcion06,valor06,
+    cantidad07, descripcion07,valor07,
+    cantidad08, descripcion08,valor08,
+    cantidad09, descripcion09,valor09,
+  } = solicitud
   
 
   
@@ -69,6 +75,7 @@ const ModalProveedor = () => {
                 
                  
             </div>
+            {cantidad01 || detalle01 || valor01  ? (
             <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
                 <div class="inline-flex items-center space-x-6">
                     <div>
@@ -77,9 +84,9 @@ const ModalProveedor = () => {
                     <div class="text-slate-500">{detalle01}</div>
                     <div class="text-slate-500">{valor01}</div>
                 </div>
-                
-                 
             </div>
+            ):null }
+            {cantidad02 || descripcion02 || valor02  ? (
             <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
                 <div class="inline-flex items-center space-x-6">
                     <div>
@@ -91,6 +98,8 @@ const ModalProveedor = () => {
                 
                  
             </div>
+            ):null }
+            {cantidad03 || descripcion03 || valor03  ? (
             <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
                 <div class="inline-flex items-center space-x-6">
                     <div>
@@ -102,6 +111,8 @@ const ModalProveedor = () => {
                 
                  
             </div>
+            ):null }
+            {cantidad04 || descripcion04 || valor04  ? (
             <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
                 <div class="inline-flex items-center space-x-6">
                     <div>
@@ -109,10 +120,70 @@ const ModalProveedor = () => {
                     </div>
                     <div class="text-slate-500">{descripcion04}</div>
                     <div class="text-slate-500">{valor04}</div>
-                </div>
-                
-                 
+                </div> 
             </div>
+            ):null }
+            {cantidad05 || descripcion05 || valor05  ? (
+
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-6">
+                    <div>
+                        <div className="text-slate-500">{cantidad05}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion05}</div>
+                    <div class="text-slate-500">{valor05}</div>
+                </div> 
+            </div>
+            ):null }
+
+            {cantidad06 || descripcion06 || valor06  ? (
+
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-6">
+                    <div>
+                        <div className="text-slate-500">{cantidad06}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion06}</div>
+                    <div class="text-slate-500">{valor06}</div>
+                </div> 
+            </div>
+            ):null }
+            {cantidad07 || descripcion07 || valor07  ? (
+
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-6">
+                    <div>
+                        <div className="text-slate-500">{cantidad07}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion07}</div>
+                    <div class="text-slate-500">{valor07}</div>
+                </div> 
+            </div>
+            ):null }
+            {cantidad08 || descripcion08 || valor08  ? (
+
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-6">
+                    <div>
+                        <div className="text-slate-500">{cantidad08}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion08}</div>
+                    <div class="text-slate-500">{valor08}</div>
+                </div> 
+            </div>
+            ):null }
+            {cantidad09 || descripcion09 || valor09  ? (
+
+            <div id="task" class="flex justify-between items-center border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
+                <div class="inline-flex items-center space-x-6">
+                    <div>
+                        <div className="text-slate-500">{cantidad09}</div>                         
+                    </div>
+                    <div class="text-slate-500">{descripcion09}</div>
+                    <div class="text-slate-500">{valor09}</div>
+                </div> 
+            </div>
+            ):null }
             </div>
             </div>
         

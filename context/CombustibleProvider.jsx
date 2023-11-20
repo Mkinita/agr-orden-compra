@@ -317,7 +317,13 @@ const CombustibleProvider = ({children}) => {
                 cantidad01,detalle01,valor01,
                 cantidad02,descripcion02,valor02,
                 cantidad03,descripcion03,valor03,
-                cantidad04,descripcion04,valor04,firma,
+                cantidad04,descripcion04,valor04,
+                cantidad05,descripcion05,valor05,
+            cantidad06,descripcion06,valor06,
+            cantidad07,descripcion07,valor07,
+            cantidad08,descripcion08,valor08,
+            cantidad09,descripcion09,valor09,
+            firma,
                 nombre01,area,fecha: new Date()
             })
             //resetear la app
@@ -334,12 +340,27 @@ const CombustibleProvider = ({children}) => {
             setCantidad02('')
             setCantidad03('')
             setCantidad04('')
-            setDescripcion02('')
-            setDescripcion03('')
-            setDescripcion04('')
+            setCantidad05([])
+            setCantidad06([])
+            setCantidad07([])
+            setCantidad08([])
+            setCantidad09([])
+            setDescripcion02([])
+            setDescripcion03([])
+            setDescripcion04([])
+            setDescripcion05([])
+            setDescripcion06([])
+            setDescripcion07([])
+            setDescripcion08([])
+            setDescripcion09([])
             setValor02('')
             setValor03('')
             setValor04('')
+            setValor05('')
+            setValor06('')
+            setValor07('')
+            setValor08('')
+            setValor09('')
             toast.success('Genrando Solicitud ⏳')
             setTimeout(() =>{
                 router.push('/notificar-solicitud-carlos')

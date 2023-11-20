@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 
 
+
 export default function Admin() {
 
     const fetcher = () => axios('/api/cotizar').then(datos => datos.data)
