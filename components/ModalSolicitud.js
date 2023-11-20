@@ -200,12 +200,12 @@ const ModalSolicitud = () => {
             </div>
         </div>
 
-        <input
+        {/* <input
                     type="submit"
                     className= {`${comprobarsolicitud() ? 'bg-indigo-100' : 'bg-amber-400 hover:bg-amber-500'}  lg:w-auto px-5 py-2 rounded uppercase font-bold text-white text-center`}
                     value="Generar Solicitud"
                     disabled={comprobarsolicitud()}       
-                />   
+                />    */}
           
     </div>
 
