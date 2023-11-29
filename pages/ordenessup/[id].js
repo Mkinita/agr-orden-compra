@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { useEffect, useState } from 'react';
-import OrdenPdfAutorizada from '@/components/OrdenPdfAutorizada'
+import OrdenPdfSup from '@/components/OrdenPdfSup'
 
 const prisma = new PrismaClient();
 
@@ -17,7 +17,7 @@ export default function OrdenPage({ orden }) {
   return (
     <>
         <div className='m-auto'>
-        <OrdenPdfAutorizada orden={orden} />
+        <OrdenPdfSup orden={orden} />
         </div>
 
 

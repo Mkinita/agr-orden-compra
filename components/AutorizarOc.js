@@ -5,7 +5,7 @@ import useCombustible from '../hooks/useCombustible';
 
 const OrdenGeneral = ({orden}) => {
 
-    const {id,solicita,fecha,pedido} = orden
+    const {id,solicita,fecha,pedido, pago} = orden
     const {handlesetOrden, handleChangeModal} =useCombustible()
    
   return (

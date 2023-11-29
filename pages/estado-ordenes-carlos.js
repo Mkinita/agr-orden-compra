@@ -20,11 +20,12 @@ export default function Admin() {
                 <table className="w-full text-xs border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
                     <tbody>
                         <tr className="font-bold">
-                            <td className="px-2 py-2 pb-1 w-1/5 text-center">Nº</td>
-                            <td className="px-2 py-2 pb-1 w-1/5 text-center">Autorizada</td>
-                            <td className="px-2 py-2 pb-1 w-1/5 text-center">Proveedor</td>
-                            <td className="px-2 py-2 pb-1 w-1/5 text-center">Recepcion</td>
-                            <td className="px-2 py-2 pb-1 w-1/5 text-center">Detalle</td>
+                            <td className="px-2 py-2 pb-1 w-1/6 text-center">Nº</td>
+                            <td className="px-2 py-2 pb-1 w-1/6 text-center">Autorizada</td>
+                            <td className="px-2 py-2 pb-1 w-1/6 text-center">Proveedor</td>
+                            <td className="px-2 py-2 pb-1 w-1/6 text-center">Recepcion</td>
+                            <td className="px-2 py-2 pb-1 w-1/6 text-center">Proveedor</td>
+                            <td className="px-2 py-2 pb-1 w-1/6 text-center">Detalle</td>
                         </tr>
                     </tbody>
                 </table>  

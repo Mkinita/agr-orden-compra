@@ -19,7 +19,7 @@ const ModalSolicitud = () => {
       valor07,cantidad07,descripcion07,
       valor08,cantidad08,descripcion08,
       valor09,cantidad09,descripcion09,
-      cantidades,detalles,valores,solicita
+      cantidades,detalles,valores,solicita,pago
 
   } = orden
 
@@ -162,6 +162,11 @@ const ModalSolicitud = () => {
                             )}
                         </tr>
                     ))}
+                    <tr className="bg-white border-b text-sm">
+                        <td colSpan="2" className="px-2 py-1 w-1/12 text-center border border-black">
+                            {pago}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 

@@ -50,7 +50,7 @@ export default function Admin() {
                 <input value={buscar} onChange={buscador} type="text" placeholder='Filtra Por Nº O.C.' className='text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>
 
-            <div className='grid gap-4 grid-cols-3 md:grid-cols-6 2xl:grid-cols-4'>
+            <div className='grid gap-4 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3'>
             
                 {data && data.length ? results.map(orden =>
                     

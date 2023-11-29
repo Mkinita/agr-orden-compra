@@ -13,11 +13,20 @@ const OrdenGeneral = ({ solicitud }) => {
         <table className="w-full text-xs">
             <tbody>
                 <tr className="bg-white border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
-                    <td className="px-2  w-1/5 text-center">{id}</td>
-                    <td className="px-2  w-1/5 text-center">{estado ? "✔️" : "Pendiente"}</td>
-                    <td className="px-2  w-1/5 text-center">{proveedor ? "Enviada ✔️" : "Pendiente"}</td>    
-                    <td className="px-2  w-1/5 text-center">{planta ? "✔️" : "Pendiente"}</td>
-                    <td className="px-2  w-1/5 text-center">
+                    <td className="px-2  w-1/6 text-center">{id}</td>
+                    <td className="px-2  w-1/6 text-center">{estado ? "✔️" : "Pendiente"}</td>
+                    <td className="px-2  w-1/6 text-center">{proveedor ? "Enviada ✔️" : "Pendiente"}</td>    
+                    <td className="px-2  w-1/6 text-center">{planta ? "✔️" : "Pendiente"}</td>
+                    <td className="px-2  w-1/6 text-center">
+                        {pedido01.map(oc => (
+                            <div key={oc.id}>
+                                <div className="m-auto">
+                                    {oc.nombreproveedor}
+                                </div>
+                            </div>
+                        ))}
+                    </td>
+                    <td className="px-2  w-1/6 text-center">
                         {pedido01.map(oc => (
                             <div key={oc.id}>
                                 <div className="m-auto">
