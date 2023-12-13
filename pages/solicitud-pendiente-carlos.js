@@ -43,7 +43,7 @@ export default function Admin() {
         <LayoutCarlos pagina={'Solicitudes'}>
 
             <h1 className="text-xl font-black text-center">Estado De Solicitud</h1>
-            <p className='text-lg mx-5 my-3 font-bold py-4 pb-2 text-center'>Seleccione Una Solicitud</p>
+            {/* <p className='text-lg mx-5 my-3 font-bold py-4 pb-2 text-center'>Seleccione Una Solicitud</p> */}
             <div className='mt-auto'>
                 <input value={search} onChange={searcher} type="text" placeholder='Buscar' className='shadow rounded-lg text-gray-700 my-5 text-center m-auto flex-wrap-reverse border-yellow-400'/> 🔍
             </div>

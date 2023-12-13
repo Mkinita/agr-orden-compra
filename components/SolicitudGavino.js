@@ -1,4 +1,6 @@
 import {formatiarFecha} from "helpers/fecha"
+import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 
 
 
@@ -13,6 +15,27 @@ const OrdenGeneral = ({solicitud}) => {
     
     } = solicitud
 
+    const router = useRouter();
+
+    const eliminarRegistro = async () => {
+      try {
+        const response = await fetch(`/api/eliminarsolicitud/${id}`, {
+          method: 'DELETE',
+        });
+  
+        if (response.ok) {
+          toast.success(`Solicitud ${id} eliminada`);
+          setTimeout(() => {
+            router.reload();
+          }, 2000);
+        } else {
+          throw new Error('Error al eliminar la Solicitud');
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
 
 
     
@@ -25,7 +48,7 @@ const OrdenGeneral = ({solicitud}) => {
     <div class="max-w-lg mx-auto my-2 bg-white p-8 rounded-xl shadow shadow-slate-300">
         <div class="flex flex-row justify-between items-center">
             <div>
-                <h1 class="text-xl font-medium">Solicitud nº {id}</h1>
+                <h1 class="text-xl font-medium">Nº {id}</h1>
             </div>
             <div class="inline-flex space-x-2 items-center">
                 <a href="#" class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200">
@@ -34,6 +57,13 @@ const OrdenGeneral = ({solicitud}) => {
                 <a href="#" class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200">
                 <p class="text-xs text-slate-500 text-center">{formatiarFecha(fecha)} </p>                 
                 </a>
+                <button
+                    type="button"
+                    className="hover:scale-110 bg-red-300 rounded-full p-1"
+                    onClick={eliminarRegistro}
+                >
+                    🗑️
+                </button>
             </div>
         </div>
         
