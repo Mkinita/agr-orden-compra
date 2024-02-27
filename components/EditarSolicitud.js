@@ -384,7 +384,7 @@ export default function EditarOrdenGeneral({solicitud}) {
               </label>
             </th>
           </tr> */}
-          {newcantidad02 || newdescripcion02 || newvalor02 || resultado3 ? (
+          
             <tr className='bg-white border-b'>
               <th>
                 <label>
@@ -427,8 +427,8 @@ export default function EditarOrdenGeneral({solicitud}) {
                 </label>
               </th>
             </tr>
-          ) : null}
-          {newcantidad03 || newdescripcion03 || newvalor03 || resultado4 ? (
+         
+          
           <tr className='bg-white border-b'>
             <th>
               <label>
@@ -451,8 +451,8 @@ export default function EditarOrdenGeneral({solicitud}) {
               </label>
             </th>
           </tr>
-          ) :null}
-          {newcantidad04 || newdescripcion04 || newvalor04 || resultado5 ? (
+         
+          
           <tr className='bg-white border-b'>
             <th>
               <label>
@@ -475,8 +475,7 @@ export default function EditarOrdenGeneral({solicitud}) {
               </label>
             </th>
           </tr>
-          ) : null}
-          {newcantidad05 || newdescripcion05 || newvalor05 || resultado6 ? (
+          
           <tr className='bg-white border-b'>
             <th>
               <label>
@@ -499,9 +498,7 @@ export default function EditarOrdenGeneral({solicitud}) {
               </label>
             </th>
           </tr>
-          ): null}
           
-          {newcantidad06 || newdescripcion06 || newvalor06 || resultado7 ? (
           <tr className='bg-white border-b'>
             <th>
               <label>
@@ -524,8 +521,7 @@ export default function EditarOrdenGeneral({solicitud}) {
               </label>
             </th>
           </tr>
-          ):null}
-          {newcantidad07 || newdescripcion07 || newvalor07 || resultado8 ? (
+          
           <tr className='bg-white border-b'>
             <th>
               <label>
@@ -548,8 +544,7 @@ export default function EditarOrdenGeneral({solicitud}) {
               </label>
             </th>
           </tr>
-          ):null}
-          {newcantidad08 || newdescripcion08 || newvalor08 || resultado9 ? (
+          
           <tr className='bg-white border-b'>
             <th>
               <label>
@@ -572,8 +567,7 @@ export default function EditarOrdenGeneral({solicitud}) {
               </label>
             </th>
           </tr>
-          ):null}
-          {newcantidad09 || newdescripcion09 || newvalor09 || resultado10 ? (
+          
           <tr className='bg-white border-b'>
             <th>
               <label>
@@ -596,7 +590,7 @@ export default function EditarOrdenGeneral({solicitud}) {
               </label>
             </th>
           </tr>
-          ):null}
+          
         </tbody>
       </table>
       <div className="grid grid-cols-2 p-2 gap-4">
