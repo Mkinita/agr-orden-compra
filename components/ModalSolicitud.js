@@ -38,10 +38,56 @@ const ModalSolicitud = () => {
         }
     }
 
-    const comprobarsolicitud = useCallback(() => {
-        return solicitud.length === 0 || id === "" || id.length <5;
-        
-    },[solicitud, id])
+    // const eliminarRegistro = async () => {
+    //     try {
+    //       const response = await fetch(`/api/eliminarsolicitud/${id}`, {
+    //         method: 'DELETE',
+    //       });
+    
+    //       if (response.ok) {
+    //         toast.success(`Solicitud ${id} eliminada`);
+    //         setTimeout(() => {
+    //           router.reload();
+    //         }, 2000);
+    //       } else {
+    //         throw new Error('Error al eliminar la Solicitud');
+    //       }
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   };
+
+    
+
+    const eliminarRegistro = async () => {
+        const confirmarEliminacion = window.confirm(
+          `¿Estás seguro de que deseas eliminar la solicitud ${id}?`
+        );
+        if (confirmarEliminacion) {
+          try {
+          const response = await fetch(`/api/eliminarsolicitud/${id}`, {
+          method: 'DELETE',
+        });
+          if (response.ok) {
+            toast.success(`${id} eliminada`);
+            setTimeout(() => {
+                router.reload();
+              }, 2000);
+          } else {
+            throw new Error('Error al eliminar la etiqueta');
+              }
+          } catch (error) {
+              console.log(error);
+          }
+          }
+        };
+
+
+        const comprobarsolicitud = useCallback(() => {
+            return solicitud.length === 0 || id === "" || id.length <5;
+            
+        },[solicitud, id])
+
 
   
 
@@ -190,22 +236,29 @@ const ModalSolicitud = () => {
             
         </div>
 
-        <div class="flex flex-row items-center justify-center">
+        <div class=" grid grid-cols-2 gap-2 w-1/2 m-auto">
             <div class="inline-flex space-x-2 items-center justify-center">
                 <button href="#" className= {`${comprobarsolicitud() ? 'bg-indigo-100' : 'bg-amber-400 hover:bg-amber-500'}  lg:w-auto px-5 py-2 rounded uppercase font-bold text-white text-center`}  onClick={cotizarsolicitud}>
-                <p class="text-xs text-black text-center hover:scale-110">Generar Orden De Compra</p>      
+                <p class="text-xs text-black text-center hover:scale-110">Generar O.C.</p>      
                                    
                 </button>
                 
             </div>
+
+            <div class="inline-flex space-x-2 items-center justify-center" >
+
+            <button
+                    type="button"
+                    className="hover:scale-110 bg-red-300 'bg-indigo-100 hover:bg-red-500  lg:w-auto px-5 py-2 rounded uppercase font-bold text-white text-center"
+                    onClick={eliminarRegistro}
+                >
+                    <p class="text-xs text-white text-center hover:scale-110">Eliminar</p>
+                </button>
+
+                </div>
         </div>
 
-        {/* <input
-                    type="submit"
-                    className= {`${comprobarsolicitud() ? 'bg-indigo-100' : 'bg-amber-400 hover:bg-amber-500'}  lg:w-auto px-5 py-2 rounded uppercase font-bold text-white text-center`}
-                    value="Generar Solicitud"
-                    disabled={comprobarsolicitud()}       
-                />    */}
+       
           
     </div>
 
