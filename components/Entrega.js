@@ -23,10 +23,10 @@ const ListadoPdfOcGeneral = ({orden}) => {
     const cambiarestado = async () => {
         try {
             await axios.post(`/api/ordenenplanta/${pedidoID}`);
-            toast.success(`🔔 Notificando`);
+            toast.success(`Firmando....`);
             setTimeout(() => {
-                router.push('/entrega-correcta');
-            }, 10);
+                router.push('/conforme');
+            }, 2000);
             
         } catch (error) {
             toast.error('Hubo un error');
@@ -81,10 +81,10 @@ const ListadoPdfOcGeneral = ({orden}) => {
                                 </div>
                             ))}
                         </div>
-                        <div class="mt-8 flex justify-center text-lg text-black">
+                        <div class="mt-8 flex justify-center text-sm text-black">
                             <div className="m-auto"> 
                                 <button className="rounded-3xl bg-yellow-400 bg-opacity-50 px-10 py-2 text-black shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600" type="button" onClick={handleEstadoClick}>
-                                    🔔 En Planta 🔔
+                                    ✍️ Firmar Recepcion Conforme ✍️
                             </button>
                         
                         {/*  */}

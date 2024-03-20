@@ -138,13 +138,17 @@ const Sidebar = () => {
                             
                             {isVisible2 && (
                             <div className="p-2 space-y-1">
-                                
+
                                 <li>
-                                    <Link href="/recibe-conforme" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
-                                        ✔️
-                                        <span class="ml-3">En Planta</span>
+                                    <Link href="/entrega" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
+                                        ✍️
+                                        <span class="ml-3">Firma Conforme</span>
                                     </Link>
                                 </li>
+                                
+                                
+
+
 
                                 <li>
                                     <Link href="conforme" class="flex items-center p-2 text-base font-black text-black rounded-lg bg-amber-400 dark:text-black hover:bg-gray-100 dark:hover:bg-amber-400 uppercase">
