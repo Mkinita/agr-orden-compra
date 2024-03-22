@@ -5,14 +5,15 @@ export default async function handler (req,res){
     const prisma = new PrismaClient()
     if(req.method === 'POST'){
         const { id }  = req.query
-        const {pago } = req.body
+        const {pago,descuento } = req.body
         
 
         const ordenActualizada = await prisma.nuevaorden.update({
             where: { id: parseInt(id) },
             data: 
             { 
-                pago: pago
+                pago: pago,
+                descuento: descuento
                 
             },
           })

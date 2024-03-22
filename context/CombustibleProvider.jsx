@@ -24,6 +24,7 @@ const CombustibleProvider = ({children}) => {
     const [atencion, setAtencion] = useState('')
     const [numerosoli, setNumeroSoli] = useState('')
     const [pago, setPago] = useState('-')
+    const [descuento, setDescuento] = useState('0')
 
     const [cantidades, setCantidades] = useState('');
     const [detalles, setDetalles] = useState('');
@@ -440,10 +441,11 @@ const CombustibleProvider = ({children}) => {
         e.preventDefault()
 
         try {
-           await axios.post('/api/crearordencompra',{pedido,pedido01,pago,cotizacion,atencion,solicita,fecha: new Date(),})
+           await axios.post('/api/crearordencompra',{pedido,pedido01,pago,descuento,cotizacion,atencion,solicita,fecha: new Date(),})
             // Resetear la app
             setPago('')
             setArea('')
+            setDescuento('')
             setNumeroSoli('')
             setCotizacion('')
             setSolicita([])
@@ -558,6 +560,7 @@ const CombustibleProvider = ({children}) => {
             atencion,setAtencion,
             cotizacion,setCotizacion,
             pago,setPago,
+            descuento,setDescuento,
             
 
 

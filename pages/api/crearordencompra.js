@@ -26,7 +26,8 @@ export default async function handler(req, res) {
         atencion: req.body.atencion,
         pedido01: req.body.pedido01,
         pedido: req.body.pedido,
-        pago: req.body.pago
+        pago: req.body.pago,
+        descuento: req.body.descuento
       },
     });
     res.json(nuevaorden);

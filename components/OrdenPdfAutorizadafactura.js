@@ -20,7 +20,8 @@ const OrdenCompraAutorizada = ({orden}) => {
       valor07,cantidad07,descripcion07,
       valor08,cantidad08,descripcion08,
       valor09,cantidad09,descripcion09,
-      cantidades,detalles,valores,conforme
+      cantidades,detalles,valores,conforme,
+      descuento
     
     }  
     = orden
@@ -264,26 +265,42 @@ const OrdenCompraAutorizada = ({orden}) => {
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero (o.cantidad09 * o.valor09)}</td>
                     </tr>
 
+                    <tr className="bg-white   text-sm">
+                        <td className="px-6 py-1 w-1/12 text-center"></td>
+                        <td className="px-6 py-1 w-2/3 text-center"></td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black text-black font-bold">Sub Total</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores)+(o.cantidad01 * o.valor01)+(o.cantidad02 * o.valor02)+(o.cantidad03 * o.valor03)+(o.cantidad04 * o.valor04)+(o.cantidad05 * o.valor05)+(o.cantidad06*o.valor06)+(o.cantidad07*o.valor07)+(o.cantidad08*o.valor08)+(o.cantidad09*o.valor09)-(descuento))}</td>
+                    </tr>
+
 
                     
                 </tbody>
+                    <tr className="bg-white text-sm" >
+                        <td className="px-6 py-1 w-1/12 text-center"></td>
+                        
+                        <td className="px-6 py-1 w-2/3 text-left" ></td>
+                        
+                        <td className="px-6 py-1 w-1/5 text-center text-black font-bold border border-black">Descuento</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">${formatearDinero(descuento)}</td>
+                        
+                    </tr>
                     <tr className="bg-white text-sm">
                         <td className="px-6 py-1 w-1/12 text-center"></td>
                         <td className="px-6 py-1 w-2/3 text-left">{pago}</td>
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">NETO</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores)+(o.cantidad01 * o.valor01)+(o.cantidad02 * o.valor02)+(o.cantidad03 * o.valor03)+(o.cantidad04 * o.valor04)+(o.cantidad05 * o.valor05)+(o.cantidad06*o.valor06)+(o.cantidad07*o.valor07)+(o.cantidad08*o.valor08)+(o.cantidad09*o.valor09))}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores)+(o.cantidad01 * o.valor01)+(o.cantidad02 * o.valor02)+(o.cantidad03 * o.valor03)+(o.cantidad04 * o.valor04)+(o.cantidad05 * o.valor05)+(o.cantidad06*o.valor06)+(o.cantidad07*o.valor07)+(o.cantidad08*o.valor08)+(o.cantidad09*o.valor09 -(descuento)))}</td>
                     </tr>
                     <tr className="bg-white text-sm">
                         <td className="px-6 py-1 w-1/12 text-center"></td>
                         <td className="px-6 py-1 w-2/3 text-center"></td>
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">IVA 19%</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores+ o.cantidad01 * o.valor01+o.cantidad02 * o.valor02+o.cantidad03 * o.valor03+o.cantidad04 * o.valor04 + o.cantidad05 * o.valor05 + o.cantidad06 * o.valor06 + o.cantidad07 * o.valor07 + o.cantidad08 * o.valor08 + o.cantidad09 * o.valor09) *(0.19))}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores+ o.cantidad01 * o.valor01+o.cantidad02 * o.valor02+o.cantidad03 * o.valor03+o.cantidad04 * o.valor04 + o.cantidad05 * o.valor05 + o.cantidad06 * o.valor06 + o.cantidad07 * o.valor07 + o.cantidad08 * o.valor08 + o.cantidad09 * o.valor09 -(descuento)) *(0.19))}</td>
                     </tr>
                     <tr className="bg-white text-sm">
                         <td colSpan="2" className="px-2 py-1 w-1/12 text-left">Sin otro particular saluda(n) Atte. a Ud(s)</td>
                         
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">TOTAL</td>
-                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores+ o.cantidad01 * o.valor01+o.cantidad02 * o.valor02+o.cantidad03 * o.valor03+o.cantidad04 * o.valor04 + o.cantidad05 * o.valor05 + o.cantidad06 * o.valor06 + o.cantidad07 * o.valor07 + o.cantidad08 * o.valor08 + o.cantidad09 * o.valor09)*(1.19))}</td>
+                        <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores+ o.cantidad01 * o.valor01+o.cantidad02 * o.valor02+o.cantidad03 * o.valor03+o.cantidad04 * o.valor04 + o.cantidad05 * o.valor05 + o.cantidad06 * o.valor06 + o.cantidad07 * o.valor07 + o.cantidad08 * o.valor08 + o.cantidad09 * o.valor09 -(descuento))*(1.19))}</td>
                     </tr>
             </table>
         </div>

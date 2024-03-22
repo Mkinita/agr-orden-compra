@@ -154,6 +154,7 @@ model Nuevaorden{
   cotizacion String
   atencion String
   pago String?
+  descuento String?
   pedido Json
   pedido01 Json
   estado Boolean  @default(false)
