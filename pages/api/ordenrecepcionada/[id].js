@@ -12,6 +12,7 @@ export default async function handler (req,res){
                 id: parseInt(id)
             },
             data:{
+                proveedor:true,
                 planta:true,
                 conforme:true
                 

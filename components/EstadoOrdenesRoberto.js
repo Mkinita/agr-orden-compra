@@ -7,6 +7,13 @@ import Link from "next/link";
 const OrdenGeneral = ({ solicitud }) => {
   const { id, nombre01, fecha, estado, compra, proveedor, planta, pedido01 } = solicitud;
   
+  // Verifica si todos los estados están en true
+  const todosEstadosTrue = estado && proveedor && planta;
+
+  // Si todos los estados están en true, no renderiza nada
+  if (todosEstadosTrue) {
+    return null;
+  }
 
   return (
     <>
