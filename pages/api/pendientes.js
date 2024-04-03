@@ -7,6 +7,7 @@ export default async function handler(req, res) {
   const solicitudes = await prisma.nuevaSolicitud.findMany({
     where: {
       planta:false,
+      compra:false,
       nombre01:"Gavino Ugalde"
     },
     orderBy: {

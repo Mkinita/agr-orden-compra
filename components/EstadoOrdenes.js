@@ -1,7 +1,3 @@
-import { formatiarFecha } from "helpers/fecha";
-import useCombustible from '../hooks/useCombustible';
-import axios from 'axios';
-import { toast } from 'react-toastify';
 import Link from "next/link";
 
 const OrdenGeneral = ({ solicitud }) => {
@@ -21,7 +17,7 @@ const OrdenGeneral = ({ solicitud }) => {
                         {pedido01.map(oc => (
                             <div key={oc.id}>
                                 <div className="m-auto">
-                                    {oc.nombreproveedor}
+                                    {oc.nombreproveedor.substring(0, 8)}
                                 </div>
                             </div>
                         ))}

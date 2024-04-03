@@ -1,7 +1,4 @@
-import { formatiarFecha } from "helpers/fecha";
-import useCombustible from '../hooks/useCombustible';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+
 
 const OrdenGeneral = ({ solicitud }) => {
   const { id, nombre01, fecha, visto, compra, cotizar } = solicitud;
