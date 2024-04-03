@@ -1,9 +1,3 @@
-import { formatiarFecha } from "helpers/fecha";
-import useCombustible from '../hooks/useCombustible';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import Link from "next/link";
-
 const OrdenGeneral = ({ solicitud }) => {
     const { id, nombre01, fecha, visto, compra, cotizar } = solicitud;
   
@@ -32,3 +26,9 @@ const OrdenGeneral = ({ solicitud }) => {
 };
 
 export default OrdenGeneral;
+
+
+
+
+
+

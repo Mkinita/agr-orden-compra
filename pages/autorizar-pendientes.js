@@ -9,8 +9,8 @@ import Head from 'next/head'
 
 export default function Admin() {
 
-    const fetcher = () => axios('/api/ordenes-autorizadas-sup').then(datos => datos.data)
-    const { data, error, isLoading } = useSWR('/api/ordenes-autorizadas-sup',fetcher,{refreshInterval: 100} )
+    const fetcher = () => axios('/api/pendientesrobertooc').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/pendientesrobertooc',fetcher,{refreshInterval: 100} )
 
     const fetcherPendientes = () => axios('/api/pendientes-general').then(datos => datos.data)
     const { data:dataPendientes, error:errorPendientes, isLoading:isLoadingPendientes } = useSWR('/api/pendientes-general',fetcherPendientes,{refreshInterval: 100} )
