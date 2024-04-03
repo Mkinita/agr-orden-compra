@@ -4,7 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const OrdenGeneral = ({ solicitud }) => {
-  const { id, nombre01, fecha, visto, compra, cotizar, planta } = solicitud;
+  const { id, nombre01, fecha, visto, compra, cotizar } = solicitud;
   
 
   return (
@@ -16,7 +16,7 @@ const OrdenGeneral = ({ solicitud }) => {
                     <td className="px-2  w-1/5 text-center">{visto ? "✔️" : "Pendiente"}</td>
                     <td className="px-2  w-1/5 text-center">{cotizar ? "✔️" : "Pendiente"}</td>    
                     <td className="px-2  w-1/5 text-center">{compra ? "✔️" : "Pendiente"}</td>
-                    <td className="px-2  w-1/5 text-center ">{planta ? "✔️" : "Pendiente"}</td>
+                    
                 </tr>    
             </tbody>
             

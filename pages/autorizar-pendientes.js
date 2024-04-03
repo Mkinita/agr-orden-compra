@@ -28,10 +28,9 @@ export default function Admin() {
                 <table className="w-full text-xs border-b border-slate-200 py-3 px-2 border-l-4  border-l-transparent">
                     <tbody>
                         <tr className="font-bold">
-                            <td className="px-2 py-2 pb-1 w-1/4 text-center">Nº</td>
-                            <td className="px-2 py-2 pb-1 w-1/4 text-center">Cotizacion</td>
-                            <td className="px-2 py-2 pb-1 w-1/4 text-center">O.C.</td>
-                            <td className="px-2 py-2 pb-1 w-1/4 text-center">Recepcion</td>
+                            <td className="px-2 py-2 pb-1 w-1/3 text-center">Nº</td>
+                            <td className="px-2 py-2 pb-1 w-1/3 text-center">Cotizacion</td>
+                            <td className="px-2 py-2 pb-1 w-1/3 text-center">O.C.</td>
                         </tr>
                     </tbody>
                 </table>  
