@@ -124,16 +124,14 @@ const OrdenGeneral = ({solicitud}) => {
         <table className="w-full text-xs">
         <tbody>
                         <tr className="font-bold">
-                            <td className="px-2 py-4 pb-1 w-1/4 text-center">Vista</td>
-                            <td className="px-2 py-4 pb-1 w-1/4 text-center">Cotizacion</td>
-                            <td className="px-2 py-4 pb-1 w-1/4 text-center">O.C.</td>
-                            <td className="px-2 py-4 pb-1 w-1/4 text-center">Recepcion</td>
+                            <td className="px-2 py-4 pb-1 w-1/3 text-center">Vista</td>
+                            <td className="px-2 py-4 pb-1 w-1/3 text-center">Cotizacion</td>
+                            <td className="px-2 py-4 pb-1 w-1/3 text-center">O.C.</td>
                         </tr>
                         <tr className="bg-white">
-                            <td className="px-2 py-2 w-1/4 text-center">{visto ? "✔️" : "Pendiente 🔒"}</td>
-                            <td className="px-2 py-2 w-1/4 text-center">{cotizar ? "✔️" : "Pendiente 🔒"}</td>    
-                            <td className="px-2 py-2 w-1/4 text-center">{compra ? "✔️" : "Pendiente 🔒"}</td>
-                            <td className="px-2 py-2 w-1/4 text-center ">{planta ? "✔️" : "En Camino 🔒"}</td>
+                            <td className="px-2 py-2 w-1/3 text-center">{visto ? "✔️" : "Pendiente 🔒"}</td>
+                            <td className="px-2 py-2 w-1/3 text-center">{cotizar ? "✔️" : "Pendiente 🔒"}</td>    
+                            <td className="px-2 py-2 w-1/3 text-center">{compra ? "✔️" : "Pendiente 🔒"}</td>
                         </tr>    
             </tbody>
         </table>      

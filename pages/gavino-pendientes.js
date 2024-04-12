@@ -27,6 +27,7 @@ export default function Admin() {
                     <tbody>
                         <tr className="font-bold">
                             <td className="px-2 py-2 pb-1 w-1/5 text-center">Nº</td>
+                            <td className="px-2 py-2 pb-1 w-1/5 text-center">Fecha</td>
                             <td className="px-2 py-2 pb-1 w-1/5 text-center">Vista</td>
                             <td className="px-2 py-2 pb-1 w-1/5 text-center">Cotizacion</td>
                             <td className="px-2 py-2 pb-1 w-1/5 text-center">O.C.</td>

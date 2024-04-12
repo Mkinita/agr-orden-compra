@@ -6,12 +6,12 @@ export default async function handler(req, res) {
   //Obtener solicitudes
   const solicitudes = await prisma.nuevaSolicitud.findMany({
     where: {
-      nombre01:"carlos vera"
+      nombre01:"carlos vera",
+      compra:false,
     },
     orderBy: {
       id: "desc",
-    },
-    take: 20,
+    }
   });
   
 
