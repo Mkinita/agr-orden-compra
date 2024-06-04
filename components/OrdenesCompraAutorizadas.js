@@ -33,10 +33,21 @@ const OrdenGeneral = ({orden}) => {
       <div className='border shadow'>
         <div className="border p-5 space-y-2 ">
           
-          <div className='grid gap-4 grid-cols-2'>
+          <div className='grid gap-4 grid-cols-1'>
           <div className='text-center'>
             <h3 className="text-xl font-bold pb-1">Orden Nº {id}</h3>
-            <p className="text-sm font-bold pb-1">Fecha: {formatiarFecha(fecha)}</p>
+            <p className="text-sm font-bold pb-1">{formatiarFecha(fecha)}</p>
+            
+
+            {pedido01.map(oc => (
+            <div key={oc.id}
+                className=""
+            >
+                <p className="text-sm font-bold pb-1">{oc.nombreproveedor}</p>
+                
+            </div>
+        ))}
+        
             <p className="text-sm font-bold">Autorizacion: {estado ? "✔️" : "🔒"}</p>
             </div>
             <div className="text-sm font-bold flex justify-center">
@@ -58,3 +69,6 @@ const OrdenGeneral = ({orden}) => {
 }
 
 export default OrdenGeneral
+
+
+
