@@ -258,7 +258,8 @@ const OrdenCompraAutorizada = ({orden}) => {
                     <tr className="bg-white text-sm" >
                         <td className="px-6 py-1 w-1/12 text-center"></td>
                         
-                        <td className="px-6 py-1 w-2/3 text-left border border-black" ><EditarPago orden={orden} /></td>
+                        <td className="px-6 py-1 w-2/3 text-left border border-black" ></td>
+                        {/* <td className="px-6 py-1 w-2/3 text-left border border-black" ><EditarPago orden={orden} /></td> */}
                         
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold border border-black">Descuento</td>
                         <td className="px-6 py-1 w-1/12 text-center border border-black">${formatearDinero(descuento)}</td>
@@ -278,15 +279,37 @@ const OrdenCompraAutorizada = ({orden}) => {
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores+ o.cantidad01 * o.valor01+o.cantidad02 * o.valor02+o.cantidad03 * o.valor03+o.cantidad04 * o.valor04 + o.cantidad05 * o.valor05 + o.cantidad06 * o.valor06 + o.cantidad07 * o.valor07 + o.cantidad08 * o.valor08 + o.cantidad09 * o.valor09 -(descuento)) *(0.19))}</td>
                     </tr>
                     <tr className="bg-white text-sm">
-                        <td colSpan="2" className="px-2 py-1 w-1/12 text-left">Sin otro particular saluda(n) Atte. a Ud(s)</td>
+                        <td colSpan="2" className="px-2 py-1 w-1/12 text-left"></td>
                         
                         <td className="px-6 py-1 w-1/5 text-center text-black font-bold">TOTAL</td>
                         <td className="px-6 py-1 w-1/12 text-center border border-black">{formatearDinero((o.cantidades * o.valores+ o.cantidad01 * o.valor01+o.cantidad02 * o.valor02+o.cantidad03 * o.valor03+o.cantidad04 * o.valor04 + o.cantidad05 * o.valor05 + o.cantidad06 * o.valor06 + o.cantidad07 * o.valor07 + o.cantidad08 * o.valor08 + o.cantidad09 * o.valor09 -(descuento))*(1.19))}</td>
                     </tr>
+                    
             </table>
         </div>
          </div>
          ))}
+         <div className="grid gap-1 grid-cols-2 py-4 pb-8">
+            
+            
+            <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
+                <Image width={280} height={80} src="/assets/img/firma.png" alt="Autorizacion-Pendiente" className=""/>
+                </p></div>
+
+               
+{pedido.map(o => (
+            
+                <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
+                <Image width={280} height={80} src={`/assets/img/${o.firma}.png`} alt="Autorizacion-Pendiente" className=""/>
+                                </p></div>
+                
+        
+         
+         ))} </div>
+         <div className="py-2 pb-8">
+            <div className="px-6"><p className="text-black font-bold text-sm">NOTA: En la Factura se deberá mencionar el Nº de esta orden.</p></div>
+
+        </div>
     </>
   )
 }
