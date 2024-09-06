@@ -290,11 +290,18 @@ const OrdenCompraAutorizada = ({orden}) => {
          </div>
          ))}
          <div className="grid gap-1 grid-cols-2 py-4 pb-8">
-            
+         
+         
             
             <div className="px-6 m-auto"><p className="border-b border-black text-black font-bold text-sm">
-                <Image width={280} height={80} src="/assets/img/firma.png" alt="Autorizacion-Pendiente" className=""/>
-                </p></div>
+               {estado && ( 
+               <Image width={280} height={80} src="/assets/img/firma.png" alt="Autorizacion-Pendiente" className=""/>
+               )}
+               </p>
+                
+                </div>
+                
+                
 
                
 {pedido.map(o => (
