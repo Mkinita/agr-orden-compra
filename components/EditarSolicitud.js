@@ -294,7 +294,11 @@ export default function EditarOrdenGeneral({solicitud}) {
     <>
     <div className='font-semibold '>
       <p>{nombre01}</p>
-      <p>{area}</p>
+      <div className='grid grid-cols-8'>
+      <div>{area}</div> 
+      <div>Nº {id}</div>
+      </div>
+      
     </div>
     <form onSubmit={handleSubmit} className='font-semibold text-sm'>
       <br/>
