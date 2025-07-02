@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const recipients = ['carlos.vera.aparicio@gmail.com'];
+const recipients = ['carlos.vera..aparicio@gmail.com'];
 
 // Función para enviar correo electrónico
 async function sendEmail({ to, subject, text }) {
