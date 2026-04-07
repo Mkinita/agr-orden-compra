@@ -1,33 +1,23 @@
+const { Resend } = require('resend');
 
-const nodemailer = require('nodemailer');
-
-// Configura el transporte de correo
-const transporter = nodemailer.createTransport({
-  
-    service: 'Gmail',
-    auth: {
-    user: 'jerez4959@gmail.com',
-    pass: 'ttwxenwctoujzlcb',
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Función para enviar correo electrónico
 async function sendEmail({ to, subject, text }) {
   const mailOptions = {
-    from: 'jerez4959@gmail.com',
-    to:'jerez4959@gmail.com',
+    from: 'onboarding@resend.dev',
+    to: 'jerez4959@gmail.com', // te lo envías a ti mismo (como tenías)
     subject,
     text,
   };
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Correo electrónico enviado:', info.response);
+    const info = await resend.emails.send(mailOptions);
+    console.log('Correo enviado:', info);
+    return info;
   } catch (error) {
     console.error('Error al enviar el correo electrónico:', error);
+    throw error;
   }
 }
 
