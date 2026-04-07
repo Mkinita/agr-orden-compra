@@ -2,21 +2,21 @@ const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Función para enviar correo electrónico
-async function sendEmail({ to, subject, text }) {
-  const mailOptions = {
-    from: 'onboarding@resend.dev',
-    to: 'jerez4959@gmail.com', // te lo envías a ti mismo (como tenías)
-    subject,
-    text,
-  };
+const recipients = ['jerez4959@gmail.com'];
 
+async function sendEmail({ subject, text }) {
   try {
-    const info = await resend.emails.send(mailOptions);
-    console.log('Correo enviado:', info);
-    return info;
+    const response = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: recipients,
+      subject,
+      text,
+    });
+
+    console.log('Correo enviado:', response);
+    return response;
   } catch (error) {
-    console.error('Error al enviar el correo electrónico:', error);
+    console.error('Error al enviar correo:', error);
     throw error;
   }
 }
