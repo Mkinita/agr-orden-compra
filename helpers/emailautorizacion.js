@@ -2,7 +2,7 @@ const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const recipients = ['jerez4959@gmail.com'];
+const recipients = ['ugavino@gmail.com'];
 
 async function sendEmail({ subject, text }) {
   try {
