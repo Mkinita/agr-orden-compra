@@ -156,7 +156,11 @@ const OrdenCompraAutorizada = ({orden}) => {
                 <div className="grid gap-2 grid-cols-1 py-1 pb-5">
                     <div className="px-6"><p className="w-full border-b border-black">Atencion: {atencion}</p></div>
                     <div className="px-6"><p className="w-full border-b border-black">Cotizacion: {cotizacion}</p></div>
-                    <div className="px-6"><p className="w-full border-b border-black">Autorizado: {o.nombre01}</p>  | Área {o.area}  </div>
+                    <div className="px-6">
+                      <p className="w-full border-b border-black whitespace-nowrap">
+                        Autorizado: {o.nombre01} | Área {o.area}
+                      </p>
+                    </div>
                 </div>
                 </div>
         ))}
