@@ -32,7 +32,7 @@ const AlertaPago = () => {
         </p>
 
         <p className="text-2xl font-bold mt-2 text-black">
-          Lunes 04-05-2026
+          Lunes  04-05-2026
         </p>
 
         <p className="mt-6 text-gray-600 leading-7">
