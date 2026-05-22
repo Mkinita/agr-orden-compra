@@ -26,7 +26,9 @@ const C404 = () => {
             ⚠️
           </h1>
         </div>
-
+    
+<br />
+    <br />
         <p className="text-gray-600 mt-4">
           Boleta emitida el día Lunes 04-05-2026
 <br />
