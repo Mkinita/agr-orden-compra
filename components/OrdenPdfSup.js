@@ -146,8 +146,8 @@ const OrdenCompraAutorizada = ({orden}) => {
                 <div className="w-full m-auto">
                     <div className="text-center"><h3 className="text-lg font-bold inline-block align-baseline ">ORDEN DE COMPRA</h3></div>
                     <div className="text-center"><h3 className="text-lg font-bold inline-block align-middle">Nº: {formatoNumero(id)}</h3></div>
-                    <div className="py-5 pb-0"><p className="text-sm font-bold text-center">Dia/Mes/Año</p></div>
-                    <div className="py-5 pb-0"><p className="text-sm font-bold text-center">{o.area}</p></div>
+                    <div className="pb-0"><p className="text-sm font-bold text-center">Dia/Mes/Año</p></div>
+                    <div className="pb-0"><p className="text-sm font-bold text-center">{o.area}</p></div>
                     <div><p className="text-lg font-bold text-center">{formatiarFecha(fecha)}</p></div>
                 </div> 
             </div>
