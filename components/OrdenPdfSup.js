@@ -134,6 +134,10 @@ const OrdenCompraAutorizada = ({orden}) => {
         
 
     
+        {pedido.map(o => (
+            <div key={o.id}
+                className=""
+            >
         <div role="status" className="space-y-8 md:space-y-0 md:space-x-8 md:items-center p-2 m-5">
             <div className="flex">
                 <div className="flex items-center w-full h-48">
@@ -143,10 +147,13 @@ const OrdenCompraAutorizada = ({orden}) => {
                     <div className="text-center"><h3 className="text-lg font-bold inline-block align-baseline ">ORDEN DE COMPRA</h3></div>
                     <div className="text-center"><h3 className="text-lg font-bold inline-block align-middle">Nº: {formatoNumero(id)}</h3></div>
                     <div className="py-5 pb-0"><p className="text-sm font-bold text-center">Dia/Mes/Año</p></div>
+                    <div className="py-5 pb-0"><p className="text-sm font-bold text-center">{o.area}</p></div>
                     <div><p className="text-lg font-bold text-center">{formatiarFecha(fecha)}</p></div>
                 </div> 
             </div>
         </div>
+        </div>
+        ))}
 
         {pedido01.map(oc => (
             <div key={oc.id}
