@@ -502,6 +502,7 @@ const CombustibleProvider = ({children}) => {
     return(
         <CombustibleContext.Provider
         value={{
+            firma,setFirma,
             articulo,
             nombre,setNombre,
             nombre01,setNombre01,
