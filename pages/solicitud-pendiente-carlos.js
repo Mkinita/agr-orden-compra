@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import axios from 'axios'
-import LayoutCarlos from "../layout/LayoutCarlos"
+import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
 import SolicitudGavino from '../components/SolicitudGavino'
 import {useState, useEffect} from 'react'
 
@@ -40,7 +40,7 @@ export default function Admin() {
      
 
     return(
-        <LayoutCarlos pagina={'Solicitudes'}>
+        <LayoutOrdenCompra pagina={'Solicitudes'}>
 
             <h1 className="text-xl font-black text-center">Estado De Solicitud</h1>
             {/* <p className='text-lg mx-5 my-3 font-bold py-4 pb-2 text-center'>Seleccione Una Solicitud</p> */}
@@ -60,6 +60,6 @@ export default function Admin() {
                 ):<p>No Hay Ordenes Pendientes</p>}
             </div>
 
-        </LayoutCarlos>
+        </LayoutOrdenCompra>
     )
 }
