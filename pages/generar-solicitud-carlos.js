@@ -1,4 +1,4 @@
-import LayoutCarlos from '../layout/LayoutCarlos';
+import LayoutOrdenCompra from '../layout/LayoutOrdenCompra';
 import useCombustible from '../hooks/useCombustible';
 import { useEffect, useCallback, useState } from 'react';
 import Head from 'next/head';
@@ -62,7 +62,7 @@ export default function Home() {
 
     const {AgregarNuevaSolicitudCarlos,area,setArea, nombre01,setNombre01,
         setDetalles,cantidades,setCantidades,detalles,
-        cantidad01 ,setCantidad01,detalle01, setDetalle01,
+        cantidad01 ,setCantidad01,detalle01, setDetalle01,firma,setFirma,
         cantidad02, setCantidad02, descripcion02, setDescripcion02,
         cantidad03, setCantidad03, descripcion03, setDescripcion03,
         cantidad04, setCantidad04, descripcion04, setDescripcion04,
@@ -70,7 +70,7 @@ export default function Home() {
         cantidad06, setCantidad06, descripcion06, setDescripcion06, valor06, setValor06,
         cantidad07, setCantidad07, descripcion07, setDescripcion07, valor07, setValor07,
         cantidad08, setCantidad08, descripcion08, setDescripcion08, valor08, setValor08,
-        cantidad09, setCantidad09, descripcion09, setDescripcion09, valor09, setValor09,
+        cantidad09, setCantidad09, descripcion09, setDescripcion09, valor09, setValor09
     } = useCombustible()
 
 
@@ -90,7 +90,7 @@ export default function Home() {
 
   return (
     
-    <LayoutCarlos pagina={`Inicio - Producto`}>
+    <LayoutOrdenCompra pagina={`Inicio - Producto`}>
         <Head>
             <meta name="description" content="Carlos Jerez" />
             <link rel="icon" href="/AGRF.png"/>
@@ -106,7 +106,21 @@ export default function Home() {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                     <div class="text-left">
                         <label htmlFor="solicita" className="block uppercase text-slate-800 font-bold text-lg text-center py-1">Solicita: </label>
-                        <p className='w-full  px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-amber-400'>CARLOS VERA</p>
+                        <select
+                            id="nombre"
+                            className="bg-gray-200 w-full lg:w-3/4 p-2 rounded-md"
+                            value={nombre01}
+                            onChange={(e) => {
+                            setNombre01(e.target.value);
+                            setFirma(e.target.value);
+                             }}
+                        >
+                            <option value="">-</option>
+                            <option value="Manuel Martinez">Manuel Martinez</option>
+                            <option value="Ramon Lleucun">Ramon Lleucun</option>
+                            <option value="Marcela Alvarez">Marcela Alvarez</option>
+                            <option value="Jose Buholzer">Jose Buholzer</option>
+                        </select>
                     </div>
 
                     <div>
@@ -130,8 +144,12 @@ export default function Home() {
                             <option value="EQUIPOS-MOVILES">EQUIPOS-MOVILES</option>
                             <option value="PLANTA-GENERAL">PLANTA-GENERAL</option>
                         </select>
+
+                        
                             
                     </div>
+
+                    
                 </div>
 
                 <table className="table-auto w-full text-center bg-white text-gray-700 ">
@@ -340,6 +358,10 @@ export default function Home() {
                         )}
 
 
+                           
+                        
+
+
 
                         
 
@@ -356,6 +378,6 @@ export default function Home() {
             </form>
         </div>    
         
-    </LayoutCarlos>
+    </LayoutOrdenCompra>
   )
 }
