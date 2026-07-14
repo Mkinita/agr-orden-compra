@@ -26,7 +26,7 @@ const ModalProveedor = () => {
   return (
     <div className="gap-10">
       
-      <div className="text-center">
+      <div className="text-center ">
         <div className="flex justify-end">
           <button onClick={handleChangeModal}>
             <svg
