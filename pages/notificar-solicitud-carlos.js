@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-import LayoutCarlos from "../layout/LayoutCarlos"
+import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
 import useSWR from 'swr'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
@@ -61,7 +61,7 @@ export default function ContactPage() {
   };
 
   return (
-    <LayoutCarlos pagina='Notificar O.C.'>
+    <LayoutOrdenCompra pagina='Notificar O.C.'>
     <form onSubmit={handleSubmit}>
       <input  className='hidden'
         type="email"
@@ -103,6 +103,7 @@ export default function ContactPage() {
 
 
 
-    </LayoutCarlos>
+    </LayoutOrdenCompra>
   );
 }
+
