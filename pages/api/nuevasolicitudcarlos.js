@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     const nuevaSolicitud = await prisma.nuevaSolicitud.create({
       data: {
         
-        nombre01: req.body.nombre01=('Carlos Vera'),
+        nombre01: req.body.nombre01,
         fecha: req.body.fecha,
         area: req.body.area,
 
@@ -63,10 +63,7 @@ export default async function handler(req, res) {
         cantidad09: req.body.cantidad09,
         descripcion09: req.body.descripcion09,
         valor09: req.body.valor09,
-
-        
-
-        firma: req.body.firma=('carlos')
+        firma: req.body.firma,
         
       },
     });
