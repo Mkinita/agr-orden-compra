@@ -1,49 +1,31 @@
-import React from 'react';
+import useSWR from 'swr'
+import axios from 'axios'
+import LayoutOrdenCompra from "../layout/LayoutOrdenCompra"
+import ImprimirOrdenok from '../components/ImprimirOrdenok'
 
-const C404 = () => {
-  const containerStyle = {
-    borderRadius: '8px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    padding: '2rem',
-    textAlign: 'center',
-    backgroundColor: '#fff',
-  };
 
-  const emojiStyle = {
-    fontSize: '15rem',
-    lineHeight: 1,
-  };
 
-  return (
-    <div className="flex items-center justify-center h-screen py-0 bg-gray-100">
-      <div style={containerStyle}>
-        <h2 className="text-3xl font-bold mb-4">
-          BOLETA PENDIENTE DE PAGO
-        </h2>
+export default function Admin() {
 
-        <div style={emojiStyle}>
-          <h1 role="img" aria-label="emoji">
-            ⚠️
-          </h1>
-        </div>
+    const fetcher = () => axios('/api/ordenes-emitidas-pdf').then(datos => datos.data)
+    const { data, error, isLoading } = useSWR('/api/ordenes-emitidas-pdf',fetcher,{refreshInterval: 100} )
+
     
-<br />
-    <br />
-        <p className="text-gray-600 mt-4">
-          Boleta emitida el día Lunes 04-05-2026
-<br />
-Hasta la fecha no se ha registrado el pago correspondiente.
-<br />
-Para evitar pérdida de información, suspensión de servicios
-o eliminación de datos, regularice el pago a la brevedad.
-<br />
-Si el pago ya fue realizado, favor omitir este mensaje.
+     
 
-        </p>
-      </div>
-    </div>
-  );
-};
+    return(
+        <LayoutOrdenCompra pagina={'OC-PDF'}>
 
-export default C404;
+            {data && data.length ? data.map(orden =>
+                <div className=''>
+                <ImprimirOrdenok
+
+                    orden={orden}
+                />
+                </div>
+            ):<p className='text-center'>No Hay Ordenes Pendientes</p>}
+
+        </LayoutOrdenCompra>
+    )
+}
 
