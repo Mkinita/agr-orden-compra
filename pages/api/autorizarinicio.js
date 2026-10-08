@@ -29,9 +29,16 @@ export default async function handler(req, res) {
 
         });
 
+        // Normalizamos el nombre del usuario
+        const nombreUsuario = nombre
+            .trim()
+            .toLowerCase();
+
+        // Filtramos las órdenes correspondientes al usuario
         const ordenesFiltradas = ordenes.filter((orden) =>
             orden.pedido.some(
-                (item) => item.nombre01 === nombre
+                (item) =>
+                    item.nombre01?.trim().toLowerCase() === nombreUsuario
             )
         );
 
