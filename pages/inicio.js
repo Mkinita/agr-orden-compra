@@ -16,7 +16,7 @@ export default function Home() {
     },
     {
         id: 2,
-        nombre: "Ramon LLeucún",
+        nombre: "Ramon LLeucun",
         rut: "78226374",
         cargo: "Jefe Planta"
     },
